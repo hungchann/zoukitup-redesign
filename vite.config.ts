@@ -28,7 +28,7 @@ export default defineConfig(({ mode }) => {
         }
       },
       build: {
-        outDir: 'dist',
+        outDir: 'docs',
         assetsDir: 'assets',
       }
     };
