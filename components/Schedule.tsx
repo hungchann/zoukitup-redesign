@@ -104,7 +104,7 @@ const Schedule: React.FC = () => {
         {/* Header */}
         <div className="flex flex-col md:flex-row justify-between items-end mb-16 border-b border-white/10 pb-6">
           <div>
-            <span className="text-zouk-gold text-sm uppercase tracking-widest">Lịch trình</span>
+            <span className="text-logo-purple-2 text-sm uppercase tracking-widest">Lịch trình</span>
             <h2 className="text-4xl md:text-5xl font-serif text-white mt-2">Lớp Học & Sự Kiện</h2>
           </div>
           <a href="#" className="hidden md:flex items-center text-stone-400 hover:text-white transition-colors mt-4 md:mt-0">
@@ -114,23 +114,23 @@ const Schedule: React.FC = () => {
 
         {loading ? (
           <div className="flex justify-center py-20">
-            <Loader2 className="animate-spin text-zouk-gold" size={40} />
+            <Loader2 className="animate-spin text-logo-purple-2" size={40} />
           </div>
         ) : (
           <>
             {/* Classes Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-24">
               {classes.map((cls) => (
-                <div key={cls.id} className="group bg-zouk-dark-gray p-8 border border-white/5 hover:border-zouk-gold/30 transition-all duration-300 hover:-translate-y-2">
+                <div key={cls.id} className="group bg-zouk-dark-gray p-8 border border-white/5 hover:border-logo-purple-2/30 transition-all duration-300 hover:-translate-y-2">
                   <div className="flex justify-between items-start mb-4">
                     <span className="px-3 py-1 bg-white/5 text-xs text-stone-300 rounded uppercase tracking-wider">{cls.level}</span>
-                    <Clock size={18} className="text-zouk-gold" />
+                    <Clock size={18} className="text-logo-purple-2" />
                   </div>
-                  <h3 className="text-2xl font-serif text-white mb-2 group-hover:text-zouk-gold transition-colors" dangerouslySetInnerHTML={{ __html: cls.title }}></h3>
+                  <h3 className="text-2xl font-serif text-white mb-2 group-hover:text-logo-purple-2 transition-colors" dangerouslySetInnerHTML={{ __html: cls.title }}></h3>
                   <p className="text-stone-400 text-sm mb-6">{cls.time}</p>
                   <div className="text-stone-500 mb-6 font-light text-sm line-clamp-3" dangerouslySetInnerHTML={{ __html: cls.description }}></div>
                   <div className="flex items-center text-stone-300 text-sm">
-                     <span className="w-2 h-2 bg-zouk-gold rounded-full mr-2"></span>
+                     <span className="w-2 h-2 bg-logo-purple-2 rounded-full mr-2"></span>
                      GV: {cls.instructor}
                   </div>
                   <button className="w-full mt-8 py-3 border border-white/10 text-stone-300 uppercase text-xs tracking-widest hover:bg-white hover:text-black transition-all">
@@ -152,7 +152,7 @@ const Schedule: React.FC = () => {
                         <div className="absolute bottom-0 left-0 p-8 w-full">
                             <div className="flex justify-between items-end">
                                 <div>
-                                    <span className="text-zouk-gold uppercase text-xs tracking-widest mb-2 block"><Calendar size={14} className="inline mr-1"/> {evt.date}</span>
+                                    <span className="text-logo-purple-2 uppercase text-xs tracking-widest mb-2 block"><Calendar size={14} className="inline mr-1"/> {evt.date}</span>
                                     <h4 className="text-2xl font-serif text-white mb-1" dangerouslySetInnerHTML={{ __html: evt.title }}></h4>
                                     <div className="flex items-center text-stone-400 text-sm">
                                         <MapPin size={14} className="mr-1" /> {evt.location}

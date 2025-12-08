@@ -4,7 +4,7 @@ import { NavItem } from '../types';
 
 const navItems: NavItem[] = [
   { label: 'Trang chủ', href: '#home' },
-  { label: 'Về chúng tôi', href: '#about' },
+  { label: 'Về chúng tôi', href: '#about-page' },
   { label: 'Lớp học', href: '#classes' },
   { label: 'Thư viện', href: '#gallery' },
   { label: 'Liên hệ', href: '#contact' },
@@ -30,8 +30,20 @@ const Navigation: React.FC = () => {
     >
       <div className="container mx-auto px-6 flex justify-between items-center">
         {/* Logo */}
-        <a href="#home" className="text-2xl font-serif font-bold tracking-tighter text-white z-50">
-          ZOUK<span className="text-zouk-gold italic">IT</span>UP
+        <a 
+          href="#home" 
+          className="z-50 flex items-center"
+          onClick={(e) => {
+            e.preventDefault();
+            window.location.hash = '';
+            window.scrollTo(0, 0);
+          }}
+        >
+          <img 
+            src="/imange/Logo new - trắng.png" 
+            alt="PTZouk Logo" 
+            className="h-10 md:h-12 w-auto"
+          />
         </a>
 
         {/* Desktop Menu */}
@@ -40,10 +52,20 @@ const Navigation: React.FC = () => {
             <a
               key={item.label}
               href={item.href}
-              className="text-sm uppercase tracking-widest text-stone-300 hover:text-white hover:text-zouk-gold transition-colors duration-300 relative group"
+              onClick={(e) => {
+                if (item.href === '#about-page' || item.href === '#home') {
+                  e.preventDefault();
+                  window.location.hash = item.href.replace('#', '');
+                  if (item.href === '#home') {
+                    window.location.hash = '';
+                  }
+                  window.scrollTo(0, 0);
+                }
+              }}
+              className="text-sm uppercase tracking-widest text-stone-300 hover:text-white hover:text-logo-purple-2 transition-colors duration-300 relative group"
             >
               {item.label}
-              <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-zouk-gold transition-all duration-300 group-hover:w-full"></span>
+              <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-logo-purple-2 transition-all duration-300 group-hover:w-full"></span>
             </a>
           ))}
           <a
@@ -72,8 +94,18 @@ const Navigation: React.FC = () => {
             <a
               key={item.label}
               href={item.href}
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="text-2xl font-serif text-white hover:text-zouk-gold transition-colors"
+              onClick={(e) => {
+                setIsMobileMenuOpen(false);
+                if (item.href === '#about-page' || item.href === '#home') {
+                  e.preventDefault();
+                  window.location.hash = item.href.replace('#', '');
+                  if (item.href === '#home') {
+                    window.location.hash = '';
+                  }
+                  window.scrollTo(0, 0);
+                }
+              }}
+              className="text-2xl font-serif text-white hover:text-logo-purple-2 transition-colors"
             >
               {item.label}
             </a>

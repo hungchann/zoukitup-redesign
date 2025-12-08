@@ -32,7 +32,7 @@ const Contact: React.FC = () => {
           
           {/* Contact Info */}
           <div>
-            <span className="text-zouk-gold text-sm uppercase tracking-widest">Liên hệ</span>
+            <span className="text-logo-purple-2 text-sm uppercase tracking-widest">Liên hệ</span>
             <h2 className="text-4xl md:text-5xl font-serif text-white mt-2 mb-8">Bắt Đầu Hành Trình</h2>
             <p className="text-stone-400 mb-12 font-light leading-relaxed max-w-md">
               Bạn có câu hỏi về lớp học, sự kiện hoặc hợp tác? Đừng ngần ngại liên hệ với chúng tôi. Đội ngũ Zoukitup luôn sẵn sàng hỗ trợ.
@@ -40,7 +40,7 @@ const Contact: React.FC = () => {
 
             <div className="space-y-6">
               <div className="flex items-start group">
-                <div className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center text-zouk-gold group-hover:bg-zouk-gold group-hover:text-black transition-colors">
+                <div className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center text-logo-purple-2 group-hover:bg-logo-purple-2 group-hover:text-white transition-colors">
                   <MapPin size={20} />
                 </div>
                 <div className="ml-6">
@@ -50,7 +50,7 @@ const Contact: React.FC = () => {
               </div>
 
               <div className="flex items-start group">
-                 <div className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center text-zouk-gold group-hover:bg-zouk-gold group-hover:text-black transition-colors">
+                 <div className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center text-logo-purple-2 group-hover:bg-logo-purple-2 group-hover:text-white transition-colors">
                   <Mail size={20} />
                 </div>
                 <div className="ml-6">
@@ -60,7 +60,7 @@ const Contact: React.FC = () => {
               </div>
 
               <div className="flex items-start group">
-                 <div className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center text-zouk-gold group-hover:bg-zouk-gold group-hover:text-black transition-colors">
+                 <div className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center text-logo-purple-2 group-hover:bg-logo-purple-2 group-hover:text-white transition-colors">
                   <Phone size={20} />
                 </div>
                 <div className="ml-6">
@@ -92,14 +92,14 @@ const Contact: React.FC = () => {
                   <label className="block text-xs uppercase tracking-widest text-stone-500 mb-2">Tên của bạn</label>
                   <input 
                     name="name" value={formData.name} onChange={handleChange} required
-                    type="text" className="w-full bg-black/30 border border-white/10 text-white p-3 focus:outline-none focus:border-zouk-gold transition-colors placeholder-stone-600" placeholder="John Doe" 
+                    type="text" className="w-full bg-black/30 border border-white/10 text-white p-3 focus:outline-none focus:border-logo-purple-2 transition-colors placeholder-stone-600" placeholder="John Doe" 
                   />
                 </div>
                 <div>
                   <label className="block text-xs uppercase tracking-widest text-stone-500 mb-2">Số điện thoại</label>
                   <input 
                     name="phone" value={formData.phone} onChange={handleChange}
-                    type="tel" className="w-full bg-black/30 border border-white/10 text-white p-3 focus:outline-none focus:border-zouk-gold transition-colors placeholder-stone-600" placeholder="+84..." 
+                    type="tel" className="w-full bg-black/30 border border-white/10 text-white p-3 focus:outline-none focus:border-logo-purple-2 transition-colors placeholder-stone-600" placeholder="+84..." 
                   />
                 </div>
               </div>
@@ -107,20 +107,20 @@ const Contact: React.FC = () => {
                 <label className="block text-xs uppercase tracking-widest text-stone-500 mb-2">Email</label>
                 <input 
                   name="email" value={formData.email} onChange={handleChange} required
-                  type="email" className="w-full bg-black/30 border border-white/10 text-white p-3 focus:outline-none focus:border-zouk-gold transition-colors placeholder-stone-600" placeholder="john@example.com" 
+                  type="email" className="w-full bg-black/30 border border-white/10 text-white p-3 focus:outline-none focus:border-logo-purple-2 transition-colors placeholder-stone-600" placeholder="john@example.com" 
                 />
               </div>
               <div>
                 <label className="block text-xs uppercase tracking-widest text-stone-500 mb-2">Lời nhắn</label>
                 <textarea 
                   name="message" value={formData.message} onChange={handleChange} required
-                  rows={4} className="w-full bg-black/30 border border-white/10 text-white p-3 focus:outline-none focus:border-zouk-gold transition-colors placeholder-stone-600" placeholder="Tôi muốn đăng ký lớp học..."></textarea>
+                  rows={4} className="w-full bg-black/30 border border-white/10 text-white p-3 focus:outline-none focus:border-logo-purple-2 transition-colors placeholder-stone-600" placeholder="Tôi muốn đăng ký lớp học..."></textarea>
               </div>
               <button 
                 type="submit" 
                 disabled={status === 'submitting' || status === 'success'}
                 className={`w-full py-4 font-bold uppercase tracking-widest transition-all duration-300 flex items-center justify-center ${
-                    status === 'success' ? 'bg-green-600 text-white' : 'bg-white text-black hover:bg-zouk-gold hover:text-white'
+                    status === 'success' ? 'bg-green-600 text-white' : 'bg-white text-black hover:bg-logo-purple-2 hover:text-white'
                 }`}
               >
                 {status === 'submitting' ? <Loader2 className="animate-spin" /> : status === 'success' ? <><CheckCircle className="mr-2" /> Đã gửi thành công</> : 'Gửi ngay'}
