@@ -6,8 +6,8 @@ const Footer: React.FC = () => {
       <div className="container mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
           <div className="col-span-1 md:col-span-2">
-            <a href="#" className="text-3xl font-serif font-bold tracking-tighter text-white block mb-6">
-              ZOUK<span className="text-logo-purple-2 italic">IT</span>UP
+            <a href="#" className="text-3xl font-zelda font-bold tracking-tighter text-white block mb-6">
+              ZOUK<span className="text-logo-purple-2 font-sans italic">IT</span>UP
             </a>
             <p className="text-stone-500 text-sm max-w-xs leading-relaxed">
               Nâng tầm trải nghiệm Zouk của bạn với những lớp học chất lượng, cộng đồng gắn kết và những sự kiện đẳng cấp.

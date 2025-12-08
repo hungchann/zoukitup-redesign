@@ -32,11 +32,11 @@ const Gallery: React.FC = () => {
   }, []);
 
   return (
-    <section className="py-24 bg-zouk-black">
+    <section className="py-24 bg-gradient-to-b from-zouk-black via-logo-purple-4/5 to-zouk-black">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <span className="text-logo-purple-2 text-sm uppercase tracking-widest">Thư viện</span>
-          <h2 className="text-4xl md:text-5xl font-serif text-white mt-2">Khoảnh Khắc Đẹp</h2>
+          <h2 className="text-4xl md:text-5xl font-zelda text-white mt-2">Khoảnh Khắc Đẹp</h2>
         </div>
 
         {loading ? (
@@ -53,7 +53,7 @@ const Gallery: React.FC = () => {
                   className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                  <span className="text-white font-serif italic text-xl border-b border-logo-purple-2 pb-1">Xem chi tiết</span>
+                  <span className="text-white font-sans italic text-xl border-b border-logo-purple-2 pb-1">Xem chi tiết</span>
                 </div>
               </div>
             ))}

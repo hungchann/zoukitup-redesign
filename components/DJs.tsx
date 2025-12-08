@@ -14,7 +14,7 @@ const djs: DJ[] = [
   {
     id: 1,
     name: 'DJ AnhQ',
-    image: '/imange/dj-1.png',
+    image: '/image/dj-1.png',
     description: 'Đoạn giới thiệu để text demo',
     link: 'https://soundcloud.com/dj-anh-q',
     platform: 'soundcloud'
@@ -22,7 +22,7 @@ const djs: DJ[] = [
   {
     id: 2,
     name: 'DJ TK',
-    image: '/imange/dj-2.png',
+    image: '/image/dj-2.png',
     description: 'Đoạn giới thiệu để text demo',
     link: 'https://www.mixcloud.com/PhuongVu201/',
     platform: 'mixcloud'
@@ -31,7 +31,7 @@ const djs: DJ[] = [
 
 const DJs: React.FC = () => {
   return (
-    <section className="py-24 bg-[#0f0f0f] text-white">
+    <section className="py-24 bg-gradient-to-b from-[#0f0f0f] via-logo-purple-3/10 to-[#0f0f0f] text-white">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <span className="text-logo-purple-2 text-sm uppercase tracking-widest">Âm nhạc</span>

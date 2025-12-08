@@ -10,19 +10,45 @@ import Contact from './components/Contact';
 import CTA from './components/CTA';
 import Footer from './components/Footer';
 import AboutPage from './pages/AboutPage';
+import ClassesPage from './pages/ClassesPage';
+import ClassDetailPage from './pages/ClassDetailPage';
+import EventsPage from './pages/EventsPage';
+import EventDetailPage from './pages/EventDetailPage';
 import { ArrowUp } from 'lucide-react';
 
 const App: React.FC = () => {
   const [showScrollTop, setShowScrollTop] = useState(false);
   const [currentPage, setCurrentPage] = useState<string>('home');
+  const [classSlug, setClassSlug] = useState<string>('');
+  const [eventSlug, setEventSlug] = useState<string>('');
 
   useEffect(() => {
     const handleHashChange = () => {
       const hash = window.location.hash.replace('#', '');
       if (hash === 'about-page') {
         setCurrentPage('about');
+        setClassSlug('');
+        setEventSlug('');
+      } else if (hash === 'classes-page') {
+        setCurrentPage('classes');
+        setClassSlug('');
+        setEventSlug('');
+      } else if (hash.startsWith('class-')) {
+        setCurrentPage('class-detail');
+        setClassSlug(hash.replace('class-', ''));
+        setEventSlug('');
+      } else if (hash === 'events-page') {
+        setCurrentPage('events');
+        setClassSlug('');
+        setEventSlug('');
+      } else if (hash.startsWith('event-')) {
+        setCurrentPage('event-detail');
+        setClassSlug('');
+        setEventSlug(hash.replace('event-', ''));
       } else {
         setCurrentPage('home');
+        setClassSlug('');
+        setEventSlug('');
       }
     };
 
@@ -54,6 +80,26 @@ const App: React.FC = () => {
   // Render About Page
   if (currentPage === 'about') {
     return <AboutPage />;
+  }
+
+  // Render Classes Page
+  if (currentPage === 'classes') {
+    return <ClassesPage />;
+  }
+
+  // Render Class Detail Page
+  if (currentPage === 'class-detail') {
+    return <ClassDetailPage classSlug={classSlug} />;
+  }
+
+  // Render Events Page
+  if (currentPage === 'events') {
+    return <EventsPage />;
+  }
+
+  // Render Event Detail Page
+  if (currentPage === 'event-detail') {
+    return <EventDetailPage eventSlug={eventSlug} />;
   }
 
   // Render Home Page

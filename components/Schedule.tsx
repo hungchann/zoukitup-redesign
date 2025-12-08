@@ -105,9 +105,17 @@ const Schedule: React.FC = () => {
         <div className="flex flex-col md:flex-row justify-between items-end mb-16 border-b border-white/10 pb-6">
           <div>
             <span className="text-logo-purple-2 text-sm uppercase tracking-widest">Lịch trình</span>
-            <h2 className="text-4xl md:text-5xl font-serif text-white mt-2">Lớp Học & Sự Kiện</h2>
+            <h2 className="text-4xl md:text-5xl font-zelda text-white mt-2">Lớp Học & Sự Kiện</h2>
           </div>
-          <a href="#" className="hidden md:flex items-center text-stone-400 hover:text-white transition-colors mt-4 md:mt-0">
+          <a 
+            href="#classes-page" 
+            onClick={(e) => {
+              e.preventDefault();
+              window.location.hash = 'classes-page';
+              window.scrollTo(0, 0);
+            }}
+            className="hidden md:flex items-center text-stone-400 hover:text-white transition-colors mt-4 md:mt-0"
+          >
             Xem toàn bộ lịch <ArrowRight size={16} className="ml-2" />
           </a>
         </div>
@@ -123,28 +131,61 @@ const Schedule: React.FC = () => {
               {classes.map((cls) => (
                 <div key={cls.id} className="group bg-zouk-dark-gray p-8 border border-white/5 hover:border-logo-purple-2/30 transition-all duration-300 hover:-translate-y-2">
                   <div className="flex justify-between items-start mb-4">
-                    <span className="px-3 py-1 bg-white/5 text-xs text-stone-300 rounded uppercase tracking-wider">{cls.level}</span>
+                    <span className={`px-3 py-1 text-xs rounded uppercase tracking-wider ${
+                      cls.level === 'Cơ bản' ? 'bg-logo-purple-3/30 text-logo-purple-2 border border-logo-purple-2/30' :
+                      cls.level === 'Trung cấp' ? 'bg-logo-purple-4/30 text-logo-purple-1 border border-logo-purple-1/30' :
+                      'bg-zouk-gold/20 text-zouk-gold border border-zouk-gold/30'
+                    }`}>{cls.level}</span>
                     <Clock size={18} className="text-logo-purple-2" />
                   </div>
-                  <h3 className="text-2xl font-serif text-white mb-2 group-hover:text-logo-purple-2 transition-colors" dangerouslySetInnerHTML={{ __html: cls.title }}></h3>
+                  <h3 className="text-2xl font-zelda text-white mb-2 group-hover:text-logo-purple-2 transition-colors" dangerouslySetInnerHTML={{ __html: cls.title }}></h3>
                   <p className="text-stone-400 text-sm mb-6">{cls.time}</p>
                   <div className="text-stone-500 mb-6 font-light text-sm line-clamp-3" dangerouslySetInnerHTML={{ __html: cls.description }}></div>
                   <div className="flex items-center text-stone-300 text-sm">
                      <span className="w-2 h-2 bg-logo-purple-2 rounded-full mr-2"></span>
                      GV: {cls.instructor}
                   </div>
-                  <button className="w-full mt-8 py-3 border border-white/10 text-stone-300 uppercase text-xs tracking-widest hover:bg-white hover:text-black transition-all">
+                  <a
+                    href="#classes-page"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      window.location.hash = 'classes-page';
+                      window.scrollTo(0, 0);
+                    }}
+                    className="block w-full mt-8 py-3 border border-white/10 text-stone-300 uppercase text-xs tracking-widest hover:bg-white hover:text-black transition-all text-center"
+                  >
                     Đăng ký
-                  </button>
+                  </a>
                 </div>
               ))}
             </div>
 
             {/* Upcoming Events Highlight */}
-            <h3 className="text-2xl font-serif text-white mb-8">Sự kiện sắp tới</h3>
+            <div className="flex justify-between items-center mb-8">
+              <h3 className="text-2xl font-zelda text-white">Sự kiện sắp tới</h3>
+              <a 
+                href="#events-page" 
+                onClick={(e) => {
+                  e.preventDefault();
+                  window.location.hash = 'events-page';
+                  window.scrollTo(0, 0);
+                }}
+                className="hidden md:flex items-center text-stone-400 hover:text-white transition-colors"
+              >
+                Xem tất cả <ArrowRight size={16} className="ml-2" />
+              </a>
+            </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 {events.map((evt) => (
-                    <div key={evt.id} className="relative group overflow-hidden h-64 md:h-80 cursor-pointer">
+                    <div 
+                      key={evt.id} 
+                      onClick={(e) => {
+                        e.preventDefault();
+                        window.location.hash = 'events-page';
+                        window.scrollTo(0, 0);
+                      }}
+                      className="relative group overflow-hidden h-64 md:h-80 cursor-pointer"
+                    >
                         <div className="absolute inset-0">
                             <img src={evt.image} alt={evt.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0" />
                             <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
@@ -153,7 +194,7 @@ const Schedule: React.FC = () => {
                             <div className="flex justify-between items-end">
                                 <div>
                                     <span className="text-logo-purple-2 uppercase text-xs tracking-widest mb-2 block"><Calendar size={14} className="inline mr-1"/> {evt.date}</span>
-                                    <h4 className="text-2xl font-serif text-white mb-1" dangerouslySetInnerHTML={{ __html: evt.title }}></h4>
+                                    <h4 className="text-2xl font-zelda text-white mb-1" dangerouslySetInnerHTML={{ __html: evt.title }}></h4>
                                     <div className="flex items-center text-stone-400 text-sm">
                                         <MapPin size={14} className="mr-1" /> {evt.location}
                                     </div>

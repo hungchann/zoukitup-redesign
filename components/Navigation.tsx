@@ -5,7 +5,7 @@ import { NavItem } from '../types';
 const navItems: NavItem[] = [
   { label: 'Trang chủ', href: '#home' },
   { label: 'Về chúng tôi', href: '#about-page' },
-  { label: 'Lớp học', href: '#classes' },
+  { label: 'Lớp học', href: '#classes-page' },
   { label: 'Thư viện', href: '#gallery' },
   { label: 'Liên hệ', href: '#contact' },
 ];
@@ -53,7 +53,7 @@ const Navigation: React.FC = () => {
               key={item.label}
               href={item.href}
               onClick={(e) => {
-                if (item.href === '#about-page' || item.href === '#home') {
+                if (item.href === '#about-page' || item.href === '#home' || item.href === '#classes-page') {
                   e.preventDefault();
                   window.location.hash = item.href.replace('#', '');
                   if (item.href === '#home') {
@@ -69,7 +69,12 @@ const Navigation: React.FC = () => {
             </a>
           ))}
           <a
-            href="#classes"
+            href="#classes-page"
+            onClick={(e) => {
+              e.preventDefault();
+              window.location.hash = 'classes-page';
+              window.scrollTo(0, 0);
+            }}
             className="px-6 py-2 border border-white/20 text-white text-xs uppercase tracking-widest hover:bg-white hover:text-black transition-all duration-300 rounded-sm"
           >
             Đăng Ký Ngay
@@ -96,7 +101,7 @@ const Navigation: React.FC = () => {
               href={item.href}
               onClick={(e) => {
                 setIsMobileMenuOpen(false);
-                if (item.href === '#about-page' || item.href === '#home') {
+                if (item.href === '#about-page' || item.href === '#home' || item.href === '#classes-page') {
                   e.preventDefault();
                   window.location.hash = item.href.replace('#', '');
                   if (item.href === '#home') {

@@ -11,26 +11,26 @@ const instructors: Instructor[] = [
   {
     id: 1,
     name: 'Giáo viên 1',
-    image: '/imange/gv-1.png',
+    image: '/image/gv-1.png',
     description: 'Đoạn giới thiệu để text demo'
   },
   {
     id: 2,
     name: 'Giáo viên 2',
-    image: '/imange/gv-2.png',
+    image: '/image/gv-2.png',
     description: 'Đoạn giới thiệu để text demo'
   },
   {
     id: 3,
     name: 'Giáo viên 3',
-    image: '/imange/gv-3.png',
+    image: '/image/gv-3.png',
     description: 'Đoạn giới thiệu để text demo'
   }
 ];
 
 const Instructors: React.FC = () => {
   return (
-    <section className="py-24 bg-zouk-black text-white">
+    <section className="py-24 bg-gradient-to-b from-zouk-black via-logo-purple-4/10 to-zouk-black text-white">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <span className="text-logo-purple-2 text-sm uppercase tracking-widest">Đội ngũ</span>

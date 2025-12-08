@@ -57,7 +57,7 @@ const AboutPage: React.FC = () => {
 
           {/* Main Header */}
           <div className="text-center mb-20 fade-in-up">
-            <h1 className="text-5xl md:text-6xl font-serif mb-6 leading-tight">
+            <h1 className="text-5xl md:text-6xl font-zelda mb-6 leading-tight">
               PTZouk Vietnam - <span className="text-logo-purple-2 italic">Zoukiup</span>
             </h1>
             <div className="w-24 h-1 bg-gradient-to-r from-transparent via-logo-purple-2 to-transparent mx-auto"></div>
@@ -79,22 +79,22 @@ const AboutPage: React.FC = () => {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-20 max-w-4xl mx-auto fade-in-up delay-200">
             <div className="text-center border border-white/10 p-6 rounded-lg hover:border-logo-purple-2/50 transition-colors">
               <Calendar className="w-8 h-8 mx-auto mb-4 text-logo-purple-2" />
-              <span className="block text-3xl font-serif text-white mb-2">2019</span>
+              <span className="block text-3xl font-zelda text-white mb-2">2019</span>
               <span className="text-xs uppercase tracking-widest text-stone-500">Thành lập</span>
             </div>
-            <div className="text-center border border-white/10 p-6 rounded-lg hover:border-logo-purple-2/50 transition-colors">
-              <Trophy className="w-8 h-8 mx-auto mb-4 text-logo-purple-2" />
-              <span className="block text-3xl font-serif text-white mb-2">2018</span>
+            <div className="text-center border border-zouk-gold/30 p-6 rounded-lg hover:border-zouk-gold transition-colors bg-zouk-gold/5">
+              <Trophy className="w-8 h-8 mx-auto mb-4 text-zouk-gold" />
+              <span className="block text-3xl font-zelda text-zouk-gold mb-2">2018</span>
               <span className="text-xs uppercase tracking-widest text-stone-500">Giải thưởng đầu tiên</span>
             </div>
             <div className="text-center border border-white/10 p-6 rounded-lg hover:border-logo-purple-2/50 transition-colors">
               <Music className="w-8 h-8 mx-auto mb-4 text-logo-purple-2" />
-              <span className="block text-3xl font-serif text-white mb-2">2022</span>
+              <span className="block text-3xl font-zelda text-white mb-2">2022</span>
               <span className="text-xs uppercase tracking-widest text-stone-500">Zouk It Up</span>
             </div>
             <div className="text-center border border-white/10 p-6 rounded-lg hover:border-logo-purple-2/50 transition-colors">
               <Globe className="w-8 h-8 mx-auto mb-4 text-logo-purple-2" />
-              <span className="block text-3xl font-serif text-white mb-2">10+</span>
+              <span className="block text-3xl font-zelda text-white mb-2">10+</span>
               <span className="text-xs uppercase tracking-widest text-stone-500">Nghệ sĩ quốc tế</span>
             </div>
           </div>
@@ -102,7 +102,7 @@ const AboutPage: React.FC = () => {
           {/* Iconic Events Section */}
           <div className="mb-20 fade-in-up delay-300">
             <div className="max-w-4xl mx-auto">
-              <h2 className="text-3xl md:text-4xl font-serif mb-6 text-logo-purple-2">
+              <h2 className="text-3xl md:text-4xl font-zelda mb-6 text-logo-purple-2">
                 Sự kiện biểu tượng và tầm ảnh hưởng quốc tế
               </h2>
               <div className="space-y-4 text-stone-300 font-light leading-relaxed">
@@ -125,12 +125,12 @@ const AboutPage: React.FC = () => {
           {/* Founders Section */}
           <div className="mb-20 fade-in-up delay-300">
             <div className="max-w-4xl mx-auto">
-              <h2 className="text-3xl md:text-4xl font-serif mb-8 text-logo-purple-2">
+              <h2 className="text-3xl md:text-4xl font-zelda mb-8 text-logo-purple-2">
                 Gặp gỡ những người sáng lập: Hoài Phương & Huyền Trang
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div className="border border-white/10 p-6 rounded-lg hover:border-logo-purple-2/50 transition-colors">
-                  <h3 className="text-xl font-serif mb-4 text-white">
+                  <h3 className="text-xl font-zelda mb-4 text-white">
                     Trang <span className="text-logo-purple-2 text-sm font-normal">(Friday Night)</span>
                   </h3>
                   <p className="text-stone-300 font-light leading-relaxed">
@@ -138,7 +138,7 @@ const AboutPage: React.FC = () => {
                   </p>
                 </div>
                 <div className="border border-white/10 p-6 rounded-lg hover:border-logo-purple-2/50 transition-colors">
-                  <h3 className="text-xl font-serif mb-4 text-white">
+                  <h3 className="text-xl font-zelda mb-4 text-white">
                     Phương <span className="text-logo-purple-2 text-sm font-normal">(Sunday Morning with Hot Black Coffee)</span>
                   </h3>
                   <p className="text-stone-300 font-light leading-relaxed">
@@ -155,14 +155,14 @@ const AboutPage: React.FC = () => {
           {/* Achievements Section */}
           <div className="mb-20 fade-in-up delay-300">
             <div className="max-w-4xl mx-auto">
-              <h2 className="text-3xl md:text-4xl font-serif mb-8 text-logo-purple-2">
+              <h2 className="text-3xl md:text-4xl font-zelda mb-8 text-logo-purple-2">
                 Thành tựu và đóng góp
               </h2>
               <div className="space-y-8">
-                <div className="border-l-4 border-logo-purple-2 pl-6">
-                  <h3 className="text-xl font-serif mb-4 text-white flex items-center">
-                    <Award className="w-6 h-6 mr-3 text-logo-purple-2" />
-                    Giải thưởng quốc tế đầu tiên
+                <div className="border-l-4 border-zouk-gold pl-6 bg-gradient-to-r from-zouk-gold/5 to-transparent p-4 rounded-r-lg">
+                  <h3 className="text-xl font-zelda mb-4 text-white flex items-center">
+                    <Award className="w-6 h-6 mr-3 text-zouk-gold" />
+                    <span className="text-zouk-gold">Giải thưởng quốc tế đầu tiên</span>
                   </h3>
                   <p className="text-stone-300 font-light">
                     Phương và Trang đã giành được giải thưởng quốc tế đầu tiên vào năm 2018, đạt vị trí thứ 2 trong cuộc thi ProAm tại ZoukSEA.

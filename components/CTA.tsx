@@ -5,15 +5,15 @@ const CTA: React.FC = () => {
   return (
     <section className="py-24 bg-gradient-to-b from-zouk-black to-[#0f0f0f] text-white relative overflow-hidden">
       <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-logo-purple-1 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-logo-purple-2 rounded-full blur-3xl"></div>
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-gradient-to-br from-logo-purple-1 via-logo-purple-3 to-logo-purple-4 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-gradient-to-tl from-logo-purple-2 via-logo-purple-3 to-logo-purple-4 rounded-full blur-3xl"></div>
       </div>
       
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-3xl mx-auto text-center">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif text-white mb-6 leading-tight">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-zelda text-white mb-6 leading-tight">
             Sẵn sàng bắt đầu <br />
-            <span className="text-logo-purple-2 italic">hành trình Zouk của bạn?</span>
+            <span className="text-logo-purple-2 font-sans italic">hành trình Zouk của bạn?</span>
           </h2>
           <p className="text-stone-400 text-lg md:text-xl mb-12 font-light leading-relaxed max-w-2xl mx-auto">
             Tham gia cộng đồng PTZouk ngay hôm nay và khám phá niềm đam mê nhảy múa trong bạn.

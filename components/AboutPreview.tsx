@@ -12,7 +12,7 @@ const AboutPreview: React.FC = () => {
       <div className="container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
         {/* Text Content */}
         <div className="order-2 md:order-1">
-          <h2 className="text-4xl md:text-5xl font-serif mb-8 leading-tight">
+          <h2 className="text-4xl md:text-5xl font-zelda mb-8 leading-tight">
             Về <br />
             <span className="text-logo-purple-2 italic">PTZouk</span>
           </h2>
@@ -33,15 +33,15 @@ const AboutPreview: React.FC = () => {
           </button>
           <div className="mt-10 grid grid-cols-3 gap-8 border-t border-white/10 pt-8">
             <div>
-              <span className="block text-3xl font-serif text-white">2019</span>
+              <span className="block text-3xl font-zelda text-white">2019</span>
               <span className="text-xs uppercase tracking-widest text-stone-500">Thành lập</span>
             </div>
             <div>
-              <span className="block text-3xl font-serif text-white">2022</span>
+              <span className="block text-3xl font-zelda text-white">2022</span>
               <span className="text-xs uppercase tracking-widest text-stone-500">Zouk It Up</span>
             </div>
             <div>
-              <span className="block text-3xl font-serif text-white">10+</span>
+              <span className="block text-3xl font-zelda text-white">10+</span>
               <span className="text-xs uppercase tracking-widest text-stone-500">Nghệ sĩ quốc tế</span>
             </div>
           </div>
@@ -58,8 +58,8 @@ const AboutPreview: React.FC = () => {
                 <div className="absolute inset-0 border border-white/10 m-4 pointer-events-none"></div>
             </div>
             {/* Decorative elements */}
-            <div className="absolute -bottom-6 -left-6 w-24 h-24 bg-zouk-dark-gray -z-10"></div>
-            <div className="absolute -top-6 -right-6 w-32 h-32 border border-logo-purple-2/20 -z-10 rounded-full"></div>
+            <div className="absolute -bottom-6 -left-6 w-24 h-24 bg-gradient-to-br from-logo-purple-3 to-logo-purple-4 -z-10 opacity-50"></div>
+            <div className="absolute -top-6 -right-6 w-32 h-32 border-2 border-logo-purple-2/30 bg-gradient-to-br from-logo-purple-2/10 via-logo-purple-3/10 to-logo-purple-4/10 -z-10 rounded-full"></div>
         </div>
       </div>
     </section>
