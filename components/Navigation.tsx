@@ -41,7 +41,7 @@ const Navigation: React.FC = () => {
           }}
         >
           <img 
-            src="/imange/Logo new - trắng.png" 
+            src="/image/Logo new - trắng.png" 
             alt="PTZouk Logo" 
             className="h-10 md:h-12 w-auto"
           />
