@@ -15,6 +15,7 @@ import ClassDetailPage from './pages/ClassDetailPage';
 import EventsPage from './pages/EventsPage';
 import EventDetailPage from './pages/EventDetailPage';
 import CodeOfConductPage from './pages/CodeOfConductPage';
+import StudioPage from './pages/StudioPage';
 import { ArrowUp } from 'lucide-react';
 
 const App: React.FC = () => {
@@ -48,6 +49,10 @@ const App: React.FC = () => {
         setEventSlug(hash.replace('event-', ''));
       } else if (hash === 'code-of-conduct') {
         setCurrentPage('code-of-conduct');
+        setClassSlug('');
+        setEventSlug('');
+      } else if (hash === 'studio' || hash === 'admin') {
+        setCurrentPage('studio');
         setClassSlug('');
         setEventSlug('');
       } else {

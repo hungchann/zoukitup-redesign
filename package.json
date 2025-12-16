@@ -11,9 +11,10 @@
     "build:repo": "vite build --base=/zoukitup-redesign/"
   },
   "dependencies": {
+    "@sanity/client": "^7.13.2",
     "lucide-react": "^0.555.0",
-    "react-dom": "^19.2.0",
-    "react": "^19.2.0"
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0"
   },
   "devDependencies": {
     "@types/node": "^22.14.0",
