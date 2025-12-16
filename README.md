@@ -19,33 +19,54 @@ View your app in AI Studio: https://ai.studio/apps/drive/1iSbFdlYTjYVl7mAlfIdekT
 3. Run the app:
    `npm run dev`
 
-## Deploy to GitHub Pages
+## Deploy
+
+### Deploy to Vercel (Khuyến nghị) ⭐
+
+Dự án đã được cấu hình sẵn để deploy lên Vercel. Xem hướng dẫn chi tiết tại [VERCEL_DEPLOY.md](./VERCEL_DEPLOY.md).
+
+**Quick start với Vercel CLI:**
+
+```bash
+# Cài đặt Vercel CLI (nếu chưa có)
+npm install -g vercel
+
+# Đăng nhập
+vercel login
+
+# Deploy
+vercel
+
+# Deploy production
+vercel --prod
+```
+
+**Thêm environment variables:**
+```bash
+vercel env add GEMINI_API_KEY
+```
+
+### Deploy to GitHub Pages
 
 1. **Build the project:**
    ```bash
+   # Set environment variables cho GitHub Pages
+   export VITE_BASE=/zoukitup-redesign/
+   export VITE_OUT_DIR=docs
    npm run build
    ```
    
-   Hoặc nếu deploy từ branch `gh-pages` hoặc folder `docs`:
-   ```bash
-   npm run build:gh-pages
-   ```
-   
-   Hoặc nếu deploy từ branch `main` với tên repo là `zoukitup-redesign`:
+   Hoặc sử dụng script có sẵn:
    ```bash
    npm run build:repo
    ```
 
 2. **Deploy:**
-   - Nếu deploy từ branch `main`: Đổi base path trong `vite.config.ts` thành tên repo của bạn (ví dụ: `/your-repo-name/`), sau đó:
-     - Vào Settings > Pages trong GitHub repo
-     - Chọn Source: Deploy from a branch
-     - Chọn branch: `main` và folder: `/docs`
-     - Đổi tên folder build output từ `dist` thành `docs` trong `vite.config.ts` (build.outDir: 'docs')
-   
-   - Nếu deploy từ branch `gh-pages`:
-     - Build với `npm run build:gh-pages`
-     - Push folder `dist` lên branch `gh-pages`
-     - Vào Settings > Pages, chọn branch `gh-pages` và folder `/ (root)`
+   - Vào Settings > Pages trong GitHub repo
+   - Chọn Source: Deploy from a branch
+   - Chọn branch: `main` và folder: `/docs`
+   - Push code lên branch `main`
 
-**Lưu ý:** Nhớ đổi base path trong `vite.config.ts` cho đúng với tên repo của bạn!
+**Lưu ý:** 
+- Với Vercel: sử dụng `base='/'` và `outDir='dist'` (mặc định)
+- Với GitHub Pages: cần set `VITE_BASE=/your-repo-name/` và `VITE_OUT_DIR=docs`

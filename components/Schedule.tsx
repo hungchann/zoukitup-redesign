@@ -1,9 +1,7 @@
 
 import React, { useEffect, useState } from 'react';
-import { ClassItem, EventItem, WPPost } from '../types';
+import { ClassItem, EventItem } from '../types';
 import { Clock, MapPin, Calendar, ArrowRight, Loader2 } from 'lucide-react';
-import { fetchPosts } from '../api';
-import { WP_CONFIG } from '../config';
 
 // Fallback data (giữ lại dữ liệu cũ để hiển thị khi chưa có API thực)
 const fallbackClasses: ClassItem[] = [
@@ -58,42 +56,7 @@ const Schedule: React.FC = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const loadData = async () => {
-      // 1. Fetch Classes
-      const wpClasses = await fetchPosts(WP_CONFIG.CATEGORIES.CLASSES);
-      if (wpClasses.length > 0) {
-        const mappedClasses: ClassItem[] = wpClasses.map((post: WPPost) => ({
-          id: post.id,
-          title: post.title.rendered,
-          description: post.excerpt.rendered.replace(/<[^>]*>?/gm, ''), // Strip HTML
-          time: post.acf?.time || "Contact",
-          level: post.acf?.level || "All Levels",
-          instructor: post.acf?.instructor || "Zoukitup Team"
-        }));
-        setClasses(mappedClasses);
-      }
-
-      // 2. Fetch Events
-      const wpEvents = await fetchPosts(WP_CONFIG.CATEGORIES.EVENTS);
-      if (wpEvents.length > 0) {
-        const mappedEvents: EventItem[] = wpEvents.map((post: WPPost) => ({
-          id: post.id,
-          title: post.title.rendered,
-          date: post.acf?.event_date || "Coming Soon",
-          location: post.acf?.location || "Zoukitup Studio",
-          price: post.acf?.price || "Contact",
-          image: post._embedded?.['wp:featuredmedia']?.[0]?.source_url || "https://picsum.photos/seed/dance/600/400"
-        }));
-        setEvents(mappedEvents);
-      }
-
-      setLoading(false);
-    };
-
-    // Uncomment line below to enable Real API fetching when you have WP setup
-    // loadData(); 
-    
-    // For demo purposes, we simulate loading then use fallback
+    // Simulate loading then use fallback data
     setTimeout(() => setLoading(false), 1000);
   }, []);
 

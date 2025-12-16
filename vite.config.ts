@@ -4,12 +4,9 @@ import react from '@vitejs/plugin-react';
 
 export default defineConfig(({ mode }) => {
     const env = loadEnv(mode, '.', '');
-    // Base path for GitHub Pages - change this to your repo name if deploying from main branch
-    // If deploying from gh-pages branch or docs folder, use '/'
-    // Only apply base path in production builds, not in development
-    const base = mode === 'production' 
-      ? (process.env.VITE_BASE || '/zoukitup-redesign/')
-      : '/';
+    // Base path: '/' for Vercel, '/zoukitup-redesign/' for GitHub Pages
+    // Use VITE_BASE env var to override (e.g., for GitHub Pages)
+    const base = process.env.VITE_BASE || '/';
     
     return {
       base,
@@ -28,7 +25,7 @@ export default defineConfig(({ mode }) => {
         }
       },
       build: {
-        outDir: 'docs',
+        outDir: process.env.VITE_OUT_DIR || 'dist', // 'dist' for Vercel, 'docs' for GitHub Pages
         assetsDir: 'assets',
       }
     };

@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { fetchMedia } from '../api';
-import { WPMedia } from '../types';
 import { Loader2, Play } from 'lucide-react';
 import { 
   galleryMedia, 
@@ -38,16 +36,6 @@ const Gallery: React.FC = () => {
           return item;
         });
 
-        // If you want to also fetch from WordPress, uncomment below:
-        // const wpMediaItems = await fetchMedia();
-        // if (wpMediaItems.length > 0) {
-        //   const wpImages: GalleryItem[] = wpMediaItems.map(item => ({
-        //     type: 'image' as const,
-        //     url: item.source_url,
-        //     title: item.alt_text || `Gallery ${item.id}`
-        //   }));
-        //   processedMedia.push(...wpImages);
-        // }
 
         if (processedMedia.length > 0) {
           setMediaItems(processedMedia);
