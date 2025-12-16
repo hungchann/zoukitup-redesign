@@ -3,11 +3,12 @@ import { Menu, X } from 'lucide-react';
 import { NavItem } from '../types';
 
 const navItems: NavItem[] = [
-  { label: 'Trang chủ', href: '#home' },
-  { label: 'Về chúng tôi', href: '#about-page' },
-  { label: 'Lớp học', href: '#classes-page' },
-  { label: 'Thư viện', href: '#gallery' },
-  { label: 'Liên hệ', href: '#contact' },
+  { label: 'Home', href: '#home' },
+  { label: 'About', href: '#about-page' },
+  { label: 'Classes', href: '#classes-page' },
+  { label: 'Gallery', href: '#gallery' },
+  { label: 'Code of Conduct', href: '#code-of-conduct' },
+  { label: 'Contact', href: '#contact' },
 ];
 
 const Navigation: React.FC = () => {
@@ -25,7 +26,7 @@ const Navigation: React.FC = () => {
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-black/90 backdrop-blur-md py-4' : 'bg-transparent py-6'
+        isScrolled ? 'bg-white/95 backdrop-blur-md py-4 shadow-sm' : 'bg-transparent py-6'
       }`}
     >
       <div className="container mx-auto px-6 flex justify-between items-center">
@@ -53,7 +54,7 @@ const Navigation: React.FC = () => {
               key={item.label}
               href={item.href}
               onClick={(e) => {
-                if (item.href === '#about-page' || item.href === '#home' || item.href === '#classes-page') {
+                if (item.href === '#about-page' || item.href === '#home' || item.href === '#classes-page' || item.href === '#code-of-conduct') {
                   e.preventDefault();
                   window.location.hash = item.href.replace('#', '');
                   if (item.href === '#home') {
@@ -62,7 +63,7 @@ const Navigation: React.FC = () => {
                   window.scrollTo(0, 0);
                 }
               }}
-              className="text-sm uppercase tracking-widest text-stone-300 hover:text-white hover:text-logo-purple-2 transition-colors duration-300 relative group"
+              className="text-sm uppercase tracking-widest text-gray-700 hover:text-gray-900 hover:text-logo-purple-2 transition-colors duration-300 relative group"
             >
               {item.label}
               <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-logo-purple-2 transition-all duration-300 group-hover:w-full"></span>
@@ -75,15 +76,15 @@ const Navigation: React.FC = () => {
               window.location.hash = 'classes-page';
               window.scrollTo(0, 0);
             }}
-            className="px-6 py-2 border border-white/20 text-white text-xs uppercase tracking-widest hover:bg-white hover:text-black transition-all duration-300 rounded-sm"
+            className="px-6 py-2 border border-gray-300 text-gray-900 text-xs uppercase tracking-widest hover:bg-gray-900 hover:text-white transition-all duration-300 rounded-sm"
           >
-            Đăng Ký Ngay
+            Register Now
           </a>
         </div>
 
         {/* Mobile Menu Button */}
         <button
-          className="md:hidden text-white z-50"
+          className="md:hidden text-gray-900 z-50"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
           {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
@@ -91,7 +92,7 @@ const Navigation: React.FC = () => {
 
         {/* Mobile Overlay */}
         <div
-          className={`fixed inset-0 bg-black flex flex-col items-center justify-center space-y-8 transition-opacity duration-300 ${
+          className={`fixed inset-0 bg-white flex flex-col items-center justify-center space-y-8 transition-opacity duration-300 ${
             isMobileMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
           }`}
         >
@@ -101,7 +102,7 @@ const Navigation: React.FC = () => {
               href={item.href}
               onClick={(e) => {
                 setIsMobileMenuOpen(false);
-                if (item.href === '#about-page' || item.href === '#home' || item.href === '#classes-page') {
+                if (item.href === '#about-page' || item.href === '#home' || item.href === '#classes-page' || item.href === '#code-of-conduct') {
                   e.preventDefault();
                   window.location.hash = item.href.replace('#', '');
                   if (item.href === '#home') {
@@ -110,7 +111,7 @@ const Navigation: React.FC = () => {
                   window.scrollTo(0, 0);
                 }
               }}
-              className="text-2xl font-serif text-white hover:text-logo-purple-2 transition-colors"
+              className="text-2xl font-sans text-gray-900 hover:text-logo-purple-2 transition-colors"
             >
               {item.label}
             </a>

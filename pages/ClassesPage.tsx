@@ -16,28 +16,28 @@ const ClassesPage: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-zouk-black text-stone-200 font-sans selection:bg-logo-purple-2 selection:text-white">
+    <div className="min-h-screen bg-white text-gray-900 font-sans selection:bg-logo-purple-2 selection:text-white">
       <Navigation />
       
-      <section className="py-24 bg-zouk-black text-white relative overflow-hidden pt-32">
+      <section className="py-24 bg-white text-gray-900 relative overflow-hidden pt-32">
         <div className="container mx-auto px-6">
           {/* Back Button */}
           <button
             onClick={handleBackToHome}
-            className="mb-8 flex items-center text-stone-400 hover:text-white transition-colors group"
+            className="mb-8 flex items-center text-gray-600 hover:text-gray-900 transition-colors group"
           >
             <ArrowLeft className="w-5 h-5 mr-2 group-hover:-translate-x-1 transition-transform" />
-            <span className="text-sm uppercase tracking-widest">Về trang chủ</span>
+            <span className="text-sm uppercase tracking-widest">Back to Home</span>
           </button>
 
           {/* Main Header */}
           <div className="text-center mb-20 fade-in-up">
-            <h1 className="text-5xl md:text-6xl font-zelda mb-6 leading-tight">
-              Lớp Học <span className="text-logo-purple-2 italic">PTZouk</span>
+            <h1 className="text-5xl md:text-6xl font-sans mb-6 leading-tight font-bold">
+              <span className="text-logo-purple-2 italic">PTZouk</span> Classes
             </h1>
             <div className="w-24 h-1 bg-gradient-to-r from-transparent via-logo-purple-2 to-transparent mx-auto mb-4"></div>
-            <p className="text-stone-300 font-light text-lg max-w-2xl mx-auto">
-              Khám phá các lớp học của chúng tôi và tìm lớp phù hợp với bạn
+            <p className="text-gray-600 font-light text-lg max-w-2xl mx-auto">
+              Explore our classes and find the one that's right for you
             </p>
           </div>
 
@@ -55,45 +55,45 @@ const ClassesPage: React.FC = () => {
                 }}
                 role="button"
                 tabIndex={0}
-                className="group bg-zouk-dark-gray p-8 border border-white/5 hover:border-logo-purple-2/30 transition-all duration-300 hover:-translate-y-2 cursor-pointer"
+                className="group bg-white p-8 border border-gray-200 hover:border-logo-purple-2/50 transition-all duration-300 hover:-translate-y-2 cursor-pointer shadow-sm"
               >
                 <div className="flex justify-between items-start mb-4">
                   <span className={`px-3 py-1 text-xs rounded uppercase tracking-wider ${
-                    cls.level === 'Cơ bản' ? 'bg-logo-purple-3/30 text-logo-purple-2 border border-logo-purple-2/30' :
-                    cls.level === 'Trung cấp' ? 'bg-logo-purple-4/30 text-logo-purple-1 border border-logo-purple-1/30' :
-                    cls.level === 'Nâng cao' ? 'bg-zouk-gold/20 text-zouk-gold border border-zouk-gold/30' :
-                    'bg-white/10 text-white border border-white/20'
+                    cls.level === 'Basic' ? 'bg-logo-purple-3/20 text-logo-purple-2 border border-logo-purple-2/30' :
+                    cls.level === 'Intermediate' ? 'bg-logo-purple-4/20 text-logo-purple-1 border border-logo-purple-1/30' :
+                    cls.level === 'Advanced' ? 'bg-zouk-gold/20 text-zouk-gold border border-zouk-gold/30' :
+                    'bg-gray-100 text-gray-900 border border-gray-300'
                   }`}>
                     {cls.level}
                   </span>
                   <Clock size={18} className="text-logo-purple-2" />
                 </div>
                 
-                <h3 className="text-2xl font-zelda text-white mb-4 group-hover:text-logo-purple-2 transition-colors">
+                <h3 className="text-2xl font-sans text-gray-900 mb-4 group-hover:text-logo-purple-2 transition-colors font-bold">
                   {cls.title}
                 </h3>
                 
-                <p className="text-stone-400 text-sm mb-6 font-light line-clamp-3">
+                <p className="text-gray-600 text-sm mb-6 font-light line-clamp-3">
                   {cls.description}
                 </p>
 
                 <div className="space-y-3 mb-6">
-                  <div className="flex items-center text-stone-300 text-sm">
+                  <div className="flex items-center text-gray-700 text-sm">
                     <Clock size={14} className="mr-2 text-logo-purple-2" />
                     {cls.schedule}
                   </div>
-                  <div className="flex items-center text-stone-300 text-sm">
+                  <div className="flex items-center text-gray-700 text-sm">
                     <MapPin size={14} className="mr-2 text-logo-purple-2" />
                     {cls.location}
                   </div>
-                  <div className="flex items-center text-stone-300 text-sm">
+                  <div className="flex items-center text-gray-700 text-sm">
                     <Users size={14} className="mr-2 text-logo-purple-2" />
                     {cls.instructors}
                   </div>
                 </div>
 
                 <div className="flex items-center text-logo-purple-2 text-sm uppercase tracking-wider group-hover:gap-2 transition-all">
-                  Xem chi tiết
+                  View Details
                   <ArrowRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform" />
                 </div>
               </div>

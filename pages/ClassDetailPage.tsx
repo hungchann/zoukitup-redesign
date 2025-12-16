@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowLeft, Clock, MapPin, Users, Target, BookOpen, CheckCircle, MessageCircle, Calendar } from 'lucide-react';
+import { ArrowLeft, Clock, MapPin, Users, BookOpen, MessageCircle, Calendar } from 'lucide-react';
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
 import { classes } from '../data/classes';
@@ -13,12 +13,12 @@ const ClassDetailPage: React.FC<ClassDetailPageProps> = ({ classSlug }) => {
 
   if (!classData) {
     return (
-      <div className="min-h-screen bg-zouk-black text-stone-200 font-sans">
+      <div className="min-h-screen bg-white text-gray-900 font-sans">
         <Navigation />
         <div className="pt-32 pb-20 text-center">
-          <h1 className="text-4xl font-zelda mb-4">Lớp học không tìm thấy</h1>
+          <h1 className="text-4xl font-sans mb-4 font-bold">Class Not Found</h1>
           <a href="#classes-page" className="text-logo-purple-2 hover:underline">
-            Quay lại danh sách lớp học
+            Back to Classes List
           </a>
         </div>
         <Footer />
@@ -32,37 +32,37 @@ const ClassDetailPage: React.FC<ClassDetailPageProps> = ({ classSlug }) => {
   };
 
   return (
-    <div className="min-h-screen bg-zouk-black text-stone-200 font-sans selection:bg-logo-purple-2 selection:text-white">
+    <div className="min-h-screen bg-white text-gray-900 font-sans selection:bg-logo-purple-2 selection:text-white">
       <Navigation />
       
-      <section className="py-24 bg-zouk-black text-white relative overflow-hidden pt-32">
+      <section className="py-24 bg-white text-gray-900 relative overflow-hidden pt-32">
         <div className="container mx-auto px-6 max-w-5xl">
           {/* Back Button */}
           <button
             onClick={handleBackToClasses}
-            className="mb-8 flex items-center text-stone-400 hover:text-white transition-colors group"
+            className="mb-8 flex items-center text-gray-600 hover:text-gray-900 transition-colors group"
           >
             <ArrowLeft className="w-5 h-5 mr-2 group-hover:-translate-x-1 transition-transform" />
-            <span className="text-sm uppercase tracking-widest">Về danh sách lớp học</span>
+            <span className="text-sm uppercase tracking-widest">Back to Classes List</span>
           </button>
 
           {/* Class Header */}
           <div className="mb-12 fade-in-up">
             <div className="flex items-center gap-3 mb-4">
               <span className={`px-4 py-2 text-xs rounded uppercase tracking-wider ${
-                classData.level === 'Cơ bản' ? 'bg-logo-purple-3/30 text-logo-purple-2 border border-logo-purple-2/30' :
-                classData.level === 'Trung cấp' ? 'bg-logo-purple-4/30 text-logo-purple-1 border border-logo-purple-1/30' :
-                classData.level === 'Nâng cao' ? 'bg-zouk-gold/20 text-zouk-gold border border-zouk-gold/30' :
-                'bg-white/10 text-white border border-white/20'
+                classData.level === 'Basic' ? 'bg-logo-purple-3/20 text-logo-purple-2 border border-logo-purple-2/30' :
+                classData.level === 'Intermediate' ? 'bg-logo-purple-4/20 text-logo-purple-1 border border-logo-purple-1/30' :
+                classData.level === 'Advanced' ? 'bg-zouk-gold/20 text-zouk-gold border border-zouk-gold/30' :
+                'bg-gray-100 text-gray-900 border border-gray-300'
               }`}>
                 {classData.level}
               </span>
             </div>
-            <h1 className="text-5xl md:text-6xl font-zelda mb-6 leading-tight">
+            <h1 className="text-5xl md:text-6xl font-sans mb-6 leading-tight font-bold">
               {classData.title}
             </h1>
             <div className="w-24 h-1 bg-gradient-to-r from-transparent via-logo-purple-2 to-transparent mb-6"></div>
-            <p className="text-stone-300 font-light text-lg leading-relaxed max-w-3xl">
+            <p className="text-gray-600 font-light text-lg leading-relaxed max-w-3xl">
               {classData.description}
             </p>
           </div>
@@ -84,57 +84,39 @@ const ClassDetailPage: React.FC<ClassDetailPageProps> = ({ classSlug }) => {
 
           {/* Class Details Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12 fade-in-up delay-200">
-            <div className="border border-white/10 p-6 rounded-lg hover:border-logo-purple-2/50 transition-colors">
+            <div className="border border-gray-200 p-6 rounded-lg hover:border-logo-purple-2/50 transition-colors bg-zouk-light">
               <div className="flex items-center mb-4">
                 <Clock className="w-6 h-6 mr-3 text-logo-purple-2" />
-                <h3 className="text-xl font-zelda text-white">Lịch học</h3>
+                <h3 className="text-xl font-sans text-gray-900 font-bold">Schedule</h3>
               </div>
-              <p className="text-stone-300 font-light">{classData.schedule}</p>
+              <p className="text-gray-700 font-light">{classData.schedule}</p>
               {classData.firstClass && (
-                <div className="mt-3 flex items-center text-stone-400 text-sm">
+                <div className="mt-3 flex items-center text-gray-600 text-sm">
                   <Calendar className="w-4 h-4 mr-2" />
-                  Lớp đầu tiên: {classData.firstClass}
+                  First Class: {classData.firstClass}
                 </div>
               )}
             </div>
 
-            <div className="border border-white/10 p-6 rounded-lg hover:border-logo-purple-2/50 transition-colors">
+            <div className="border border-gray-200 p-6 rounded-lg hover:border-logo-purple-2/50 transition-colors bg-zouk-light">
               <div className="flex items-center mb-4">
                 <MapPin className="w-6 h-6 mr-3 text-logo-purple-2" />
-                <h3 className="text-xl font-zelda text-white">Địa điểm</h3>
+                <h3 className="text-xl font-sans text-gray-900 font-bold">Location</h3>
               </div>
-              <p className="text-stone-300 font-light">{classData.location}</p>
+              <p className="text-gray-700 font-light">{classData.location}</p>
             </div>
 
-            <div className="border border-white/10 p-6 rounded-lg hover:border-logo-purple-2/50 transition-colors md:col-span-2">
+            <div className="border border-gray-200 p-6 rounded-lg hover:border-logo-purple-2/50 transition-colors md:col-span-2 bg-zouk-light">
               <div className="flex items-center mb-4">
                 <Users className="w-6 h-6 mr-3 text-logo-purple-2" />
-                <h3 className="text-xl font-zelda text-white">Giảng viên</h3>
+                <h3 className="text-xl font-sans text-gray-900 font-bold">Instructors</h3>
               </div>
-              <p className="text-stone-300 font-light text-lg">
+              <p className="text-gray-700 font-light text-lg">
                 {classData.instructors}
               </p>
-              <p className="text-stone-400 font-light text-sm mt-2">
+              <p className="text-gray-600 font-light text-sm mt-2">
                 Learn from experienced instructors who have conquered many international dance floors. They will provide step-by-step guidance, helping you build a solid foundation and gain the confidence to truly shine on the dance floor.
               </p>
-            </div>
-          </div>
-
-          {/* Class Goals */}
-          <div className="mb-12 fade-in-up delay-300">
-            <div className="flex items-center mb-6">
-              <Target className="w-6 h-6 mr-3 text-logo-purple-2" />
-              <h2 className="text-3xl font-zelda text-white">Mục tiêu lớp học</h2>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              {classData.goals.map((goal, index) => (
-                <div key={index} className="border border-white/10 p-6 rounded-lg hover:border-logo-purple-2/50 transition-colors">
-                  <div className="flex items-start">
-                    <CheckCircle className="w-5 h-5 mr-3 text-logo-purple-2 mt-1 flex-shrink-0" />
-                    <p className="text-stone-300 font-light">{goal}</p>
-                  </div>
-                </div>
-              ))}
             </div>
           </div>
 
@@ -142,12 +124,12 @@ const ClassDetailPage: React.FC<ClassDetailPageProps> = ({ classSlug }) => {
           <div className="mb-12 fade-in-up delay-300">
             <div className="flex items-center mb-6">
               <BookOpen className="w-6 h-6 mr-3 text-logo-purple-2" />
-              <h2 className="text-3xl font-zelda text-white">Bạn sẽ học gì</h2>
+              <h2 className="text-3xl font-sans text-gray-900 font-bold">What You Will Learn</h2>
             </div>
-            <div className="border border-white/10 p-6 rounded-lg">
+            <div className="border border-gray-200 p-6 rounded-lg bg-zouk-light">
               <ul className="space-y-3">
                 {classData.whatYouWillLearn.map((item, index) => (
-                  <li key={index} className="flex items-start text-stone-300 font-light">
+                  <li key={index} className="flex items-start text-gray-700 font-light">
                     <span className="w-2 h-2 bg-logo-purple-2 rounded-full mr-3 mt-2 flex-shrink-0"></span>
                     {item}
                   </li>
@@ -156,45 +138,18 @@ const ClassDetailPage: React.FC<ClassDetailPageProps> = ({ classSlug }) => {
             </div>
           </div>
 
-          {/* Entry Requirements */}
-          <div className="mb-12 fade-in-up delay-300">
-            <h2 className="text-3xl font-zelda text-white mb-6">Yêu cầu đầu vào</h2>
-            <div className="border border-white/10 p-6 rounded-lg bg-gradient-to-r from-logo-purple-2/5 to-transparent">
-              <p className="text-stone-300 font-light mb-4">Lớp học này phù hợp với:</p>
-              <ul className="space-y-2">
-                {classData.entryRequirements.map((req, index) => (
-                  <li key={index} className="flex items-start text-stone-300 font-light">
-                    <span className="w-2 h-2 bg-logo-purple-2 rounded-full mr-3 mt-2 flex-shrink-0"></span>
-                    {req}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-
           {/* CTA Registration Section */}
-          <div className="border-t border-white/10 pt-12 fade-in-up delay-300">
+          <div className="border-t border-gray-200 pt-12 fade-in-up delay-300">
             <div className="text-center mb-8">
-              <h2 className="text-3xl md:text-4xl font-zelda text-white mb-4">
-                Sẵn sàng bắt đầu hành trình của bạn?
+              <h2 className="text-3xl md:text-4xl font-sans text-gray-900 mb-4 font-bold">
+                Ready to Start Your Journey?
               </h2>
-              <p className="text-stone-300 font-light text-lg mb-8">
-                Đừng bỏ lỡ cơ hội trở thành một phần của cộng đồng PTZ ấm áp, đam mê và năng động!
+              <p className="text-gray-600 font-light text-lg mb-8">
+                Don't miss the opportunity to become part of the warm, passionate, and dynamic PTZ community!
               </p>
             </div>
 
             <div className="flex flex-col md:flex-row gap-4 justify-center items-center">
-              {classData.zaloLink && (
-                <a
-                  href={classData.zaloLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="px-8 py-4 bg-[#0068FF] text-white font-medium tracking-widest uppercase hover:bg-[#0052CC] transition-all duration-300 flex items-center gap-3 min-w-[200px] justify-center"
-                >
-                  <MessageCircle className="w-5 h-5" />
-                  Đăng ký qua Zalo
-                </a>
-              )}
               {classData.messengerLink && (
                 <a
                   href={classData.messengerLink}
@@ -203,12 +158,12 @@ const ClassDetailPage: React.FC<ClassDetailPageProps> = ({ classSlug }) => {
                   className="px-8 py-4 bg-[#0084FF] text-white font-medium tracking-widest uppercase hover:bg-[#0066CC] transition-all duration-300 flex items-center gap-3 min-w-[200px] justify-center"
                 >
                   <MessageCircle className="w-5 h-5" />
-                  Đăng ký qua Messenger
+                  Register via Messenger
                 </a>
               )}
-              {!classData.zaloLink && !classData.messengerLink && (
-                <button className="px-8 py-4 bg-white text-black font-medium tracking-widest uppercase hover:bg-logo-purple-2 hover:text-white transition-all duration-300 min-w-[200px]">
-                  Liên hệ đăng ký
+              {!classData.messengerLink && (
+                <button className="px-8 py-4 bg-gray-900 text-white font-medium tracking-widest uppercase hover:bg-logo-purple-2 hover:text-white transition-all duration-300 min-w-[200px]">
+                  Contact to Register
                 </button>
               )}
             </div>

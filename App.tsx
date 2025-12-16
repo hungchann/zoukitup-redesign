@@ -14,6 +14,7 @@ import ClassesPage from './pages/ClassesPage';
 import ClassDetailPage from './pages/ClassDetailPage';
 import EventsPage from './pages/EventsPage';
 import EventDetailPage from './pages/EventDetailPage';
+import CodeOfConductPage from './pages/CodeOfConductPage';
 import { ArrowUp } from 'lucide-react';
 
 const App: React.FC = () => {
@@ -45,6 +46,10 @@ const App: React.FC = () => {
         setCurrentPage('event-detail');
         setClassSlug('');
         setEventSlug(hash.replace('event-', ''));
+      } else if (hash === 'code-of-conduct') {
+        setCurrentPage('code-of-conduct');
+        setClassSlug('');
+        setEventSlug('');
       } else {
         setCurrentPage('home');
         setClassSlug('');
@@ -102,9 +107,14 @@ const App: React.FC = () => {
     return <EventDetailPage eventSlug={eventSlug} />;
   }
 
+  // Render Code of Conduct Page
+  if (currentPage === 'code-of-conduct') {
+    return <CodeOfConductPage />;
+  }
+
   // Render Home Page
   return (
-    <div className="min-h-screen bg-zouk-black text-stone-200 font-sans selection:bg-logo-purple-2 selection:text-white">
+    <div className="min-h-screen bg-white text-gray-900 font-sans selection:bg-logo-purple-2 selection:text-white">
       <Navigation />
       
       <main>
