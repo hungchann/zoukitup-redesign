@@ -8,7 +8,7 @@ const AboutPreview: React.FC = () => {
   };
 
   return (
-    <section className="py-24 bg-white text-gray-900 relative overflow-hidden">
+    <section className="py-12 md:py-24 bg-white text-gray-900 relative overflow-hidden">
       <div className="container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
         {/* Text Content */}
         <div className="order-2 md:order-1">
@@ -49,13 +49,12 @@ const AboutPreview: React.FC = () => {
 
         {/* Image Composition */}
         <div className="order-1 md:order-2 relative">
-            <div className="relative aspect-[3/4] overflow-hidden">
+            <div className="relative aspect-[4/3] overflow-hidden">
                 <img 
                     src="https://picsum.photos/seed/zoukcouple/800/1200" 
                     alt="Couple dancing Zouk" 
                     className="w-full h-full object-cover hover:scale-105 transition-transform duration-700 grayscale hover:grayscale-0"
                 />
-                <div className="absolute inset-0 border border-gray-200 m-4 pointer-events-none"></div>
             </div>
             {/* Decorative elements */}
             <div className="absolute -bottom-6 -left-6 w-24 h-24 bg-gradient-to-br from-logo-purple-3 to-logo-purple-4 -z-10 opacity-50"></div>

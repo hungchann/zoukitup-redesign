@@ -59,9 +59,9 @@ const ClassesPage: React.FC = () => {
               >
                 <div className="flex justify-between items-start mb-4">
                   <span className={`px-3 py-1 text-xs rounded uppercase tracking-wider ${
-                    cls.level === 'Basic' ? 'bg-logo-purple-3/20 text-logo-purple-2 border border-logo-purple-2/30' :
-                    cls.level === 'Intermediate' ? 'bg-logo-purple-4/20 text-logo-purple-1 border border-logo-purple-1/30' :
-                    cls.level === 'Advanced' ? 'bg-zouk-gold/20 text-zouk-gold border border-zouk-gold/30' :
+                    cls.level === 'Basic' ? 'bg-blue-100 text-blue-700 border border-blue-300' :
+                    cls.level === 'Intermediate' ? 'bg-yellow-100 text-yellow-700 border border-yellow-300' :
+                    cls.level === 'Advanced' ? 'bg-purple-100 text-purple-700 border border-purple-300' :
                     'bg-gray-100 text-gray-900 border border-gray-300'
                   }`}>
                     {cls.level}

@@ -16,9 +16,9 @@ const EventDetailPage: React.FC<EventDetailPageProps> = ({ eventSlug }) => {
       <div className="min-h-screen bg-zouk-black text-stone-200 font-sans">
         <Navigation />
         <div className="pt-32 pb-20 text-center">
-          <h1 className="text-4xl font-zelda mb-4">Sự kiện không tìm thấy</h1>
+          <h1 className="text-4xl font-zelda mb-4">Event Not Found</h1>
           <a href="#events-page" className="text-logo-purple-2 hover:underline">
-            Quay lại danh sách sự kiện
+            Back to Events List
           </a>
         </div>
         <Footer />
@@ -34,9 +34,9 @@ const EventDetailPage: React.FC<EventDetailPageProps> = ({ eventSlug }) => {
   const getEventTypeLabel = (type: EventType): string => {
     switch (type) {
       case 'social':
-        return 'Social Hằng Tuần';
+        return 'Weekly Social';
       case 'workshop':
-        return 'Workshop Đặc Biệt';
+        return 'Special Workshop';
       case 'festival':
         return 'Festival / Pre-party';
       default:
@@ -69,7 +69,7 @@ const EventDetailPage: React.FC<EventDetailPageProps> = ({ eventSlug }) => {
             className="mb-8 flex items-center text-stone-400 hover:text-white transition-colors group"
           >
             <ArrowLeft className="w-5 h-5 mr-2 group-hover:-translate-x-1 transition-transform" />
-            <span className="text-sm uppercase tracking-widest">Về danh sách sự kiện</span>
+            <span className="text-sm uppercase tracking-widest">Back to Events List</span>
           </button>
 
           {/* Event Header */}
@@ -107,7 +107,7 @@ const EventDetailPage: React.FC<EventDetailPageProps> = ({ eventSlug }) => {
             <div className="border border-white/10 p-6 rounded-lg hover:border-logo-purple-2/50 transition-colors">
               <div className="flex items-center mb-4">
                 <Calendar className="w-6 h-6 mr-3 text-logo-purple-2" />
-                <h3 className="text-xl font-zelda text-white">Thời gian</h3>
+                <h3 className="text-xl font-zelda text-white">Time</h3>
               </div>
               <p className="text-stone-300 font-light text-lg">{eventData.dateRange || eventData.date}</p>
             </div>
@@ -115,7 +115,7 @@ const EventDetailPage: React.FC<EventDetailPageProps> = ({ eventSlug }) => {
             <div className="border border-white/10 p-6 rounded-lg hover:border-logo-purple-2/50 transition-colors">
               <div className="flex items-center mb-4">
                 <MapPin className="w-6 h-6 mr-3 text-logo-purple-2" />
-                <h3 className="text-xl font-zelda text-white">Địa điểm</h3>
+                <h3 className="text-xl font-zelda text-white">Location</h3>
               </div>
               <p className="text-stone-300 font-light">{eventData.location}</p>
             </div>
@@ -134,7 +134,7 @@ const EventDetailPage: React.FC<EventDetailPageProps> = ({ eventSlug }) => {
               <div className={`border border-white/10 p-6 rounded-lg hover:border-logo-purple-2/50 transition-colors ${eventData.dj ? '' : 'md:col-span-2'}`}>
                 <div className="flex items-center mb-4">
                   <Users className="w-6 h-6 mr-3 text-logo-purple-2" />
-                  <h3 className="text-xl font-zelda text-white">Giảng viên khách mời</h3>
+                  <h3 className="text-xl font-zelda text-white">Guest Instructors</h3>
                 </div>
                 <div className="space-y-2">
                   {eventData.guestInstructors.map((instructor) => (
@@ -152,7 +152,7 @@ const EventDetailPage: React.FC<EventDetailPageProps> = ({ eventSlug }) => {
             <div className="mb-12 fade-in-up delay-300">
               <div className="flex items-center mb-6">
                 <Clock className="w-6 h-6 mr-3 text-logo-purple-2" />
-                <h2 className="text-3xl font-zelda text-white">Lịch trình</h2>
+                <h2 className="text-3xl font-zelda text-white">Schedule</h2>
               </div>
               <div className="border border-white/10 p-6 rounded-lg bg-gradient-to-r from-logo-purple-2/5 to-transparent">
                 <ul className="space-y-3">
@@ -170,7 +170,7 @@ const EventDetailPage: React.FC<EventDetailPageProps> = ({ eventSlug }) => {
           {/* Content Section (for workshops) */}
           {eventData.content && (
             <div className="mb-12 fade-in-up delay-300">
-              <h2 className="text-3xl font-zelda text-white mb-6">Nội dung</h2>
+              <h2 className="text-3xl font-zelda text-white mb-6">Content</h2>
               <div className="border border-white/10 p-6 rounded-lg">
                 <p className="text-stone-300 font-light leading-relaxed whitespace-pre-line">
                   {eventData.content}
@@ -183,10 +183,10 @@ const EventDetailPage: React.FC<EventDetailPageProps> = ({ eventSlug }) => {
           <div className="border-t border-white/10 pt-12 fade-in-up delay-300">
             <div className="text-center mb-8">
               <h2 className="text-3xl md:text-4xl font-zelda text-white mb-4">
-                Sẵn sàng tham gia?
+                Ready to Join?
               </h2>
               <p className="text-stone-300 font-light text-lg mb-8">
-                Đừng bỏ lỡ cơ hội tham gia sự kiện tuyệt vời này cùng cộng đồng PTZouk!
+                Don't miss the opportunity to join this amazing event with the PTZouk community!
               </p>
             </div>
 
@@ -199,23 +199,23 @@ const EventDetailPage: React.FC<EventDetailPageProps> = ({ eventSlug }) => {
                   className="px-8 py-4 bg-[#0068FF] text-white font-medium tracking-widest uppercase hover:bg-[#0052CC] transition-all duration-300 flex items-center gap-3 min-w-[200px] justify-center"
                 >
                   <MessageCircle className="w-5 h-5" />
-                  Mua vé qua Zalo
+                  Buy Tickets via Zalo
                 </a>
               )}
               {eventData.messengerLink && (
                 <a
-                  href={eventData.messengerLink}
+                  href="https://www.facebook.com/messages/t/107012643982143"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="px-8 py-4 bg-[#0084FF] text-white font-medium tracking-widest uppercase hover:bg-[#0066CC] transition-all duration-300 flex items-center gap-3 min-w-[200px] justify-center"
                 >
                   <MessageCircle className="w-5 h-5" />
-                  Mua vé qua Messenger
+                  Buy Tickets via Messenger
                 </a>
               )}
               {!eventData.zaloLink && !eventData.messengerLink && (
                 <button className="px-8 py-4 bg-white text-black font-medium tracking-widest uppercase hover:bg-logo-purple-2 hover:text-white transition-all duration-300 min-w-[200px]">
-                  Liên hệ mua vé
+                  Contact to Buy Tickets
                 </button>
               )}
             </div>

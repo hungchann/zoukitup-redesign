@@ -43,7 +43,7 @@ export const classes: ClassDetail[] = [
       'Anyone seeking a fun, stress-relieving way to move their body'
     ],
     zaloLink: 'https://zalo.me/your-zalo-link',
-    messengerLink: 'https://m.me/your-messenger-link'
+    messengerLink: 'https://www.facebook.com/messages/t/107012643982143'
   },
   {
     id: 'tecnizouk',
@@ -71,7 +71,7 @@ export const classes: ClassDetail[] = [
       'Anyone seeking a fun, stress-relieving way to move their body'
     ],
     zaloLink: 'https://zalo.me/your-zalo-link',
-    messengerLink: 'https://m.me/your-messenger-link'
+    messengerLink: 'https://www.facebook.com/messages/t/107012643982143'
   },
   {
     id: 'improver',
@@ -99,7 +99,7 @@ export const classes: ClassDetail[] = [
       'Anyone seeking a fun, stress-relieving way to move their body'
     ],
     zaloLink: 'https://zalo.me/your-zalo-link',
-    messengerLink: 'https://m.me/your-messenger-link'
+    messengerLink: 'https://www.facebook.com/messages/t/107012643982143'
   },
   {
     id: 'lambada-basic',
@@ -127,7 +127,7 @@ export const classes: ClassDetail[] = [
       'Anyone seeking a fun, stress-relieving way to move their body and connect with new people'
     ],
     zaloLink: 'https://zalo.me/your-zalo-link',
-    messengerLink: 'https://m.me/your-messenger-link'
+    messengerLink: 'https://www.facebook.com/messages/t/107012643982143'
   },
   {
     id: 'lambada-intensive',
@@ -155,7 +155,7 @@ export const classes: ClassDetail[] = [
       'Anyone seeking a fun, stress-relieving way to move their body'
     ],
     zaloLink: 'https://zalo.me/your-zalo-link',
-    messengerLink: 'https://m.me/your-messenger-link'
+    messengerLink: 'https://www.facebook.com/messages/t/107012643982143'
   },
   {
     id: 'lady-styling',
@@ -183,6 +183,6 @@ export const classes: ClassDetail[] = [
       'Anyone seeking a fun, stress-relieving way to move their body'
     ],
     zaloLink: 'https://zalo.me/your-zalo-link',
-    messengerLink: 'https://m.me/your-messenger-link'
+    messengerLink: 'https://www.facebook.com/messages/t/107012643982143'
   }
 ];

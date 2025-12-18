@@ -50,9 +50,9 @@ const ClassDetailPage: React.FC<ClassDetailPageProps> = ({ classSlug }) => {
           <div className="mb-12 fade-in-up">
             <div className="flex items-center gap-3 mb-4">
               <span className={`px-4 py-2 text-xs rounded uppercase tracking-wider ${
-                classData.level === 'Basic' ? 'bg-logo-purple-3/20 text-logo-purple-2 border border-logo-purple-2/30' :
-                classData.level === 'Intermediate' ? 'bg-logo-purple-4/20 text-logo-purple-1 border border-logo-purple-1/30' :
-                classData.level === 'Advanced' ? 'bg-zouk-gold/20 text-zouk-gold border border-zouk-gold/30' :
+                classData.level === 'Basic' ? 'bg-blue-100 text-blue-700 border border-blue-300' :
+                classData.level === 'Intermediate' ? 'bg-yellow-100 text-yellow-700 border border-yellow-300' :
+                classData.level === 'Advanced' ? 'bg-purple-100 text-purple-700 border border-purple-300' :
                 'bg-gray-100 text-gray-900 border border-gray-300'
               }`}>
                 {classData.level}
@@ -152,18 +152,18 @@ const ClassDetailPage: React.FC<ClassDetailPageProps> = ({ classSlug }) => {
             <div className="flex flex-col md:flex-row gap-4 justify-center items-center">
               {classData.messengerLink && (
                 <a
-                  href={classData.messengerLink}
+                  href="https://www.facebook.com/messages/t/107012643982143"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="px-8 py-4 bg-[#0084FF] text-white font-medium tracking-widest uppercase hover:bg-[#0066CC] transition-all duration-300 flex items-center gap-3 min-w-[200px] justify-center"
                 >
                   <MessageCircle className="w-5 h-5" />
-                  Register via Messenger
+                  More via Messenger
                 </a>
               )}
               {!classData.messengerLink && (
                 <button className="px-8 py-4 bg-gray-900 text-white font-medium tracking-widest uppercase hover:bg-logo-purple-2 hover:text-white transition-all duration-300 min-w-[200px]">
-                  Contact to Register
+                  Contact for More
                 </button>
               )}
             </div>

@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { Mail, Phone, MapPin, Facebook, Instagram, Youtube, Send, CheckCircle, Loader2 } from 'lucide-react';
+import { Mail, Phone, MapPin, Facebook, Instagram, Youtube, Send, CheckCircle, Loader2, MessageCircle } from 'lucide-react';
 import { submitContactForm } from '../api';
 
 const Contact: React.FC = () => {
@@ -26,7 +26,7 @@ const Contact: React.FC = () => {
   };
 
   return (
-    <section className="py-24 bg-white relative">
+    <section className="py-12 md:py-24 bg-white relative">
       <div className="container mx-auto px-6">
         {/* Google Map */}
         <div className="mb-16">
@@ -94,20 +94,15 @@ const Contact: React.FC = () => {
               </div>
             </div>
 
-            <div className="mt-12 flex space-x-4">
-              <a href="https://www.facebook.com/PhuongTrangZoukVietnam" target="_blank" rel="noopener noreferrer" className="w-10 h-10 border border-gray-300 flex items-center justify-center text-gray-900 hover:bg-gray-900 hover:text-white hover:border-gray-900 transition-all rounded-full">
-                <Facebook size={18} />
-              </a>
-              <a href="https://www.instagram.com/phuongtrangzouk" target="_blank" rel="noopener noreferrer" className="w-10 h-10 border border-gray-300 flex items-center justify-center text-gray-900 hover:bg-gray-900 hover:text-white hover:border-gray-900 transition-all rounded-full">
-                <Instagram size={18} />
-              </a>
-              <a href="https://www.youtube.com/channel/UCjCX1AIUnHyCTJM2ClEEyFA" target="_blank" rel="noopener noreferrer" className="w-10 h-10 border border-gray-300 flex items-center justify-center text-gray-900 hover:bg-gray-900 hover:text-white hover:border-gray-900 transition-all rounded-full">
-                <Youtube size={18} />
-              </a>
-              <a href="https://www.tiktok.com/@ptz_zouk" target="_blank" rel="noopener noreferrer" className="w-10 h-10 border border-gray-300 flex items-center justify-center text-gray-900 hover:bg-gray-900 hover:text-white hover:border-gray-900 transition-all rounded-full">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
-                </svg>
+            <div className="mt-12">
+              <a
+                href="https://www.facebook.com/messages/t/107012643982143"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-[#0084FF] text-white font-medium tracking-widest uppercase hover:bg-[#0066CC] transition-all duration-300"
+              >
+                <MessageCircle className="w-5 h-5" />
+                Contact via Messenger
               </a>
             </div>
           </div>
@@ -143,7 +138,7 @@ const Contact: React.FC = () => {
                 <label className="block text-xs uppercase tracking-widest text-gray-500 mb-2">Message</label>
                 <textarea 
                   name="message" value={formData.message} onChange={handleChange} required
-                  rows={4} className="w-full bg-white border border-gray-300 text-gray-900 p-3 focus:outline-none focus:border-logo-purple-2 transition-colors placeholder-gray-400" placeholder="I would like to register for classes..."></textarea>
+                  rows={4} className="w-full bg-white border border-gray-300 text-gray-900 p-3 focus:outline-none focus:border-logo-purple-2 transition-colors placeholder-gray-400" placeholder="I would like to learn more about classes..."></textarea>
               </div>
               <button 
                 type="submit" 

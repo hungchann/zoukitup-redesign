@@ -21,7 +21,7 @@ export interface EventDetail {
 export const events: EventDetail[] = [
   {
     id: 'social-weekly',
-    title: 'Social Hằng Tuần',
+    title: 'Weekly Social',
     slug: 'social-weekly',
     type: 'social',
     description: 'Join us every week for our regular social dancing sessions. A perfect opportunity to practice, meet fellow dancers, and enjoy great music.',
@@ -30,7 +30,7 @@ export const events: EventDetail[] = [
     location: '5A Floor, No. 152 Pho Duc Chinh, Hanoi',
     dj: 'PTZ DJs',
     zaloLink: 'https://zalo.me/your-zalo-link',
-    messengerLink: 'https://m.me/your-messenger-link'
+    messengerLink: 'https://www.facebook.com/messages/t/107012643982143'
   },
   {
     id: 'lambada-mastery',
@@ -49,7 +49,7 @@ export const events: EventDetail[] = [
       'Day 7: Closing Party & Competition'
     ],
     zaloLink: 'https://zalo.me/your-zalo-link',
-    messengerLink: 'https://m.me/your-messenger-link'
+    messengerLink: 'https://www.facebook.com/messages/t/107012643982143'
   },
   {
     id: 'brazouk-lambada-styling',
@@ -69,11 +69,11 @@ export const events: EventDetail[] = [
       'Week 3: Advanced Styling & Expression'
     ],
     zaloLink: 'https://zalo.me/your-zalo-link',
-    messengerLink: 'https://m.me/your-messenger-link'
+    messengerLink: 'https://www.facebook.com/messages/t/107012643982143'
   },
   {
     id: 'special-workshop-1',
-    title: 'Workshop Đặc Biệt',
+    title: 'Special Workshop',
     slug: 'special-workshop-1',
     type: 'workshop',
     description: 'Join us for a special workshop featuring guest instructors. Learn new techniques and expand your dance horizons.',
@@ -82,7 +82,7 @@ export const events: EventDetail[] = [
     guestInstructors: ['Guest Instructor'],
     content: 'Detailed workshop content will be announced soon.',
     zaloLink: 'https://zalo.me/your-zalo-link',
-    messengerLink: 'https://m.me/your-messenger-link'
+    messengerLink: 'https://www.facebook.com/messages/t/107012643982143'
   },
   {
     id: 'pre-party-1',
@@ -99,6 +99,6 @@ export const events: EventDetail[] = [
       'Special Performance: 10:00 PM'
     ],
     zaloLink: 'https://zalo.me/your-zalo-link',
-    messengerLink: 'https://m.me/your-messenger-link'
+    messengerLink: 'https://www.facebook.com/messages/t/107012643982143'
   }
 ];

@@ -53,17 +53,17 @@ const EventsPage: React.FC = () => {
             className="mb-8 flex items-center text-stone-400 hover:text-white transition-colors group"
           >
             <ArrowLeft className="w-5 h-5 mr-2 group-hover:-translate-x-1 transition-transform" />
-            <span className="text-sm uppercase tracking-widest">Về trang chủ</span>
+            <span className="text-sm uppercase tracking-widest">Back to Home</span>
           </button>
 
           {/* Main Header */}
           <div className="text-center mb-20 fade-in-up">
             <h1 className="text-5xl md:text-6xl font-zelda mb-6 leading-tight">
-              Sự Kiện <span className="text-logo-purple-2 italic">PTZouk</span>
+              Events <span className="text-logo-purple-2 italic">PTZouk</span>
             </h1>
             <div className="w-24 h-1 bg-gradient-to-r from-transparent via-logo-purple-2 to-transparent mx-auto mb-4"></div>
             <p className="text-stone-300 font-light text-lg max-w-2xl mx-auto">
-              Khám phá các sự kiện sắp tới và tham gia cùng cộng đồng PTZouk
+              Discover upcoming events and join the PTZouk community
             </p>
           </div>
 
@@ -134,7 +134,7 @@ const EventsPage: React.FC = () => {
                   </div>
 
                   <div className="flex items-center text-logo-purple-2 text-sm uppercase tracking-wider group-hover:gap-2 transition-all">
-                    Xem chi tiết
+                    View Details
                     <ArrowRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform" />
                   </div>
                 </div>

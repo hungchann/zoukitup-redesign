@@ -61,7 +61,7 @@ const Schedule: React.FC = () => {
   }, []);
 
   return (
-    <section className="py-24 bg-zouk-light">
+    <section className="py-12 md:py-24 bg-zouk-light">
       <div className="container mx-auto px-6">
         
         {/* Header */}
@@ -95,9 +95,10 @@ const Schedule: React.FC = () => {
                 <div key={cls.id} className="group bg-white p-8 border border-gray-200 hover:border-logo-purple-2/50 transition-all duration-300 hover:-translate-y-2 shadow-sm">
                   <div className="flex justify-between items-start mb-4">
                     <span className={`px-3 py-1 text-xs rounded uppercase tracking-wider ${
-                      cls.level === 'Cơ bản' ? 'bg-logo-purple-3/20 text-logo-purple-2 border border-logo-purple-2/30' :
-                      cls.level === 'Trung cấp' ? 'bg-logo-purple-4/20 text-logo-purple-1 border border-logo-purple-1/30' :
-                      'bg-zouk-gold/20 text-zouk-gold border border-zouk-gold/30'
+                      cls.level === 'Basic' ? 'bg-blue-100 text-blue-700 border border-blue-300' :
+                      cls.level === 'Intermediate' ? 'bg-yellow-100 text-yellow-700 border border-yellow-300' :
+                      cls.level === 'Advanced' ? 'bg-purple-100 text-purple-700 border border-purple-300' :
+                      'bg-gray-100 text-gray-900 border border-gray-300'
                     }`}>{cls.level}</span>
                     <Clock size={18} className="text-logo-purple-2" />
                   </div>
@@ -117,7 +118,7 @@ const Schedule: React.FC = () => {
                     }}
                     className="block w-full mt-8 py-3 border border-gray-300 text-gray-900 uppercase text-xs tracking-widest hover:bg-gray-900 hover:text-white transition-all text-center"
                   >
-                    Register
+                    More
                   </a>
                 </div>
               ))}
@@ -142,11 +143,6 @@ const Schedule: React.FC = () => {
                 {events.map((evt) => (
                     <div 
                       key={evt.id} 
-                      onClick={(e) => {
-                        e.preventDefault();
-                        window.location.hash = 'events-page';
-                        window.scrollTo(0, 0);
-                      }}
                       className="relative group overflow-hidden h-64 md:h-80 cursor-pointer"
                     >
                         <div className="absolute inset-0">

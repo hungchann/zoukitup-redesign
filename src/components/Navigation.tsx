@@ -41,7 +41,7 @@ const Navigation: React.FC = () => {
           }}
         >
           <img 
-            src="/image/Logo new - trắng.png" 
+            src="/image/logo-main.png" 
             alt="PTZouk Logo" 
             className="h-10 md:h-12 w-auto"
           />
@@ -78,7 +78,7 @@ const Navigation: React.FC = () => {
             }}
             className="px-6 py-2 border border-gray-300 text-gray-900 text-xs uppercase tracking-widest hover:bg-gray-900 hover:text-white transition-all duration-300 rounded-sm"
           >
-            Register Now
+            More
           </a>
         </div>
 
@@ -92,11 +92,11 @@ const Navigation: React.FC = () => {
 
         {/* Mobile Overlay */}
         <div
-          className={`fixed inset-0 bg-white flex flex-col items-center justify-center space-y-8 transition-opacity duration-300 ${
+          className={`fixed inset-0 bg-white flex flex-col items-center justify-center space-y-8 transition-opacity duration-300 z-40 ${
             isMobileMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
           }`}
         >
-          {navItems.map((item) => (
+              {navItems.map((item) => (
             <a
               key={item.label}
               href={item.href}
@@ -111,11 +111,23 @@ const Navigation: React.FC = () => {
                   window.scrollTo(0, 0);
                 }
               }}
-              className="text-2xl font-sans text-gray-900 hover:text-logo-purple-2 transition-colors"
+              className="text-2xl font-sans text-gray-900 hover:text-logo-purple-2 transition-colors z-50"
             >
               {item.label}
             </a>
           ))}
+          <a
+            href="#classes-page"
+            onClick={(e) => {
+              e.preventDefault();
+              setIsMobileMenuOpen(false);
+              window.location.hash = 'classes-page';
+              window.scrollTo(0, 0);
+            }}
+            className="px-6 py-2 border border-gray-300 text-gray-900 text-xs uppercase tracking-widest hover:bg-gray-900 hover:text-white transition-all duration-300 rounded-sm z-50"
+          >
+            More
+          </a>
         </div>
       </div>
     </nav>

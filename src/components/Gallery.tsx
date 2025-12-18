@@ -68,7 +68,7 @@ const Gallery: React.FC = () => {
 
   return (
     <>
-      <section className="py-24 bg-white">
+      <section className="py-12 md:py-24 bg-white">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
             <span className="text-logo-purple-2 text-sm uppercase tracking-widest">Gallery</span>
