@@ -79,7 +79,7 @@ const Instructors: React.FC = () => {
   };
 
   return (
-    <section className="py-12 md:py-24 bg-white text-gray-900">
+    <section className="py-8 md:py-24 pt-8 md:pt-24 bg-white text-gray-900">
       <div className="container mx-auto px-6">
         <div className="text-center mb-12 md:mb-16">
           <h2 className="text-4xl md:text-5xl font-sans text-gray-900 font-bold">Instructors</h2>

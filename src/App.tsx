@@ -9,6 +9,7 @@ import Gallery from './components/Gallery';
 import Contact from './components/Contact';
 import CTA from './components/CTA';
 import Footer from './components/Footer';
+import UpcomingEvents from './components/UpcomingEvents';
 import AboutPage from './pages/AboutPage';
 import ClassesPage from './pages/ClassesPage';
 import ClassDetailPage from './pages/ClassDetailPage';
@@ -138,6 +139,10 @@ const App: React.FC = () => {
         
         <div id="classes">
           <Schedule />
+        </div>
+        
+        <div id="events">
+          <UpcomingEvents />
         </div>
         
         <div id="instructors">
