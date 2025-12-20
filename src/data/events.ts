@@ -16,6 +16,9 @@ export interface EventDetail {
   content?: string; // Detailed content for workshops
   zaloLink?: string;
   messengerLink?: string;
+  year?: number; // For past events categorization
+  videoUrl?: string; // YouTube video link for past events
+  isPast?: boolean; // Flag to distinguish past events
 }
 
 export const events: EventDetail[] = [

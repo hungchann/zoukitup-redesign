@@ -14,6 +14,7 @@ import ClassesPage from './pages/ClassesPage';
 import ClassDetailPage from './pages/ClassDetailPage';
 import EventsPage from './pages/EventsPage';
 import EventDetailPage from './pages/EventDetailPage';
+import PastEventsPage from './pages/PastEventsPage';
 import CodeOfConductPage from './pages/CodeOfConductPage';
 import { ArrowUp } from 'lucide-react';
 
@@ -40,6 +41,10 @@ const App: React.FC = () => {
         setEventSlug('');
       } else if (hash === 'events-page') {
         setCurrentPage('events');
+        setClassSlug('');
+        setEventSlug('');
+      } else if (hash === 'past-events-page') {
+        setCurrentPage('past-events');
         setClassSlug('');
         setEventSlug('');
       } else if (hash.startsWith('event-')) {
@@ -100,6 +105,11 @@ const App: React.FC = () => {
   // Render Events Page
   if (currentPage === 'events') {
     return <EventsPage />;
+  }
+
+  // Render Past Events Page
+  if (currentPage === 'past-events') {
+    return <PastEventsPage />;
   }
 
   // Render Event Detail Page

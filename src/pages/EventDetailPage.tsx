@@ -3,13 +3,16 @@ import { ArrowLeft, Calendar, MapPin, Music, Users, MessageCircle, Clock } from 
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
 import { events, EventType } from '../data/events';
+import { pastEvents } from '../data/pastEvents';
 
 interface EventDetailPageProps {
   eventSlug: string;
 }
 
 const EventDetailPage: React.FC<EventDetailPageProps> = ({ eventSlug }) => {
-  const eventData = events.find(event => event.slug === eventSlug);
+  // Search in both upcoming and past events
+  const eventData = events.find(event => event.slug === eventSlug) || 
+                    pastEvents.find(event => event.slug === eventSlug);
 
   if (!eventData) {
     return (

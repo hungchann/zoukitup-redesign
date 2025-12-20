@@ -1,7 +1,7 @@
 
 import React, { useEffect, useState } from 'react';
-import { ClassItem, EventItem } from '../types';
-import { Clock, MapPin, Calendar, ArrowRight, Loader2 } from 'lucide-react';
+import { ClassItem } from '../types';
+import { Clock, ArrowRight, Loader2 } from 'lucide-react';
 
 // Fallback data (giữ lại dữ liệu cũ để hiển thị khi chưa có API thực)
 const fallbackClasses: ClassItem[] = [
@@ -31,28 +31,8 @@ const fallbackClasses: ClassItem[] = [
   },
 ];
 
-const fallbackEvents: EventItem[] = [
-  {
-    id: 1,
-    title: "Zouk & Chill Social",
-    date: "October 25",
-    location: "The Deck Saigon",
-    image: "https://picsum.photos/seed/deck/600/400",
-    price: "150,000 VND"
-  },
-  {
-    id: 2,
-    title: "Hanoi Zouk Festival Pre-party",
-    date: "November 12",
-    location: "Zoukitup Studio",
-    image: "https://picsum.photos/seed/party/600/400",
-    price: "200,000 VND"
-  }
-];
-
 const Schedule: React.FC = () => {
   const [classes, setClasses] = useState<ClassItem[]>(fallbackClasses);
-  const [events, setEvents] = useState<EventItem[]>(fallbackEvents);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -65,10 +45,10 @@ const Schedule: React.FC = () => {
       <div className="container mx-auto px-6">
         
         {/* Header */}
-        <div className="flex flex-col md:flex-row justify-between items-end mb-16 border-b border-gray-200 pb-6">
-          <div>
+        <div className="flex flex-col md:flex-row justify-between items-center md:items-end mb-16 border-b border-gray-200 pb-6">
+          <div className="text-center md:text-left w-full md:w-auto">
             <span className="text-logo-purple-2 text-sm uppercase tracking-widest">Schedule</span>
-            <h2 className="text-4xl md:text-5xl font-sans text-gray-900 mt-2 font-bold">Classes & Events</h2>
+            <h2 className="text-4xl md:text-5xl font-sans text-gray-900 mt-2 font-bold">Classes</h2>
           </div>
           <a 
             href="#classes-page" 
@@ -122,50 +102,6 @@ const Schedule: React.FC = () => {
                   </a>
                 </div>
               ))}
-            </div>
-
-            {/* Upcoming Events Highlight */}
-            <div className="flex justify-between items-center mb-8">
-              <h3 className="text-2xl font-sans text-gray-900 font-bold">Upcoming Events</h3>
-              <a 
-                href="#events-page" 
-                onClick={(e) => {
-                  e.preventDefault();
-                  window.location.hash = 'events-page';
-                  window.scrollTo(0, 0);
-                }}
-                className="hidden md:flex items-center text-gray-600 hover:text-gray-900 transition-colors"
-              >
-                View All <ArrowRight size={16} className="ml-2" />
-              </a>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                {events.map((evt) => (
-                    <div 
-                      key={evt.id} 
-                      className="relative group overflow-hidden h-64 md:h-80 cursor-pointer"
-                    >
-                        <div className="absolute inset-0">
-                            <img src={evt.image} alt={evt.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0" />
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
-                        </div>
-                        <div className="absolute bottom-0 left-0 p-8 w-full">
-                            <div className="flex justify-between items-end">
-                                <div>
-                                    <span className="text-logo-purple-2 uppercase text-xs tracking-widest mb-2 block"><Calendar size={14} className="inline mr-1"/> {evt.date}</span>
-                                    <h4 className="text-2xl font-sans text-white mb-1 font-bold" dangerouslySetInnerHTML={{ __html: evt.title }}></h4>
-                                    <div className="flex items-center text-gray-200 text-sm">
-                                        <MapPin size={14} className="mr-1" /> {evt.location}
-                                    </div>
-                                </div>
-                                <div className="text-right">
-                                    <span className="block text-xl font-bold text-white">{evt.price}</span>
-                                    <span className="text-xs text-gray-300 uppercase tracking-wider">Entry Fee</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                ))}
             </div>
           </>
         )}

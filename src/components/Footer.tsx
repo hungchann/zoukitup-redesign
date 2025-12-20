@@ -3,15 +3,15 @@ import { Facebook, Instagram, Youtube } from 'lucide-react';
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-gray-50 text-gray-900 border-t border-gray-200 pt-16 pb-8">
+    <footer className="bg-gray-50 text-gray-900 border-t border-gray-200 pt-8 md:pt-16 pb-8">
       <div className="container mx-auto px-6">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-12 mb-8 md:mb-16">
           <div className="col-span-1 md:col-span-2">
             <a href="#" className="text-3xl font-sans font-bold tracking-tighter text-gray-900 block mb-6">
               ZOUK<span className="text-logo-purple-2 font-sans italic">IT</span>UP
             </a>
             <p className="text-gray-600 text-sm max-w-xs leading-relaxed mb-6">
-              Elevate your Zouk experience with quality classes, a connected community, and premium events.
+              Elevate your Zouk experience with quality classes and a connected community.
             </p>
             <div className="flex space-x-4">
               <a href="https://www.facebook.com/PhuongTrangZoukVietnam" target="_blank" rel="noopener noreferrer" className="w-10 h-10 border border-gray-300 flex items-center justify-center text-gray-900 hover:bg-gray-900 hover:text-white hover:border-gray-900 transition-all rounded-full">
@@ -36,9 +36,7 @@ const Footer: React.FC = () => {
             <ul className="space-y-3 text-gray-600 text-sm">
               <li><a href="#about" className="hover:text-logo-purple-2 transition-colors">About Us</a></li>
               <li><a href="#classes" className="hover:text-logo-purple-2 transition-colors">Classes</a></li>
-              <li><a href="#events" className="hover:text-logo-purple-2 transition-colors">Events</a></li>
               <li><a href="#code-of-conduct" className="hover:text-logo-purple-2 transition-colors">Code of Conduct</a></li>
-              <li><a href="#faq" className="hover:text-logo-purple-2 transition-colors">FAQ</a></li>
             </ul>
           </div>
 

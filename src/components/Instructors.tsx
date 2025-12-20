@@ -51,14 +51,23 @@ const Instructors: React.FC = () => {
   const itemsPerView = isMobile ? 1 : 3;
   const maxIndex = Math.max(0, instructors.length - itemsPerView);
 
-  const nextSlide = () => {
+  const nextSlide = React.useCallback(() => {
     setCurrentIndex((prev) => {
-      if (prev >= maxIndex) {
+      const currentMaxIndex = Math.max(0, instructors.length - (window.innerWidth < 768 ? 1 : 3));
+      if (prev >= currentMaxIndex) {
         return 0;
       }
       return prev + 1;
     });
-  };
+  }, []);
+
+  // Auto-slide every 3 seconds
+  React.useEffect(() => {
+    const interval = setInterval(() => {
+      nextSlide();
+    }, 3000);
+    return () => clearInterval(interval);
+  }, [nextSlide]);
 
   const prevSlide = () => {
     setCurrentIndex((prev) => {
