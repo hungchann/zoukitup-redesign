@@ -48,18 +48,18 @@ const DJs: React.FC = () => {
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   />
                 </div>
-                <div className="flex items-center justify-center gap-3 mb-3">
+                <div className="flex flex-col lg:flex-row items-center justify-center gap-3 mb-3 px-2">
                   <h3 className="text-2xl font-sans text-gray-900 font-bold">{dj.name}</h3>
                   {dj.link && (
                     <a
                       href={dj.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-white border border-logo-purple-2/30 text-logo-purple-2 hover:bg-logo-purple-2 hover:text-white transition-all duration-300 text-xs uppercase tracking-widest group"
+                      className="inline-flex items-center justify-center gap-1.5 px-4 py-2 bg-white border border-logo-purple-2/30 text-logo-purple-2 hover:bg-logo-purple-2 hover:text-white transition-all duration-300 text-xs uppercase tracking-widest group whitespace-nowrap shrink-0"
                     >
-                      <Music size={14} />
-                      {dj.platform === 'soundcloud' ? 'SoundCloud' : 'Mixcloud'}
-                      <ExternalLink size={12} className="group-hover:translate-x-1 transition-transform" />
+                      <Music size={14} className="shrink-0" />
+                      <span>{dj.platform === 'soundcloud' ? 'SoundCloud' : 'Mixcloud'}</span>
+                      <ExternalLink size={12} className="shrink-0 group-hover:translate-x-1 transition-transform" />
                     </a>
                   )}
                 </div>
