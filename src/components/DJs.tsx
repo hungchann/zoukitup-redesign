@@ -85,34 +85,34 @@ const DJs: React.FC = () => {
               className="flex transition-transform duration-500 ease-in-out"
               style={{ transform: `translateX(-${currentIndex * (100 / itemsPerView)}%)` }}
             >
-              {djs.map((dj) => (
+            {djs.map((dj) => (
                 <div key={dj.id} className="group text-center flex-shrink-0 px-4" style={{ width: `${100 / itemsPerView}%` }}>
-                  <div className="relative mb-6 overflow-hidden aspect-square max-w-xs mx-auto">
-                    <img
-                      src={dj.image}
-                      alt={dj.name}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                    />
-                  </div>
-                  <div className="flex flex-col lg:flex-row items-center justify-center gap-3 mb-3 px-2">
-                    <h3 className="text-2xl font-sans text-gray-900 font-bold">{dj.name}</h3>
-                    {dj.link && (
-                      <a
-                        href={dj.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center justify-center gap-1.5 px-4 py-2 bg-white border border-logo-purple-2/30 text-logo-purple-2 hover:bg-logo-purple-2 hover:text-white transition-all duration-300 text-xs uppercase tracking-widest group whitespace-nowrap shrink-0"
-                      >
-                        <Music size={14} className="shrink-0" />
-                        <span>{dj.platform === 'soundcloud' ? 'SoundCloud' : 'Mixcloud'}</span>
-                        <ExternalLink size={12} className="shrink-0 group-hover:translate-x-1 transition-transform" />
-                      </a>
-                    )}
-                  </div>
-                  <p className="text-gray-600 font-light leading-relaxed">{dj.description}</p>
+                <div className="relative mb-6 overflow-hidden aspect-square max-w-xs mx-auto">
+                  <img
+                    src={dj.image}
+                    alt={dj.name}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
                 </div>
-              ))}
-            </div>
+                <div className="flex flex-col lg:flex-row items-center justify-center gap-3 mb-3 px-2">
+                  <h3 className="text-2xl font-sans text-gray-900 font-bold">{dj.name}</h3>
+                  {dj.link && (
+                    <a
+                      href={dj.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center justify-center gap-1.5 px-4 py-2 bg-white border border-logo-purple-2/30 text-logo-purple-2 hover:bg-logo-purple-2 hover:text-white transition-all duration-300 text-xs uppercase tracking-widest group whitespace-nowrap shrink-0"
+                    >
+                      <Music size={14} className="shrink-0" />
+                      <span>{dj.platform === 'soundcloud' ? 'SoundCloud' : 'Mixcloud'}</span>
+                      <ExternalLink size={12} className="shrink-0 group-hover:translate-x-1 transition-transform" />
+                    </a>
+                  )}
+                </div>
+                <p className="text-gray-600 font-light leading-relaxed">{dj.description}</p>
+              </div>
+            ))}
+          </div>
           </div>
           
           {djs.length > itemsPerView && (

@@ -16,10 +16,10 @@ const EventDetailPage: React.FC<EventDetailPageProps> = ({ eventSlug }) => {
 
   if (!eventData) {
     return (
-      <div className="min-h-screen bg-zouk-black text-stone-200 font-sans">
+      <div className="min-h-screen bg-white text-gray-900 font-sans">
         <Navigation />
         <div className="pt-32 pb-20 text-center">
-          <h1 className="text-4xl font-zelda mb-4">Event Not Found</h1>
+          <h1 className="text-4xl font-zelda mb-4 text-gray-900">Event Not Found</h1>
           <a href="#events-page" className="text-logo-purple-2 hover:underline">
             Back to Events List
           </a>
@@ -61,15 +61,15 @@ const EventDetailPage: React.FC<EventDetailPageProps> = ({ eventSlug }) => {
   };
 
   return (
-    <div className="min-h-screen bg-zouk-black text-stone-200 font-sans selection:bg-logo-purple-2 selection:text-white">
+    <div className="min-h-screen bg-white text-gray-900 font-sans selection:bg-logo-purple-2 selection:text-white">
       <Navigation />
       
-      <section className="py-24 bg-zouk-black text-white relative overflow-hidden pt-32">
+      <section className="py-24 bg-white text-gray-900 relative overflow-hidden pt-32">
         <div className="container mx-auto px-6 max-w-5xl">
           {/* Back Button */}
           <button
             onClick={handleBackToEvents}
-            className="mb-8 flex items-center text-stone-400 hover:text-white transition-colors group"
+            className="mb-8 flex items-center text-gray-600 hover:text-gray-900 transition-colors group"
           >
             <ArrowLeft className="w-5 h-5 mr-2 group-hover:-translate-x-1 transition-transform" />
             <span className="text-sm uppercase tracking-widest">Back to Events List</span>
@@ -82,11 +82,11 @@ const EventDetailPage: React.FC<EventDetailPageProps> = ({ eventSlug }) => {
                 {getEventTypeLabel(eventData.type)}
               </span>
             </div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-zelda mb-6 leading-tight">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-zelda mb-6 leading-tight text-gray-900">
               {eventData.title}
             </h1>
             <div className="w-24 h-1 bg-gradient-to-r from-transparent via-logo-purple-2 to-transparent mb-6"></div>
-            <p className="text-stone-300 font-light text-lg leading-relaxed max-w-3xl whitespace-pre-line">
+            <p className="text-gray-900 font-light text-lg leading-relaxed max-w-3xl whitespace-pre-line">
               {eventData.description}
             </p>
           </div>
@@ -94,54 +94,54 @@ const EventDetailPage: React.FC<EventDetailPageProps> = ({ eventSlug }) => {
           {/* Poster Section */}
           {eventData.poster && (
             <div className="mb-12 fade-in-up delay-100">
-              <div className="relative aspect-[2/3] overflow-hidden rounded-lg border border-white/10">
+              <div className="relative aspect-[2/3] overflow-hidden rounded-lg border border-gray-200">
                 <img
                   src={eventData.poster}
                   alt={eventData.title}
                   className="w-full h-full object-cover hover:scale-105 transition-transform duration-700 grayscale hover:grayscale-0"
                 />
-                <div className="absolute inset-0 border border-white/10 m-4 pointer-events-none rounded-lg"></div>
+                <div className="absolute inset-0 border border-gray-200 m-4 pointer-events-none rounded-lg"></div>
               </div>
             </div>
           )}
 
           {/* Event Details Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12 fade-in-up delay-200">
-            <div className="border border-white/10 p-6 rounded-lg hover:border-logo-purple-2/50 transition-colors">
+            <div className="border border-gray-200 p-6 rounded-lg hover:border-logo-purple-2/50 transition-colors bg-zouk-light">
               <div className="flex items-center mb-4">
                 <Calendar className="w-6 h-6 mr-3 text-logo-purple-2" />
-                <h3 className="text-xl font-zelda text-white">Time</h3>
+                <h3 className="text-xl font-zelda text-gray-900">Time</h3>
               </div>
-              <p className="text-stone-300 font-light text-lg">{eventData.dateRange || eventData.date}</p>
+              <p className="text-gray-900 font-light text-lg">{eventData.dateRange || eventData.date}</p>
             </div>
 
-            <div className="border border-white/10 p-6 rounded-lg hover:border-logo-purple-2/50 transition-colors">
+            <div className="border border-gray-200 p-6 rounded-lg hover:border-logo-purple-2/50 transition-colors bg-zouk-light">
               <div className="flex items-center mb-4">
                 <MapPin className="w-6 h-6 mr-3 text-logo-purple-2" />
-                <h3 className="text-xl font-zelda text-white">Location</h3>
+                <h3 className="text-xl font-zelda text-gray-900">Location</h3>
               </div>
-              <p className="text-stone-300 font-light">{eventData.location}</p>
+              <p className="text-gray-900 font-light">{eventData.location}</p>
             </div>
 
             {eventData.dj && (
-              <div className="border border-white/10 p-6 rounded-lg hover:border-logo-purple-2/50 transition-colors">
+              <div className="border border-gray-200 p-6 rounded-lg hover:border-logo-purple-2/50 transition-colors bg-zouk-light">
                 <div className="flex items-center mb-4">
                   <Music className="w-6 h-6 mr-3 text-logo-purple-2" />
-                  <h3 className="text-xl font-zelda text-white">DJ</h3>
+                  <h3 className="text-xl font-zelda text-gray-900">DJ</h3>
                 </div>
-                <p className="text-stone-300 font-light text-lg">{eventData.dj}</p>
+                <p className="text-gray-900 font-light text-lg">{eventData.dj}</p>
               </div>
             )}
 
             {eventData.guestInstructors && eventData.guestInstructors.length > 0 && (
-              <div className={`border border-white/10 p-6 rounded-lg hover:border-logo-purple-2/50 transition-colors ${eventData.dj ? '' : 'md:col-span-2'}`}>
+              <div className={`border border-gray-200 p-6 rounded-lg hover:border-logo-purple-2/50 transition-colors bg-zouk-light ${eventData.dj ? '' : 'md:col-span-2'}`}>
                 <div className="flex items-center mb-4">
                   <Users className="w-6 h-6 mr-3 text-logo-purple-2" />
-                  <h3 className="text-xl font-zelda text-white">Guest Instructors</h3>
+                  <h3 className="text-xl font-zelda text-gray-900">Guest Instructors</h3>
                 </div>
                 <div className="space-y-2">
                   {eventData.guestInstructors.map((instructor) => (
-                    <p key={instructor} className="text-stone-300 font-light text-lg">
+                    <p key={instructor} className="text-gray-900 font-light text-lg">
                       {instructor}
                     </p>
                   ))}
@@ -155,12 +155,12 @@ const EventDetailPage: React.FC<EventDetailPageProps> = ({ eventSlug }) => {
             <div className="mb-12 fade-in-up delay-300">
               <div className="flex items-center mb-6">
                 <Clock className="w-6 h-6 mr-3 text-logo-purple-2" />
-                <h2 className="text-3xl font-zelda text-white">Schedule</h2>
+                <h2 className="text-3xl font-zelda text-gray-900">Schedule</h2>
               </div>
-              <div className="border border-white/10 p-6 rounded-lg bg-gradient-to-r from-logo-purple-2/5 to-transparent">
+              <div className="border border-gray-200 p-6 rounded-lg bg-gradient-to-r from-logo-purple-2/5 to-transparent">
                 <ul className="space-y-3">
                   {eventData.schedule.map((item) => (
-                    <li key={item} className="flex items-start text-stone-300 font-light">
+                    <li key={item} className="flex items-start text-gray-900 font-light">
                       <span className="w-2 h-2 bg-logo-purple-2 rounded-full mr-3 mt-2 flex-shrink-0"></span>
                       {item}
                     </li>
@@ -173,9 +173,9 @@ const EventDetailPage: React.FC<EventDetailPageProps> = ({ eventSlug }) => {
           {/* Content Section (for workshops) */}
           {eventData.content && (
             <div className="mb-12 fade-in-up delay-300">
-              <h2 className="text-3xl font-zelda text-white mb-6">Content</h2>
-              <div className="border border-white/10 p-6 rounded-lg">
-                <p className="text-stone-300 font-light leading-relaxed whitespace-pre-line">
+              <h2 className="text-3xl font-zelda text-gray-900 mb-6">Content</h2>
+              <div className="border border-gray-200 p-6 rounded-lg">
+                <p className="text-gray-900 font-light leading-relaxed whitespace-pre-line">
                   {eventData.content}
                 </p>
               </div>
@@ -183,28 +183,17 @@ const EventDetailPage: React.FC<EventDetailPageProps> = ({ eventSlug }) => {
           )}
 
           {/* CTA Buy Tickets Section */}
-          <div className="border-t border-white/10 pt-12 fade-in-up delay-300">
+          <div className="border-t border-gray-200 pt-12 fade-in-up delay-300">
             <div className="text-center mb-8">
-              <h2 className="text-3xl md:text-4xl font-zelda text-white mb-4">
+              <h2 className="text-3xl md:text-4xl font-zelda text-gray-900 mb-4">
                 Ready to Join?
               </h2>
-              <p className="text-stone-300 font-light text-lg mb-8">
+              <p className="text-gray-900 font-light text-lg mb-8">
                 Don't miss the opportunity to join this amazing event with the PTZouk community!
               </p>
             </div>
 
             <div className="flex flex-col md:flex-row gap-4 justify-center items-center">
-              {eventData.zaloLink && (
-                <a
-                  href={eventData.zaloLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="px-8 py-4 bg-[#0068FF] text-white font-medium tracking-widest uppercase hover:bg-[#0052CC] transition-all duration-300 flex items-center gap-3 min-w-[200px] justify-center"
-                >
-                  <MessageCircle className="w-5 h-5" />
-                  Buy Tickets via Zalo
-                </a>
-              )}
               {eventData.messengerLink && (
                 <a
                   href="https://www.facebook.com/messages/t/107012643982143"
@@ -216,7 +205,7 @@ const EventDetailPage: React.FC<EventDetailPageProps> = ({ eventSlug }) => {
                   Buy Tickets via Messenger
                 </a>
               )}
-              {!eventData.zaloLink && !eventData.messengerLink && (
+              {!eventData.messengerLink && (
                 <button className="px-8 py-4 bg-white text-black font-medium tracking-widest uppercase hover:bg-logo-purple-2 hover:text-white transition-all duration-300 min-w-[200px]">
                   Contact to Buy Tickets
                 </button>

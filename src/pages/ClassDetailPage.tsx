@@ -62,7 +62,7 @@ const ClassDetailPage: React.FC<ClassDetailPageProps> = ({ classSlug }) => {
               {classData.title}
             </h1>
             <div className="w-24 h-1 bg-gradient-to-r from-transparent via-logo-purple-2 to-transparent mb-6"></div>
-            <p className="text-gray-600 font-light text-lg leading-relaxed max-w-3xl">
+            <p className="text-gray-900 font-light text-lg leading-relaxed max-w-3xl">
               {classData.description}
             </p>
           </div>
@@ -89,9 +89,9 @@ const ClassDetailPage: React.FC<ClassDetailPageProps> = ({ classSlug }) => {
                 <Clock className="w-6 h-6 mr-3 text-logo-purple-2" />
                 <h3 className="text-xl font-sans text-gray-900 font-bold">Schedule</h3>
               </div>
-              <p className="text-gray-700 font-light">{classData.schedule}</p>
+              <p className="text-gray-900 font-light">{classData.schedule}</p>
               {classData.firstClass && (
-                <div className="mt-3 flex items-center text-gray-600 text-sm">
+                <div className="mt-3 flex items-center text-gray-900 text-sm">
                   <Calendar className="w-4 h-4 mr-2" />
                   First Class: {classData.firstClass}
                 </div>
@@ -103,7 +103,7 @@ const ClassDetailPage: React.FC<ClassDetailPageProps> = ({ classSlug }) => {
                 <MapPin className="w-6 h-6 mr-3 text-logo-purple-2" />
                 <h3 className="text-xl font-sans text-gray-900 font-bold">Location</h3>
               </div>
-              <p className="text-gray-700 font-light">{classData.location}</p>
+              <p className="text-gray-900 font-light">{classData.location}</p>
             </div>
 
             <div className="border border-gray-200 p-6 rounded-lg hover:border-logo-purple-2/50 transition-colors md:col-span-2 bg-zouk-light">
@@ -111,10 +111,10 @@ const ClassDetailPage: React.FC<ClassDetailPageProps> = ({ classSlug }) => {
                 <Users className="w-6 h-6 mr-3 text-logo-purple-2" />
                 <h3 className="text-xl font-sans text-gray-900 font-bold">Instructors</h3>
               </div>
-              <p className="text-gray-700 font-light text-lg">
+              <p className="text-gray-900 font-light text-lg">
                 {classData.instructors}
               </p>
-              <p className="text-gray-600 font-light text-sm mt-2">
+              <p className="text-gray-900 font-light text-sm mt-2">
                 Learn from experienced instructors who have conquered many international dance floors. They will provide step-by-step guidance, helping you build a solid foundation and gain the confidence to truly shine on the dance floor.
               </p>
             </div>
@@ -129,7 +129,7 @@ const ClassDetailPage: React.FC<ClassDetailPageProps> = ({ classSlug }) => {
             <div className="border border-gray-200 p-6 rounded-lg bg-zouk-light">
               <ul className="space-y-3">
                 {classData.whatYouWillLearn.map((item, index) => (
-                  <li key={index} className="flex items-start text-gray-700 font-light">
+                  <li key={index} className="flex items-start text-gray-900 font-light">
                     <span className="w-2 h-2 bg-logo-purple-2 rounded-full mr-3 mt-2 flex-shrink-0"></span>
                     {item}
                   </li>
@@ -144,7 +144,7 @@ const ClassDetailPage: React.FC<ClassDetailPageProps> = ({ classSlug }) => {
               <h2 className="text-3xl md:text-4xl font-sans text-gray-900 mb-4 font-bold">
                 Ready to Start Your Journey?
               </h2>
-              <p className="text-gray-600 font-light text-lg mb-8">
+              <p className="text-gray-900 font-light text-lg mb-8">
                 Don't miss the opportunity to become part of the warm, passionate, and dynamic PTZ community!
               </p>
             </div>

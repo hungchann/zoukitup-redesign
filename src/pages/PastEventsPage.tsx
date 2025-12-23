@@ -63,15 +63,15 @@ const PastEventsPage: React.FC = () => {
   }, {} as Record<number, typeof pastEvents>);
 
   return (
-    <div className="min-h-screen bg-zouk-black text-stone-200 font-sans selection:bg-logo-purple-2 selection:text-white">
+    <div className="min-h-screen bg-white text-gray-900 font-sans selection:bg-logo-purple-2 selection:text-white">
       <Navigation />
       
-      <section className="py-24 bg-zouk-black text-white relative overflow-hidden pt-32">
+      <section className="py-24 bg-white text-gray-900 relative overflow-hidden pt-32">
         <div className="container mx-auto px-6">
           {/* Back Button */}
           <button
             onClick={handleBackToHome}
-            className="mb-8 flex items-center text-stone-400 hover:text-white transition-colors group"
+            className="mb-8 flex items-center text-gray-600 hover:text-gray-900 transition-colors group"
           >
             <ArrowLeft className="w-5 h-5 mr-2 group-hover:-translate-x-1 transition-transform" />
             <span className="text-sm uppercase tracking-widest">Back to Home</span>
@@ -79,11 +79,11 @@ const PastEventsPage: React.FC = () => {
 
           {/* Main Header */}
           <div className="text-center mb-12 fade-in-up">
-            <h1 className="text-5xl md:text-6xl font-zelda mb-6 leading-tight">
+            <h1 className="text-5xl md:text-6xl font-zelda mb-6 leading-tight text-gray-900">
               Past Events <span className="text-logo-purple-2 italic">PTZouk</span>
             </h1>
             <div className="w-24 h-1 bg-gradient-to-r from-transparent via-logo-purple-2 to-transparent mx-auto mb-4"></div>
-            <p className="text-stone-300 font-light text-lg max-w-2xl mx-auto">
+            <p className="text-gray-900 font-light text-lg max-w-2xl mx-auto">
               Relive the memories from our past events and workshops
             </p>
           </div>
@@ -96,7 +96,7 @@ const PastEventsPage: React.FC = () => {
                 className={`px-6 py-2 border rounded uppercase tracking-widest text-sm transition-all ${
                   selectedYear === null
                     ? 'bg-logo-purple-2 text-white border-logo-purple-2'
-                    : 'bg-transparent text-stone-300 border-stone-600 hover:border-logo-purple-2 hover:text-logo-purple-2'
+                    : 'bg-transparent text-gray-600 border-gray-300 hover:border-logo-purple-2 hover:text-logo-purple-2'
                 }`}
               >
                 All Years
@@ -108,7 +108,7 @@ const PastEventsPage: React.FC = () => {
                   className={`px-6 py-2 border rounded uppercase tracking-widest text-sm transition-all ${
                     selectedYear === year
                       ? 'bg-logo-purple-2 text-white border-logo-purple-2'
-                      : 'bg-transparent text-stone-300 border-stone-600 hover:border-logo-purple-2 hover:text-logo-purple-2'
+                      : 'bg-transparent text-gray-600 border-gray-300 hover:border-logo-purple-2 hover:text-logo-purple-2'
                   }`}
                 >
                   {year}
@@ -124,7 +124,7 @@ const PastEventsPage: React.FC = () => {
               .map((year) => (
                 <div key={year} className="mb-20">
                   {!selectedYear && (
-                    <h2 className="text-3xl md:text-4xl font-zelda text-white mb-8 text-center">
+                    <h2 className="text-3xl md:text-4xl font-zelda text-gray-900 mb-8 text-center">
                       {year}
                     </h2>
                   )}
@@ -133,7 +133,7 @@ const PastEventsPage: React.FC = () => {
                     {eventsByYear[Number(year)].map((event) => (
                       <div
                         key={event.id}
-                        className="group relative overflow-hidden bg-zouk-dark-gray border border-white/5 hover:border-logo-purple-2/30 transition-all duration-300 hover:-translate-y-2 cursor-pointer text-left w-full"
+                        className="group relative overflow-hidden bg-white border border-gray-200 hover:border-logo-purple-2/50 transition-all duration-300 hover:-translate-y-2 cursor-pointer text-left w-full shadow-sm"
                       >
                         {/* Poster Image or Video Thumbnail */}
                         {(event.poster || event.videoUrl) && (
@@ -191,31 +191,31 @@ const PastEventsPage: React.FC = () => {
                             </div>
                           )}
                           
-                          <h3 className="text-2xl font-zelda text-white mb-4 group-hover:text-logo-purple-2 transition-colors">
+                          <h3 className="text-2xl font-zelda text-gray-900 mb-4 group-hover:text-logo-purple-2 transition-colors">
                             {event.title}
                           </h3>
                           
-                          <p className="text-stone-400 text-sm mb-6 font-light line-clamp-3">
+                          <p className="text-gray-900 text-sm mb-6 font-light line-clamp-3">
                             {event.description}
                           </p>
 
                           <div className="space-y-3 mb-6">
-                            <div className="flex items-center text-stone-300 text-sm">
+                            <div className="flex items-center text-gray-900 text-sm">
                               <Calendar size={14} className="mr-2 text-logo-purple-2" />
                               {event.dateRange || event.date}
                             </div>
-                            <div className="flex items-center text-stone-300 text-sm">
+                            <div className="flex items-center text-gray-900 text-sm">
                               <MapPin size={14} className="mr-2 text-logo-purple-2" />
                               {event.location}
                             </div>
                             {event.dj && (
-                              <div className="flex items-center text-stone-300 text-sm">
+                              <div className="flex items-center text-gray-900 text-sm">
                                 <Music size={14} className="mr-2 text-logo-purple-2" />
                                 DJ: {event.dj}
                               </div>
                             )}
                             {event.guestInstructors && event.guestInstructors.length > 0 && (
-                              <div className="flex items-center text-stone-300 text-sm">
+                              <div className="flex items-center text-gray-900 text-sm">
                                 <Users size={14} className="mr-2 text-logo-purple-2" />
                                 {event.guestInstructors.join(', ')}
                               </div>
@@ -247,7 +247,7 @@ const PastEventsPage: React.FC = () => {
               ))
           ) : (
             <div className="text-center py-20">
-              <p className="text-stone-400 text-lg">No past events found.</p>
+              <p className="text-gray-900 text-lg">No past events found.</p>
             </div>
           )}
         </div>

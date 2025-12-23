@@ -84,7 +84,7 @@ const EventsPage: React.FC = () => {
               Events <span className="text-logo-purple-2 italic">PTZouk</span>
             </h1>
             <div className="w-24 h-1 bg-gradient-to-r from-transparent via-logo-purple-2 to-transparent mx-auto mb-4"></div>
-            <p className="text-gray-600 font-light text-lg max-w-2xl mx-auto">
+            <p className="text-gray-900 font-light text-lg max-w-2xl mx-auto">
               Discover upcoming events and relive memories from past events
             </p>
           </div>
@@ -156,27 +156,27 @@ const EventsPage: React.FC = () => {
                       {event.title}
                     </h3>
                     
-                    <p className="text-gray-600 text-sm mb-6 font-light line-clamp-3">
+                    <p className="text-gray-900 text-sm mb-6 font-light line-clamp-3">
                       {event.description}
                     </p>
 
                     <div className="space-y-3 mb-6">
-                      <div className="flex items-center text-gray-700 text-sm">
+                      <div className="flex items-center text-gray-900 text-sm">
                         <Calendar size={14} className="mr-2 text-logo-purple-2" />
                         {event.dateRange || event.date}
                       </div>
-                      <div className="flex items-center text-gray-700 text-sm">
+                      <div className="flex items-center text-gray-900 text-sm">
                         <MapPin size={14} className="mr-2 text-logo-purple-2" />
                         {event.location}
                       </div>
                       {event.dj && (
-                        <div className="flex items-center text-gray-700 text-sm">
+                        <div className="flex items-center text-gray-900 text-sm">
                           <Music size={14} className="mr-2 text-logo-purple-2" />
                           DJ: {event.dj}
                         </div>
                       )}
                       {event.guestInstructors && event.guestInstructors.length > 0 && (
-                        <div className="flex items-center text-gray-700 text-sm">
+                        <div className="flex items-center text-gray-900 text-sm">
                           <Users size={14} className="mr-2 text-logo-purple-2" />
                           {event.guestInstructors.join(', ')}
                         </div>
@@ -304,27 +304,27 @@ const EventsPage: React.FC = () => {
                                 {event.title}
                               </h3>
                               
-                              <p className="text-gray-600 text-sm mb-6 font-light line-clamp-3">
+                              <p className="text-gray-900 text-sm mb-6 font-light line-clamp-3">
                                 {event.description}
                               </p>
 
                               <div className="space-y-3 mb-6">
-                                <div className="flex items-center text-gray-700 text-sm">
+                                <div className="flex items-center text-gray-900 text-sm">
                                   <Calendar size={14} className="mr-2 text-logo-purple-2" />
                                   {event.dateRange || event.date}
                                 </div>
-                                <div className="flex items-center text-gray-700 text-sm">
+                                <div className="flex items-center text-gray-900 text-sm">
                                   <MapPin size={14} className="mr-2 text-logo-purple-2" />
                                   {event.location}
                                 </div>
                                 {event.dj && (
-                                  <div className="flex items-center text-gray-700 text-sm">
+                                  <div className="flex items-center text-gray-900 text-sm">
                                     <Music size={14} className="mr-2 text-logo-purple-2" />
                                     DJ: {event.dj}
                                   </div>
                                 )}
                                 {event.guestInstructors && event.guestInstructors.length > 0 && (
-                                  <div className="flex items-center text-gray-700 text-sm">
+                                  <div className="flex items-center text-gray-900 text-sm">
                                     <Users size={14} className="mr-2 text-logo-purple-2" />
                                     {event.guestInstructors.join(', ')}
                                   </div>
@@ -356,7 +356,7 @@ const EventsPage: React.FC = () => {
                   ))
               ) : (
                 <div className="text-center py-20">
-                  <p className="text-gray-600 text-lg">No past events found.</p>
+                  <p className="text-gray-900 text-lg">No past events found.</p>
                 </div>
               )}
             </>

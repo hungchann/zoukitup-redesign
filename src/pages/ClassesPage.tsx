@@ -36,7 +36,7 @@ const ClassesPage: React.FC = () => {
               <span className="text-logo-purple-2 italic">PTZouk</span> Classes
             </h1>
             <div className="w-24 h-1 bg-gradient-to-r from-transparent via-logo-purple-2 to-transparent mx-auto mb-4"></div>
-            <p className="text-gray-600 font-light text-lg max-w-2xl mx-auto">
+            <p className="text-gray-900 font-light text-lg max-w-2xl mx-auto">
               Explore our classes and find the one that's right for you
             </p>
           </div>
@@ -73,20 +73,20 @@ const ClassesPage: React.FC = () => {
                   {cls.title}
                 </h3>
                 
-                <p className="text-gray-600 text-sm mb-6 font-light line-clamp-3">
+                <p className="text-gray-900 text-sm mb-6 font-light line-clamp-3">
                   {cls.description}
                 </p>
 
                 <div className="space-y-3 mb-6">
-                  <div className="flex items-center text-gray-700 text-sm">
+                  <div className="flex items-center text-gray-900 text-sm">
                     <Clock size={14} className="mr-2 text-logo-purple-2" />
                     {cls.schedule}
                   </div>
-                  <div className="flex items-center text-gray-700 text-sm">
+                  <div className="flex items-center text-gray-900 text-sm">
                     <MapPin size={14} className="mr-2 text-logo-purple-2" />
                     {cls.location}
                   </div>
-                  <div className="flex items-center text-gray-700 text-sm">
+                  <div className="flex items-center text-gray-900 text-sm">
                     <Users size={14} className="mr-2 text-logo-purple-2" />
                     {cls.instructors}
                   </div>
