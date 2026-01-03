@@ -4,15 +4,36 @@ import { ChevronDown } from 'lucide-react';
 const Hero: React.FC = () => {
   return (
     <div className="relative h-screen w-full overflow-hidden flex items-center justify-center">
-      {/* Background Image with Overlay */}
+      {/* Background Image */}
       <div className="absolute inset-0">
-        <img
-          src="/image/hero-banner.webp"
-          alt="Brazilian Zouk & Lambada in Vietnam"
-          className="w-full h-full object-cover object-center grayscale opacity-60 scale-105 animate-[pulse_10s_ease-in-out_infinite]"
-          style={{ objectPosition: 'center center' }}
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/10 to-white"></div>
+        {/* Mobile: Square Crop - 2 người ở giữa */}
+        <div className="md:hidden absolute inset-0 flex items-center justify-center">
+          <div 
+            className="aspect-square relative overflow-hidden"
+            style={{ 
+              width: 'min(100vw, 100vh)',
+              height: 'min(100vw, 100vh)'
+            }}
+          >
+            <img
+              src="/image/hero-banner.webp"
+              alt="Brazilian Zouk & Lambada in Vietnam"
+              className="w-full h-full object-cover grayscale opacity-60 scale-105 animate-[pulse_10s_ease-in-out_infinite]"
+              style={{ objectPosition: 'center 30%' }}
+            />
+            <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/10 to-white"></div>
+          </div>
+        </div>
+
+        {/* Desktop: Full width/height */}
+        <div className="hidden md:block absolute inset-0">
+          <img
+            src="/image/hero-banner.webp"
+            alt="Brazilian Zouk & Lambada in Vietnam"
+            className="w-full h-full object-cover object-center grayscale opacity-60 scale-105 animate-[pulse_10s_ease-in-out_infinite]"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/10 to-white"></div>
+        </div>
       </div>
 
       {/* Content */}
