@@ -37,7 +37,7 @@ export const convertDriveLinkToDirectUrl = (driveLink: string): string => {
  */
 export const extractYouTubeId = (youtubeUrl: string): string | null => {
   const patterns = [
-    /(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/embed\/)([a-zA-Z0-9_-]+)/,
+    /(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/embed\/|youtube\.com\/shorts\/)([a-zA-Z0-9_-]+)/,
   ];
 
   for (const pattern of patterns) {
@@ -63,18 +63,33 @@ export const getYouTubeEmbedUrl = (youtubeUrl: string): string | null => {
 // Add your Google Drive image links here
 // Note: Make sure the files in Google Drive are set to "Anyone with the link can view"
 export const galleryMedia: GalleryItem[] = [
-  // Example: Add your Google Drive image links
-  // {
-  //   type: 'image',
-  //   url: 'https://drive.google.com/file/d/YOUR_FILE_ID/view?usp=sharing',
-  //   title: 'Workshop Photo 1'
-  // },
+  // Local images
+  {
+    type: 'image',
+    url: '/image/gallery-1.jpg',
+    title: 'PTZouk Vietnam Gallery'
+  },
+  {
+    type: 'image',
+    url: '/image/gallery-2.JPG',
+    title: 'PTZouk Vietnam Gallery'
+  },
   
   // YouTube video example
   {
     type: 'video',
     url: 'https://www.youtube.com/watch?v=Yq7rn2xPYL8',
     title: 'Demo Lautaro & Ariana in PT Zouk Vietnam'
+  },
+  {
+    type: 'video',
+    url: 'https://www.youtube.com/shorts/F9en3byg3nc',
+    title: 'PTZouk Vietnam'
+  },
+  {
+    type: 'video',
+    url: 'https://www.youtube.com/shorts/UO70_kWxSPk',
+    title: 'PTZouk Vietnam'
   },
 ];
 

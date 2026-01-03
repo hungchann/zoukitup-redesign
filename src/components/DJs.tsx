@@ -13,17 +13,17 @@ interface DJ {
 const djs: DJ[] = [
   {
     id: 1,
-    name: 'DJ AnhQ',
+    name: 'DJ AnhQ (BZDC certified DJ)',
     image: '/image/dj-1.png',
-    description: 'Introduction text demo',
+    description: 'Meet DJ AnhQ — a rising DJ in the regional Zouk community, with sets at major events like HZD Marathon 2022, Zouk It Up 2023, Zoukmelah 2023, and Brazouky Vietnam 2024. As a regular DJ at Sensation Night, he continues to grow his craft and bring fresh energy to the dance floor. A talent to watch in the years ahead.',
     link: 'https://soundcloud.com/dj-anh-q',
     platform: 'soundcloud'
   },
   {
     id: 2,
-    name: 'DJ TK',
+    name: 'DJ TK (BZDC certified DJ)',
     image: '/image/dj-2.png',
-    description: 'Introduction text demo',
+    description: 'DJ TK is a talented and dedicated artist whose passion for music shows in every set he plays. Invited to major events in Vietnam and abroad, he has earned the love of dancers and organizers alike. His contribution goes beyond the local scene — bringing energy, connection, and high-quality music to stages across the international Zouk & Lambada community.',
     link: 'https://www.mixcloud.com/PhuongVu201/',
     platform: 'mixcloud'
   }

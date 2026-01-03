@@ -4,6 +4,8 @@ import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
 import { events, EventType } from '../data/events';
 import { pastEvents } from '../data/pastEvents';
+import { getEventLayoutConfig } from '../config/eventLayoutConfig';
+import { renderScheduleItem, renderContentLine } from '../utils/eventRenderUtils';
 
 interface EventDetailPageProps {
   eventSlug: string;
@@ -60,6 +62,8 @@ const EventDetailPage: React.FC<EventDetailPageProps> = ({ eventSlug }) => {
     }
   };
 
+  const layoutConfig = getEventLayoutConfig(eventData.type);
+
   return (
     <div className="min-h-screen bg-white text-gray-900 font-sans selection:bg-logo-purple-2 selection:text-white">
       <Navigation />
@@ -94,13 +98,17 @@ const EventDetailPage: React.FC<EventDetailPageProps> = ({ eventSlug }) => {
           {/* Poster Section */}
           {eventData.poster && (
             <div className="mb-12 fade-in-up delay-100">
-              <div className="relative aspect-[2/3] overflow-hidden rounded-lg border border-gray-200">
+              <div className="relative w-full overflow-hidden rounded-lg border border-gray-200 bg-gray-50">
                 <img
                   src={eventData.poster}
                   alt={eventData.title}
-                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-700 grayscale hover:grayscale-0"
+                  className="w-full h-auto max-h-[800px] object-contain hover:scale-[1.02] transition-transform duration-700 grayscale hover:grayscale-0"
+                  loading="lazy"
+                  onError={(e) => {
+                    const target = e.target as HTMLImageElement;
+                    target.style.display = 'none';
+                  }}
                 />
-                <div className="absolute inset-0 border border-gray-200 m-4 pointer-events-none rounded-lg"></div>
               </div>
             </div>
           )}
@@ -153,19 +161,16 @@ const EventDetailPage: React.FC<EventDetailPageProps> = ({ eventSlug }) => {
           {/* Schedule Section */}
           {eventData.schedule && eventData.schedule.length > 0 && (
             <div className="mb-12 fade-in-up delay-300">
-              <div className="flex items-center mb-6">
+              <div className="flex items-center mb-8">
                 <Clock className="w-6 h-6 mr-3 text-logo-purple-2" />
                 <h2 className="text-3xl font-zelda text-gray-900">Schedule</h2>
               </div>
-              <div className="border border-gray-200 p-6 rounded-lg bg-gradient-to-r from-logo-purple-2/5 to-transparent">
-                <ul className="space-y-3">
-                  {eventData.schedule.map((item) => (
-                    <li key={item} className="flex items-start text-gray-900 font-light">
-                      <span className="w-2 h-2 bg-logo-purple-2 rounded-full mr-3 mt-2 flex-shrink-0"></span>
-                      {item}
-                    </li>
-                  ))}
-                </ul>
+              <div className="border border-gray-200 p-8 md:p-10 rounded-lg bg-gradient-to-r from-logo-purple-2/5 to-transparent">
+                <div className="space-y-0">
+                  {eventData.schedule.map((item, index) => 
+                    renderScheduleItem({ item, index, config: layoutConfig.scheduleStyle })
+                  )}
+                </div>
               </div>
             </div>
           )}
@@ -174,10 +179,12 @@ const EventDetailPage: React.FC<EventDetailPageProps> = ({ eventSlug }) => {
           {eventData.content && (
             <div className="mb-12 fade-in-up delay-300">
               <h2 className="text-3xl font-zelda text-gray-900 mb-6">Content</h2>
-              <div className="border border-gray-200 p-6 rounded-lg">
-                <p className="text-gray-900 font-light leading-relaxed whitespace-pre-line">
-                  {eventData.content}
-                </p>
+              <div className="border border-gray-200 p-8 rounded-lg bg-gradient-to-br from-white to-logo-purple-2/5">
+                <div className="text-gray-900 font-light leading-relaxed space-y-4">
+                  {eventData.content.split('\n').map((line, index) => 
+                    renderContentLine({ line, index, content: eventData.content!, config: layoutConfig.contentStyle })
+                  )}
+                </div>
               </div>
             </div>
           )}
@@ -186,23 +193,23 @@ const EventDetailPage: React.FC<EventDetailPageProps> = ({ eventSlug }) => {
           <div className="border-t border-gray-200 pt-12 fade-in-up delay-300">
             <div className="text-center mb-8">
               <h2 className="text-3xl md:text-4xl font-zelda text-gray-900 mb-4">
-                Ready to Join?
+                {layoutConfig.cta.title}
               </h2>
               <p className="text-gray-900 font-light text-lg mb-8">
-                Don't miss the opportunity to join this amazing event with the PTZouk community!
+                {layoutConfig.cta.description}
               </p>
             </div>
 
             <div className="flex flex-col md:flex-row gap-4 justify-center items-center">
               {eventData.messengerLink && (
                 <a
-                  href="https://www.facebook.com/messages/t/107012643982143"
+                  href={eventData.messengerLink}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="px-8 py-4 bg-[#0084FF] text-white font-medium tracking-widest uppercase hover:bg-[#0066CC] transition-all duration-300 flex items-center gap-3 min-w-[200px] justify-center"
                 >
                   <MessageCircle className="w-5 h-5" />
-                  Buy Tickets via Messenger
+                  {layoutConfig.cta.buttonText}
                 </a>
               )}
               {!eventData.messengerLink && (

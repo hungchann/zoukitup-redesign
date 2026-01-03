@@ -59,7 +59,7 @@ const Contact: React.FC = () => {
             <span className="text-logo-purple-2 text-sm uppercase tracking-widest">Contact</span>
             <h2 className="text-4xl md:text-5xl font-sans text-gray-900 mt-2 mb-8 font-bold">Start Your Journey</h2>
             <p className="text-gray-600 mb-12 font-light leading-relaxed max-w-md">
-              Have questions about classes, events, or partnerships? Don't hesitate to contact us. The Zoukitup team is always ready to help.
+              Have questions about classes, events, or partnerships? Don't hesitate to contact us. The PTZ Team is always ready to help.
             </p>
 
             <div className="space-y-6">

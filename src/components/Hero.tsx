@@ -9,19 +9,18 @@ const Hero: React.FC = () => {
         <img
           src="/image/hero-banner.webp"
           alt="Brazilian Zouk & Lambada in Vietnam"
-          className="w-full h-full object-cover grayscale opacity-60 scale-105 animate-[pulse_10s_ease-in-out_infinite]"
+          className="w-full h-full object-cover object-center grayscale opacity-60 scale-105 animate-[pulse_10s_ease-in-out_infinite]"
+          style={{ objectPosition: 'center center' }}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/10 to-white"></div>
       </div>
 
       {/* Content */}
       <div className="relative z-10 text-center px-4 max-w-4xl mx-auto flex flex-col items-center">
-        <span className="text-logo-purple-2 text-sm md:text-base uppercase tracking-[0.3em] mb-4 fade-in-up">
-          PTZ - DANCE YOUR WAY
-        </span>
-        <h1 className="text-5xl md:text-7xl lg:text-8xl font-sans text-gray-900 font-bold mb-8 leading-tight fade-in-up delay-100">
-          BRAZILIAN ZOUK <br />
-          <span className="font-sans italic font-light opacity-90">& LAMBADA IN VIETNAM</span>
+        <h1 className="text-3xl md:text-7xl lg:text-8xl font-sans text-gray-900 font-bold mb-8 leading-tight fade-in-up delay-100">
+          <span className="block md:inline">BRAZILIAN ZOUK</span>
+          <span className="block md:inline"> & LAMBADA</span>
+          <span className="block md:inline"> IN VIETNAM</span>
         </h1>
         <p className="text-gray-700 text-lg md:text-xl max-w-2xl mb-10 font-light leading-relaxed fade-in-up delay-200">
           Discover the grace, connection, and passion in every step.

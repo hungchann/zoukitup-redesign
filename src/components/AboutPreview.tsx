@@ -17,11 +17,14 @@ const AboutPreview: React.FC = () => {
             <span className="text-logo-purple-2 italic">PTZouk</span>
           </h2>
           <div className="space-y-6 text-gray-600 font-light text-lg leading-relaxed">
-            <p>
-              Founded in 2019, PTZ - Phuong & Trang Zouk Vietnam - is the leading Brazilian Zouk studio in Hanoi, committed to leading the way in spreading this dance in the local community.
+            <p className="text-xl text-gray-900 font-normal">
+              Welcome to PTZ – Hanoi's #1 Brazilian Zouk & Lambada hub!
             </p>
             <p>
-              We provide a comprehensive schedule including weekly classes, social dancing, and regular Brazilian Zouk events. Our curriculum is continuously updated to integrate the latest global developments in Zouk.
+              Founded in 2019 by Huyen Trang & Hoai Phuong, PTZ has quickly become the go-to destination for anyone who loves the magic of Brazilian dance.
+            </p>
+            <p>
+              We provide a comprehensive schedule including weekly classes, social dancing, and regular Brazilian Zouk events. Our curriculum is continuously updated to integrate the latest global developments in Zouk, and our parties feature non-stop mixes, live from our DJs.
             </p>
           </div>
           <button
@@ -41,8 +44,8 @@ const AboutPreview: React.FC = () => {
               <span className="text-xs uppercase tracking-widest text-gray-500">Zouk It Up</span>
             </div>
             <div>
-              <span className="block text-3xl font-sans text-gray-900 font-bold">10+</span>
-              <span className="text-xs uppercase tracking-widest text-gray-500">International Artists</span>
+              <span className="block text-3xl font-sans text-gray-900 font-bold">#1</span>
+              <span className="text-xs uppercase tracking-widest text-gray-500">Zouk Hub</span>
             </div>
           </div>
         </div>

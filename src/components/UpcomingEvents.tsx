@@ -34,8 +34,8 @@ const UpcomingEvents: React.FC = () => {
     }
   };
 
-  // Show only first 3 events
-  const displayedEvents = events.slice(0, 3);
+  // Show first 4 events
+  const displayedEvents = events.slice(0, 4);
 
   return (
     <section className="py-12 md:py-24 bg-white text-gray-900">

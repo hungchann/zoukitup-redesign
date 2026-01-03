@@ -11,27 +11,27 @@ interface Instructor {
 const instructors: Instructor[] = [
   {
     id: 1,
-    name: 'Instructor 1',
-    image: '/image/gv-1.png',
-    description: 'Introduction text demo'
+    name: 'Hoai Phuong',
+    image: '/image/Hoai Phuong.png',
+    description: 'One of the first to learn and teach Zouk & Lambada in Vietnam, he helped lay the foundations of the scene and has been actively growing the community ever since — teaching, organizing, and creating spaces for dancers to connect and thrive.'
   },
   {
     id: 2,
-    name: 'Instructor 2',
-    image: '/image/gv-2.png',
-    description: 'Introduction text demo'
+    name: 'Huyen Trang',
+    image: '/image/Huyen Trang.png',
+    description: 'Dynamic and vibrant, Huyen Trang brings a bright, welcoming energy to every class. She\'s known for her graceful posture, warm smile, and the way she makes the dance floor feel alive.'
   },
   {
     id: 3,
-    name: 'Instructor 3',
-    image: '/image/gv-3.png',
-    description: 'Introduction text demo'
+    name: 'Hau Tran',
+    image: '/image/Hau Tran.png',
+    description: 'Hau Tran focuses on strong foundational technique as the base for growth and creativity. He teaches with a clear, structured approach, blending technical precision to help students develop confidently and sustainably.'
   },
   {
     id: 4,
-    name: 'Instructor 4',
-    image: '/image/gv-1.png',
-    description: 'Introduction text demo'
+    name: 'Hai Ha',
+    image: '/image/Hai Ha.png',
+    description: 'She is fun, graceful, and radiant, guided by a critical sense of musicality and detail. Her focus on core technique and musical listening builds confidence in the basics and leaves space for authenticity in expression.'
   }
 ];
 
