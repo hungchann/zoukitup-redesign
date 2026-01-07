@@ -54,9 +54,9 @@ const AboutPreview: React.FC = () => {
         <div className="order-1 md:order-2 relative">
             <div className="relative aspect-[4/3] overflow-hidden">
                 <img 
-                    src="https://picsum.photos/seed/zoukcouple/800/1200" 
+                    src="/image/Ảnh full.jpg" 
                     alt="Couple dancing Zouk" 
-                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-700 grayscale hover:grayscale-0"
+                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
                 />
             </div>
             {/* Decorative elements */}

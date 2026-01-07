@@ -102,7 +102,7 @@ const EventDetailPage: React.FC<EventDetailPageProps> = ({ eventSlug }) => {
                 <img
                   src={eventData.poster}
                   alt={eventData.title}
-                  className="w-full h-auto max-h-[800px] object-contain hover:scale-[1.02] transition-transform duration-700 grayscale hover:grayscale-0"
+                  className="w-full h-auto max-h-[800px] object-contain hover:scale-[1.02] transition-transform duration-700"
                   loading="lazy"
                   onError={(e) => {
                     const target = e.target as HTMLImageElement;

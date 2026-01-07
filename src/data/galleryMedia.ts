@@ -78,11 +78,6 @@ export const galleryMedia: GalleryItem[] = [
   // YouTube video example
   {
     type: 'video',
-    url: 'https://www.youtube.com/watch?v=Yq7rn2xPYL8',
-    title: 'Demo Lautaro & Ariana in PT Zouk Vietnam'
-  },
-  {
-    type: 'video',
     url: 'https://www.youtube.com/shorts/F9en3byg3nc',
     title: 'PTZouk Vietnam'
   },

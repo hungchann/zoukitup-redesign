@@ -67,7 +67,7 @@ const UpcomingEvents: React.FC = () => {
             >
               {/* Poster Image */}
               {event.poster && (
-                <div className="relative h-64 overflow-hidden">
+                <div className="relative aspect-[3/4] overflow-hidden">
                   <img
                     src={event.poster}
                     alt={event.title}
@@ -96,9 +96,11 @@ const UpcomingEvents: React.FC = () => {
                   {event.title}
                 </h3>
                 
-                <p className="text-gray-600 text-sm mb-6 font-light line-clamp-3">
-                  {event.description}
-                </p>
+                {event.description && event.description !== 'Coming soon' && (
+                  <p className="text-gray-600 text-sm mb-6 font-light line-clamp-3">
+                    {event.description}
+                  </p>
+                )}
 
                 <div className="space-y-3 mb-6">
                   <div className="flex items-center text-gray-700 text-sm">

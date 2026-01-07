@@ -42,7 +42,7 @@ const Contact: React.FC = () => {
               className="absolute inset-0"
             ></iframe>
             <a 
-              href="https://maps.app.goo.gl/9oaPHKmLYY2CWCph8" 
+              href="https://maps.app.goo.gl/PJEazbBMN2qQR29C8" 
               target="_blank" 
               rel="noopener noreferrer"
               className="absolute bottom-4 right-4 bg-white text-gray-900 px-4 py-2 rounded-lg text-sm font-medium hover:bg-logo-purple-2 hover:text-white transition-colors shadow-lg z-10 border border-gray-200"

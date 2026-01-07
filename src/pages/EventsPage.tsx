@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { ArrowLeft, Calendar, MapPin, Music, Users, ArrowRight, Sparkles, Play } from 'lucide-react';
+import React, { useState, useEffect, useCallback } from 'react';
+import { ArrowLeft, Calendar, MapPin, Music, Users, ArrowRight, Sparkles, Play, ChevronLeft, ChevronRight } from 'lucide-react';
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
 import { events, EventType } from '../data/events';
@@ -7,7 +7,9 @@ import { pastEvents } from '../data/pastEvents';
 
 const EventsPage: React.FC = () => {
   const [activeTab, setActiveTab] = useState<'upcoming' | 'past'>('upcoming');
-  const [selectedYear, setSelectedYear] = useState<number | null>(null);
+  const [showAllEvents, setShowAllEvents] = useState(false);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
   
   const handleBackToHome = () => {
     window.location.hash = '';
@@ -45,23 +47,38 @@ const EventsPage: React.FC = () => {
     }
   };
 
-  // Get unique years from past events
-  const years = Array.from(new Set(pastEvents.map(event => event.year).filter(Boolean) as number[])).sort((a, b) => b - a);
-  
-  // Filter past events by selected year
-  const filteredPastEvents = selectedYear 
-    ? pastEvents.filter(event => event.year === selectedYear)
-    : pastEvents;
 
-  // Group past events by year
-  const pastEventsByYear = filteredPastEvents.reduce((acc, event) => {
-    const year = event.year || 0;
-    if (!acc[year]) {
-      acc[year] = [];
-    }
-    acc[year].push(event);
-    return acc;
-  }, {} as Record<number, typeof pastEvents>);
+  // Slider logic for upcoming events
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  const itemsPerView = isMobile ? 1 : 3;
+  const maxIndex = Math.max(0, events.length - itemsPerView);
+
+  const nextSlide = useCallback(() => {
+    setCurrentIndex((prev) => {
+      const currentMaxIndex = Math.max(0, events.length - (window.innerWidth < 768 ? 1 : 3));
+      if (prev >= currentMaxIndex) {
+        return 0;
+      }
+      return prev + 1;
+    });
+  }, []);
+
+  const prevSlide = () => {
+    setCurrentIndex((prev) => {
+      if (prev <= 0) {
+        return maxIndex;
+      }
+      return prev - 1;
+    });
+  };
 
   return (
     <div className="min-h-screen bg-white text-gray-900 font-sans selection:bg-logo-purple-2 selection:text-white">
@@ -92,10 +109,7 @@ const EventsPage: React.FC = () => {
           {/* Tabs */}
           <div className="flex justify-center gap-4 mb-12">
             <button
-              onClick={() => {
-                setActiveTab('upcoming');
-                setSelectedYear(null);
-              }}
+              onClick={() => setActiveTab('upcoming')}
               className={`px-8 py-3 border rounded uppercase tracking-widest text-sm transition-all ${
                 activeTab === 'upcoming'
                   ? 'bg-logo-purple-2 text-white border-logo-purple-2'
@@ -118,127 +132,225 @@ const EventsPage: React.FC = () => {
 
           {/* Upcoming Events */}
           {activeTab === 'upcoming' && (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
-              {events.map((event) => (
+            <>
+              {/* View All Toggle Button - Desktop */}
+              <div className="hidden md:flex justify-end mb-8">
                 <button
-                  key={event.id}
-                  onClick={() => handleEventClick(event.slug)}
-                  className="group relative overflow-hidden bg-white border border-gray-200 hover:border-logo-purple-2/50 transition-all duration-300 hover:-translate-y-2 cursor-pointer text-left w-full shadow-sm"
+                  onClick={() => setShowAllEvents(!showAllEvents)}
+                  className="flex items-center text-gray-600 hover:text-gray-900 transition-colors"
                 >
-                  {/* Poster Image */}
-                  {event.poster && (
-                    <div className="relative h-64 overflow-hidden">
-                      <img
-                        src={event.poster}
-                        alt={event.title}
-                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
-                      <div className="absolute top-4 left-4">
-                        <span className={`px-3 py-1 text-xs rounded uppercase tracking-wider border ${getEventTypeColor(event.type)}`}>
-                          {getEventTypeLabel(event.type)}
-                        </span>
-                      </div>
-                    </div>
-                  )}
+                  {showAllEvents ? 'Show Less' : 'View All'}
+                  <ArrowRight size={16} className={`ml-2 transition-transform ${showAllEvents ? 'rotate-180' : ''}`} />
+                </button>
+              </div>
 
-                  <div className="p-8">
-                    {!event.poster && (
-                      <div className="flex justify-between items-start mb-4">
-                        <span className={`px-3 py-1 text-xs rounded uppercase tracking-wider border ${getEventTypeColor(event.type)}`}>
-                          {getEventTypeLabel(event.type)}
-                        </span>
-                        <Sparkles size={18} className="text-logo-purple-2" />
-                      </div>
-                    )}
-                    
-                    <h3 className="text-2xl font-zelda text-gray-900 mb-4 group-hover:text-logo-purple-2 transition-colors">
-                      {event.title}
-                    </h3>
-                    
-                    <p className="text-gray-900 text-sm mb-6 font-light line-clamp-3">
-                      {event.description}
-                    </p>
+              {/* Slider View */}
+              {!showAllEvents ? (
+                <div className="relative mb-20">
+                  <div className="overflow-hidden">
+                    <div 
+                      className="flex transition-transform duration-500 ease-in-out"
+                      style={{ transform: `translateX(-${currentIndex * (100 / itemsPerView)}%)` }}
+                    >
+                      {events.map((event) => (
+                        <div key={event.id} className="flex-shrink-0 px-4" style={{ width: `${100 / itemsPerView}%` }}>
+                          <button
+                            onClick={() => handleEventClick(event.slug)}
+                            className="group relative overflow-hidden bg-white border border-gray-200 hover:border-logo-purple-2/50 transition-all duration-300 hover:-translate-y-2 cursor-pointer text-left w-full shadow-sm h-full flex flex-col"
+                          >
+                            {/* Poster Image */}
+                            {event.poster && (
+                              <div className="relative aspect-[3/4] overflow-hidden bg-gray-100">
+                                <img
+                                  src={event.poster}
+                                  alt={event.title}
+                                  className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-110"
+                                />
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
+                                <div className="absolute top-4 left-4">
+                                  <span className={`px-3 py-1 text-xs rounded uppercase tracking-wider border ${getEventTypeColor(event.type)}`}>
+                                    {getEventTypeLabel(event.type)}
+                                  </span>
+                                </div>
+                              </div>
+                            )}
 
-                    <div className="space-y-3 mb-6">
-                      <div className="flex items-center text-gray-900 text-sm">
-                        <Calendar size={14} className="mr-2 text-logo-purple-2" />
-                        {event.dateRange || event.date}
-                      </div>
-                      <div className="flex items-center text-gray-900 text-sm">
-                        <MapPin size={14} className="mr-2 text-logo-purple-2" />
-                        {event.location}
-                      </div>
-                      {event.dj && (
-                        <div className="flex items-center text-gray-900 text-sm">
-                          <Music size={14} className="mr-2 text-logo-purple-2" />
-                          DJ: {event.dj}
+                            <div className="p-8 flex-grow flex flex-col">
+                              {!event.poster && (
+                                <div className="flex justify-between items-start mb-4">
+                                  <span className={`px-3 py-1 text-xs rounded uppercase tracking-wider border ${getEventTypeColor(event.type)}`}>
+                                    {getEventTypeLabel(event.type)}
+                                  </span>
+                                  <Sparkles size={18} className="text-logo-purple-2" />
+                                </div>
+                              )}
+                              
+                              <h3 className="text-2xl font-zelda text-gray-900 mb-4 group-hover:text-logo-purple-2 transition-colors">
+                                {event.title}
+                              </h3>
+                              
+                              {event.description && event.description !== 'Coming soon' && (
+                                <p className="text-gray-900 text-sm mb-6 font-light line-clamp-3">
+                                  {event.description}
+                                </p>
+                              )}
+
+                              <div className="space-y-3 mb-6 mt-auto">
+                                <div className="flex items-center text-gray-900 text-sm">
+                                  <Calendar size={14} className="mr-2 text-logo-purple-2" />
+                                  {event.dateRange || event.date}
+                                </div>
+                                <div className="flex items-center text-gray-900 text-sm">
+                                  <MapPin size={14} className="mr-2 text-logo-purple-2" />
+                                  {event.location}
+                                </div>
+                                {event.dj && (
+                                  <div className="flex items-center text-gray-900 text-sm">
+                                    <Music size={14} className="mr-2 text-logo-purple-2" />
+                                    DJ: {event.dj}
+                                  </div>
+                                )}
+                                {event.guestInstructors && event.guestInstructors.length > 0 && (
+                                  <div className="flex items-center text-gray-900 text-sm">
+                                    <Users size={14} className="mr-2 text-logo-purple-2" />
+                                    {event.guestInstructors.join(', ')}
+                                  </div>
+                                )}
+                              </div>
+
+                              <div className="flex items-center text-logo-purple-2 text-sm uppercase tracking-wider group-hover:gap-2 transition-all">
+                                View Details
+                                <ArrowRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform" />
+                              </div>
+                            </div>
+                          </button>
                         </div>
-                      )}
-                      {event.guestInstructors && event.guestInstructors.length > 0 && (
-                        <div className="flex items-center text-gray-900 text-sm">
-                          <Users size={14} className="mr-2 text-logo-purple-2" />
-                          {event.guestInstructors.join(', ')}
-                        </div>
-                      )}
-                    </div>
-
-                    <div className="flex items-center text-logo-purple-2 text-sm uppercase tracking-wider group-hover:gap-2 transition-all">
-                      View Details
-                      <ArrowRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform" />
+                      ))}
                     </div>
                   </div>
-                </button>
-              ))}
-            </div>
+                  
+                  {events.length > itemsPerView && (
+                    <>
+                      <button
+                        onClick={prevSlide}
+                        className="hidden md:block absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 bg-white border border-gray-300 rounded-full p-2 shadow-lg hover:bg-gray-50 transition-colors z-10"
+                        aria-label="Previous"
+                      >
+                        <ChevronLeft size={24} />
+                      </button>
+                      <button
+                        onClick={nextSlide}
+                        className="hidden md:block absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 bg-white border border-gray-300 rounded-full p-2 shadow-lg hover:bg-gray-50 transition-colors z-10"
+                        aria-label="Next"
+                      >
+                        <ChevronRight size={24} />
+                      </button>
+                      <div className="flex md:hidden justify-center gap-2 mt-6">
+                        <button
+                          onClick={prevSlide}
+                          className="bg-white border border-gray-300 rounded-full p-2 shadow-lg hover:bg-gray-50 transition-colors"
+                          aria-label="Previous"
+                        >
+                          <ChevronLeft size={20} />
+                        </button>
+                        <button
+                          onClick={nextSlide}
+                          className="bg-white border border-gray-300 rounded-full p-2 shadow-lg hover:bg-gray-50 transition-colors"
+                          aria-label="Next"
+                        >
+                          <ChevronRight size={20} />
+                        </button>
+                      </div>
+                    </>
+                  )}
+                </div>
+              ) : (
+                /* Full Grid View */
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
+                  {events.map((event) => (
+                    <button
+                      key={event.id}
+                      onClick={() => handleEventClick(event.slug)}
+                      className="group relative overflow-hidden bg-white border border-gray-200 hover:border-logo-purple-2/50 transition-all duration-300 hover:-translate-y-2 cursor-pointer text-left w-full shadow-sm"
+                    >
+                      {/* Poster Image */}
+                      {event.poster && (
+                        <div className="relative aspect-[3/4] overflow-hidden bg-gray-100">
+                          <img
+                            src={event.poster}
+                            alt={event.title}
+                            className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-110"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
+                          <div className="absolute top-4 left-4">
+                            <span className={`px-3 py-1 text-xs rounded uppercase tracking-wider border ${getEventTypeColor(event.type)}`}>
+                              {getEventTypeLabel(event.type)}
+                            </span>
+                          </div>
+                        </div>
+                      )}
+
+                      <div className="p-8">
+                        {!event.poster && (
+                          <div className="flex justify-between items-start mb-4">
+                            <span className={`px-3 py-1 text-xs rounded uppercase tracking-wider border ${getEventTypeColor(event.type)}`}>
+                              {getEventTypeLabel(event.type)}
+                            </span>
+                            <Sparkles size={18} className="text-logo-purple-2" />
+                          </div>
+                        )}
+                        
+                        <h3 className="text-2xl font-zelda text-gray-900 mb-4 group-hover:text-logo-purple-2 transition-colors">
+                          {event.title}
+                        </h3>
+                        
+                        {event.description && event.description !== 'Coming soon' && (
+                          <p className="text-gray-900 text-sm mb-6 font-light line-clamp-3">
+                            {event.description}
+                          </p>
+                        )}
+
+                        <div className="space-y-3 mb-6">
+                          <div className="flex items-center text-gray-900 text-sm">
+                            <Calendar size={14} className="mr-2 text-logo-purple-2" />
+                            {event.dateRange || event.date}
+                          </div>
+                          <div className="flex items-center text-gray-900 text-sm">
+                            <MapPin size={14} className="mr-2 text-logo-purple-2" />
+                            {event.location}
+                          </div>
+                          {event.dj && (
+                            <div className="flex items-center text-gray-900 text-sm">
+                              <Music size={14} className="mr-2 text-logo-purple-2" />
+                              DJ: {event.dj}
+                            </div>
+                          )}
+                          {event.guestInstructors && event.guestInstructors.length > 0 && (
+                            <div className="flex items-center text-gray-900 text-sm">
+                              <Users size={14} className="mr-2 text-logo-purple-2" />
+                              {event.guestInstructors.join(', ')}
+                            </div>
+                          )}
+                        </div>
+
+                        <div className="flex items-center text-logo-purple-2 text-sm uppercase tracking-wider group-hover:gap-2 transition-all">
+                          View Details
+                          <ArrowRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform" />
+                        </div>
+                      </div>
+                    </button>
+                  ))}
+                </div>
+              )}
+            </>
           )}
 
           {/* Past Events */}
           {activeTab === 'past' && (
             <>
-              {/* Year Filter */}
-              {years.length > 0 && (
-                <div className="flex flex-wrap justify-center gap-4 mb-12">
-                  <button
-                    onClick={() => setSelectedYear(null)}
-                    className={`px-6 py-2 border rounded uppercase tracking-widest text-sm transition-all ${
-                      selectedYear === null
-                        ? 'bg-logo-purple-2 text-white border-logo-purple-2'
-                        : 'bg-transparent text-gray-600 border-gray-300 hover:border-logo-purple-2 hover:text-logo-purple-2'
-                    }`}
-                  >
-                    All Years
-                  </button>
-                  {years.map((year) => (
-                    <button
-                      key={year}
-                      onClick={() => setSelectedYear(year)}
-                      className={`px-6 py-2 border rounded uppercase tracking-widest text-sm transition-all ${
-                        selectedYear === year
-                          ? 'bg-logo-purple-2 text-white border-logo-purple-2'
-                          : 'bg-transparent text-gray-600 border-gray-300 hover:border-logo-purple-2 hover:text-logo-purple-2'
-                      }`}
-                    >
-                      {year}
-                    </button>
-                  ))}
-                </div>
-              )}
-
-              {/* Events by Year */}
-              {Object.keys(pastEventsByYear).length > 0 ? (
-                Object.keys(pastEventsByYear)
-                  .sort((a, b) => Number(b) - Number(a))
-                  .map((year) => (
-                    <div key={year} className="mb-20">
-                      {!selectedYear && (
-                        <h2 className="text-3xl md:text-4xl font-zelda text-gray-900 mb-8 text-center">
-                          {year}
-                        </h2>
-                      )}
-                      
-                      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        {pastEventsByYear[Number(year)].map((event) => (
+              {pastEvents.length > 0 ? (
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
+                  {pastEvents.map((event) => (
                           <button
                             key={event.id}
                             onClick={() => handleEventClick(event.slug)}
@@ -246,13 +358,13 @@ const EventsPage: React.FC = () => {
                           >
                             {/* Poster Image or Video Thumbnail */}
                             {(event.poster || event.videoUrl) && (
-                              <div className="relative h-64 overflow-hidden">
+                              <div className="relative aspect-[3/4] overflow-hidden bg-gray-100">
                                 {event.videoUrl ? (
-                                  <div className="relative w-full h-full">
+                                  <div className="relative w-full h-full bg-gray-100">
                                     <img
                                       src={event.poster || `https://img.youtube.com/vi/${event.videoUrl.split('v=')[1]?.split('&')[0]}/maxresdefault.jpg`}
                                       alt={event.title}
-                                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                      className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-110"
                                     />
                                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
                                     <div className="absolute inset-0 flex items-center justify-center">
@@ -277,7 +389,7 @@ const EventsPage: React.FC = () => {
                                     <img
                                       src={event.poster}
                                       alt={event.title}
-                                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                      className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-110"
                                     />
                                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
                                     <div className="absolute top-4 left-4">
@@ -350,10 +462,8 @@ const EventsPage: React.FC = () => {
                               </div>
                             </div>
                           </button>
-                        ))}
-                      </div>
-                    </div>
-                  ))
+                  ))}
+                </div>
               ) : (
                 <div className="text-center py-20">
                   <p className="text-gray-900 text-lg">No past events found.</p>

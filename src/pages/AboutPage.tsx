@@ -1,5 +1,5 @@
 import React from 'react';
-import { Calendar, Globe, Music, Trophy, ArrowLeft } from 'lucide-react';
+import { Calendar, Globe, Music, Trophy, ArrowLeft, Users } from 'lucide-react';
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
 
@@ -78,6 +78,11 @@ const AboutPage: React.FC = () => {
               <Globe className="w-8 h-8 mx-auto mb-4 text-logo-purple-2" />
               <span className="block text-3xl font-sans text-gray-900 mb-2 font-bold">#1</span>
               <span className="text-xs uppercase tracking-widest text-gray-500">Zouk Hub</span>
+            </div>
+            <div className="text-center border border-gray-200 p-6 rounded-lg hover:border-logo-purple-2/50 transition-colors bg-zouk-light">
+              <Users className="w-8 h-8 mx-auto mb-4 text-logo-purple-2" />
+              <span className="block text-3xl font-sans text-gray-900 mb-2 font-bold">30+</span>
+              <span className="text-xs uppercase tracking-widest text-gray-500">International Artist</span>
             </div>
           </div>
 

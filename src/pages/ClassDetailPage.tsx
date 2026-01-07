@@ -89,7 +89,11 @@ const ClassDetailPage: React.FC<ClassDetailPageProps> = ({ classSlug }) => {
                 <Clock className="w-6 h-6 mr-3 text-logo-purple-2" />
                 <h3 className="text-xl font-sans text-gray-900 font-bold">Schedule</h3>
               </div>
-              <p className="text-gray-900 font-light">{classData.schedule}</p>
+              <div className="text-gray-900 font-light space-y-1">
+                {classData.schedule.split(' | ').map((item, index) => (
+                  <p key={index}>{item}</p>
+                ))}
+              </div>
               {classData.firstClass && (
                 <div className="mt-3 flex items-center text-gray-900 text-sm">
                   <Calendar className="w-4 h-4 mr-2" />
@@ -103,7 +107,11 @@ const ClassDetailPage: React.FC<ClassDetailPageProps> = ({ classSlug }) => {
                 <MapPin className="w-6 h-6 mr-3 text-logo-purple-2" />
                 <h3 className="text-xl font-sans text-gray-900 font-bold">Location</h3>
               </div>
-              <p className="text-gray-900 font-light">{classData.location}</p>
+              <div className="text-gray-900 font-light space-y-1">
+                {classData.location.split(' | ').map((item, index) => (
+                  <p key={index}>{item}</p>
+                ))}
+              </div>
             </div>
 
             <div className="border border-gray-200 p-6 rounded-lg hover:border-logo-purple-2/50 transition-colors md:col-span-2 bg-zouk-light">
