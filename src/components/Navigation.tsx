@@ -83,7 +83,7 @@ const Navigation: React.FC = () => {
         </a>
 
         {/* Desktop Menu */}
-        <div className="hidden md:flex space-x-4 lg:space-x-8 items-center flex-shrink">
+        <div className="hidden lg:flex space-x-4 lg:space-x-8 items-center flex-shrink">
           {navItems.map((item) => (
             <a
               key={item.label}
@@ -106,9 +106,9 @@ const Navigation: React.FC = () => {
           ))}
         </div>
 
-        {/* Mobile Menu Button */}
+        {/* Mobile/Tablet Menu Button */}
         <button
-          className="md:hidden text-white z-50"
+          className="lg:hidden text-white z-50"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
           {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
