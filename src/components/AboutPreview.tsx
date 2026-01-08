@@ -44,8 +44,8 @@ const AboutPreview: React.FC = () => {
               <span className="text-xs uppercase tracking-widest text-gray-500">Zouk It Up</span>
             </div>
             <div>
-              <span className="block text-3xl font-sans text-gray-900 font-bold">#1</span>
-              <span className="text-xs uppercase tracking-widest text-gray-500">Zouk Hub</span>
+              <span className="block text-3xl font-sans text-gray-900 font-bold">30+</span>
+              <span className="text-xs uppercase tracking-widest text-gray-500">International Artists</span>
             </div>
           </div>
         </div>

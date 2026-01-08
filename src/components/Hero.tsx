@@ -5,45 +5,38 @@ const Hero: React.FC = () => {
   return (
     <div className="relative h-screen w-full overflow-hidden flex items-center justify-center">
       {/* Background Image */}
-      <div className="absolute inset-0">
-        {/* Mobile: Square Crop - 2 người ở giữa */}
-        <div className="md:hidden absolute inset-0 flex items-center justify-center">
-          <div 
-            className="aspect-square relative overflow-hidden"
-            style={{ 
-              width: 'min(100vw, 100vh)',
-              height: 'min(100vw, 100vh)'
-            }}
-          >
-            <img
-              src="/image/hero-banner.webp"
-              alt="Brazilian Zouk & Lambada in Vietnam"
-              className="w-full h-full object-cover opacity-60 scale-105 animate-[pulse_10s_ease-in-out_infinite]"
-              style={{ objectPosition: 'center 30%' }}
-            />
-            <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/10 to-white"></div>
-          </div>
-        </div>
-
-        {/* Desktop: Full width/height */}
-        <div className="hidden md:block absolute inset-0">
+      <div className="absolute inset-0 w-full h-full bg-black">
+        {/* Mobile: Full screen with centered crop */}
+        <div className="md:hidden absolute inset-0 w-full h-full">
           <img
             src="/image/hero-banner.webp"
             alt="Brazilian Zouk & Lambada in Vietnam"
-            className="w-full h-full object-cover object-center opacity-60 scale-105 animate-[pulse_10s_ease-in-out_infinite]"
+            className="w-full h-full object-cover opacity-60 scale-105 animate-[pulse_10s_ease-in-out_infinite] grayscale"
+            style={{ objectPosition: 'center 30%', filter: 'grayscale(100%)' }}
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/10 to-white"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/10 to-black/5"></div>
+        </div>
+
+        {/* Desktop: Full width/height */}
+        <div className="hidden md:block absolute inset-0 w-full h-full">
+          <img
+            src="/image/hero-banner.webp"
+            alt="Brazilian Zouk & Lambada in Vietnam"
+            className="w-full h-full object-cover object-center opacity-60 scale-105 animate-[pulse_10s_ease-in-out_infinite] grayscale"
+            style={{ filter: 'grayscale(100%)' }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/10 to-black/5"></div>
         </div>
       </div>
 
       {/* Content */}
       <div className="relative z-10 text-center px-4 max-w-4xl mx-auto flex flex-col items-center">
-        <h1 className="text-3xl md:text-7xl lg:text-8xl font-sans text-gray-900 font-bold mb-8 leading-tight fade-in-up delay-100">
+        <h1 className="text-3xl md:text-7xl lg:text-8xl font-sans text-white font-bold mb-8 leading-tight fade-in-up delay-100">
           <span className="block md:inline">BRAZILIAN ZOUK</span>
           <span className="block md:inline"> & LAMBADA</span>
           <span className="block md:inline"> IN VIETNAM</span>
         </h1>
-        <p className="text-gray-700 text-lg md:text-xl max-w-2xl mb-10 font-light leading-relaxed fade-in-up delay-200">
+        <p className="text-white text-lg md:text-xl max-w-2xl mb-10 font-light leading-relaxed fade-in-up delay-200">
           Discover the grace, connection, and passion in every step.
           Join the PTZouk community - where passion meets art.
         </p>
@@ -61,7 +54,7 @@ const Hero: React.FC = () => {
           </a>
           <a
             href="#gallery"
-            className="px-8 py-3 border border-gray-900 text-gray-900 font-medium tracking-widest uppercase hover:border-gray-900 hover:bg-gray-900 hover:text-white transition-all duration-300 min-w-[160px]"
+            className="px-8 py-3 border border-white text-white font-medium tracking-widest uppercase hover:border-white hover:bg-white hover:text-gray-900 transition-all duration-300 min-w-[160px]"
           >
             Explore
           </a>
@@ -69,7 +62,7 @@ const Hero: React.FC = () => {
       </div>
 
       {/* Scroll Indicator */}
-      <div className="absolute bottom-10 inset-x-0 flex justify-center animate-bounce text-gray-900/50">
+      <div className="absolute bottom-10 inset-x-0 flex justify-center animate-bounce text-white/50">
         <ChevronDown size={32} />
       </div>
     </div>

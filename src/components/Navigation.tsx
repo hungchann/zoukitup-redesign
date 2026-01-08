@@ -63,11 +63,11 @@ const Navigation: React.FC = () => {
         isScrolled ? 'bg-gradient-to-r from-logo-purple-1 via-logo-purple-2 to-logo-purple-1/90 backdrop-blur-md py-4 shadow-sm' : 'bg-gradient-to-r from-logo-purple-1 via-logo-purple-2 to-logo-purple-1 py-6'
       }`}
     >
-      <div className="container mx-auto px-6 flex justify-between items-center">
+      <div className="container mx-auto px-6 flex justify-between items-center gap-4">
         {/* Logo */}
         <a 
           href="#home" 
-          className="z-50 flex items-center"
+          className="z-50 flex items-center flex-shrink-0"
           onClick={(e) => {
             e.preventDefault();
             window.location.hash = '';
@@ -77,12 +77,13 @@ const Navigation: React.FC = () => {
           <img 
             src="/image/Logo new - trắng.png" 
             alt="PTZouk Logo" 
-            className="h-7 md:h-8 w-auto"
+            className="h-10 sm:h-12 md:h-14 lg:h-16 w-auto min-w-[140px] md:min-w-[180px] lg:min-w-[200px] object-contain"
+            style={{ minHeight: '40px' }}
           />
         </a>
 
         {/* Desktop Menu */}
-        <div className="hidden md:flex space-x-8 items-center">
+        <div className="hidden md:flex space-x-4 lg:space-x-8 items-center flex-shrink">
           {navItems.map((item) => (
             <a
               key={item.label}
