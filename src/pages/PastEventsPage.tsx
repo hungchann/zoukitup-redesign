@@ -133,13 +133,13 @@ const PastEventsPage: React.FC = () => {
                     {eventsByYear[Number(year)].map((event) => (
                       <div
                         key={event.id}
-                        className="group relative overflow-hidden bg-white border border-gray-200 hover:border-logo-purple-2/50 transition-all duration-300 hover:-translate-y-2 cursor-pointer text-left w-full shadow-sm"
+                        className="group relative overflow-hidden bg-white border border-gray-200 hover:border-logo-purple-2/50 transition-all duration-300 hover:-translate-y-2 cursor-pointer text-left w-full shadow-sm flex flex-col"
                       >
                         {/* Poster Image or Video Thumbnail */}
                         {(event.poster || event.videoUrl) && (
-                          <div className="relative h-64 overflow-hidden">
+                          <div className="relative w-full overflow-hidden bg-white aspect-[4/5]">
                             {event.videoUrl ? (
-                              <div className="relative w-full h-full">
+                              <div className="relative w-full h-full bg-white">
                                 <img
                                   src={event.poster || `https://img.youtube.com/vi/${event.videoUrl.split('v=')[1]?.split('&')[0]}/maxresdefault.jpg`}
                                   alt={event.title}
@@ -181,7 +181,7 @@ const PastEventsPage: React.FC = () => {
                           </div>
                         )}
 
-                        <div className="p-8">
+                        <div className="p-8 flex flex-col flex-1">
                           {!event.poster && !event.videoUrl && (
                             <div className="flex justify-between items-start mb-4">
                               <span className={`px-3 py-1 text-xs rounded uppercase tracking-wider border ${getEventTypeColor(event.type)}`}>
@@ -191,7 +191,7 @@ const PastEventsPage: React.FC = () => {
                             </div>
                           )}
                           
-                          <h3 className="text-2xl font-zelda text-gray-900 mb-4 group-hover:text-logo-purple-2 transition-colors">
+                          <h3 className="text-2xl font-zelda text-gray-900 mb-4 group-hover:text-logo-purple-2 transition-colors line-clamp-2 min-h-[3.25rem]">
                             {event.title}
                           </h3>
                           
@@ -235,7 +235,7 @@ const PastEventsPage: React.FC = () => {
                             </a>
                           )}
 
-                          <div className="flex items-center text-logo-purple-2 text-sm uppercase tracking-wider group-hover:gap-2 transition-all">
+                          <div className="flex items-center text-logo-purple-2 text-sm uppercase tracking-wider group-hover:gap-2 transition-all mt-auto">
                             View Details
                             <ArrowRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform" />
                           </div>

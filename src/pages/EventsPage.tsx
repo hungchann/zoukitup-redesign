@@ -101,11 +101,11 @@ const EventsPage: React.FC = () => {
                 <button
                   key={event.id}
                   onClick={() => handleEventClick(event.slug)}
-                  className="group relative overflow-hidden bg-white border border-gray-200 hover:border-logo-purple-2/50 transition-all duration-300 hover:-translate-y-2 cursor-pointer text-left w-full shadow-sm"
+                  className="group relative overflow-hidden bg-white border border-gray-200 hover:border-logo-purple-2/50 transition-all duration-300 hover:-translate-y-2 cursor-pointer text-left w-full shadow-sm flex flex-col"
                 >
                   {/* Poster Image */}
                   {event.poster && (
-                    <div className="relative w-full overflow-hidden bg-white" style={{ height: '400px' }}>
+                    <div className="relative w-full overflow-hidden bg-white aspect-[4/5]">
                       <img
                         src={event.poster}
                         alt={event.title}
@@ -120,7 +120,7 @@ const EventsPage: React.FC = () => {
                     </div>
                   )}
 
-                  <div className="p-8">
+                  <div className="p-8 flex flex-col flex-1">
                     {!event.poster && (
                       <div className="flex justify-between items-start mb-4">
                         <span className={`px-3 py-1 text-xs rounded uppercase tracking-wider border ${getEventTypeColor(event.type)}`}>
@@ -130,7 +130,7 @@ const EventsPage: React.FC = () => {
                       </div>
                     )}
                     
-                    <h3 className="text-2xl font-zelda text-gray-900 mb-4 group-hover:text-logo-purple-2 transition-colors">
+                    <h3 className="text-2xl font-zelda text-gray-900 mb-4 group-hover:text-logo-purple-2 transition-colors line-clamp-2 min-h-[3.25rem]">
                       {event.title}
                     </h3>
                     
@@ -163,7 +163,7 @@ const EventsPage: React.FC = () => {
                       )}
                     </div>
 
-                    <div className="flex items-center text-logo-purple-2 text-sm uppercase tracking-wider group-hover:gap-2 transition-all">
+                    <div className="flex items-center text-logo-purple-2 text-sm uppercase tracking-wider group-hover:gap-2 transition-all mt-auto">
                       View Details
                       <ArrowRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform" />
                     </div>
@@ -182,11 +182,11 @@ const EventsPage: React.FC = () => {
                           <button
                             key={event.id}
                             onClick={() => handleEventClick(event.slug)}
-                            className="group relative overflow-hidden bg-white border border-gray-200 hover:border-logo-purple-2/50 transition-all duration-300 hover:-translate-y-2 cursor-pointer text-left w-full shadow-sm"
+                            className="group relative overflow-hidden bg-white border border-gray-200 hover:border-logo-purple-2/50 transition-all duration-300 hover:-translate-y-2 cursor-pointer text-left w-full shadow-sm flex flex-col"
                           >
                             {/* Poster Image or Video Thumbnail */}
                             {(event.poster || event.videoUrl) && (
-                              <div className="relative w-full overflow-hidden bg-white" style={{ height: '400px' }}>
+                              <div className="relative w-full overflow-hidden bg-white aspect-[4/5]">
                                 {event.videoUrl ? (
                                   <div className="relative w-full h-full bg-white">
                                     <img
@@ -230,7 +230,7 @@ const EventsPage: React.FC = () => {
                               </div>
                             )}
 
-                            <div className="p-8">
+                            <div className="p-8 flex flex-col flex-1">
                               {!event.poster && !event.videoUrl && (
                                 <div className="flex justify-between items-start mb-4">
                                   <span className={`px-3 py-1 text-xs rounded uppercase tracking-wider border ${getEventTypeColor(event.type)}`}>
@@ -240,7 +240,7 @@ const EventsPage: React.FC = () => {
                                 </div>
                               )}
                               
-                              <h3 className="text-2xl font-zelda text-gray-900 mb-4 group-hover:text-logo-purple-2 transition-colors">
+                              <h3 className="text-2xl font-zelda text-gray-900 mb-4 group-hover:text-logo-purple-2 transition-colors line-clamp-2 min-h-[3.25rem]">
                                 {event.title}
                               </h3>
                               
@@ -284,7 +284,7 @@ const EventsPage: React.FC = () => {
                                 </a>
                               )}
 
-                              <div className="flex items-center text-logo-purple-2 text-sm uppercase tracking-wider group-hover:gap-2 transition-all">
+                              <div className="flex items-center text-logo-purple-2 text-sm uppercase tracking-wider group-hover:gap-2 transition-all mt-auto">
                                 View Details
                                 <ArrowRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform" />
                               </div>

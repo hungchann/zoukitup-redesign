@@ -102,13 +102,13 @@ export const renderContentLine = ({ line, index, content, config }: ContentLineP
     const parts = line.split(urlRegex);
     
     const linkClassName = config.linkStyle === 'button' 
-      ? 'text-logo-purple-2 hover:text-logo-purple-1 font-medium px-4 py-2 bg-logo-purple-2/10 rounded hover:bg-logo-purple-2/20 inline-block'
+      ? 'text-logo-purple-2 hover:text-logo-purple-1 font-medium px-4 py-2 bg-logo-purple-2/10 rounded hover:bg-logo-purple-2/20 inline-block max-w-full break-all'
       : config.linkStyle === 'underline'
-      ? 'text-logo-purple-2 hover:text-logo-purple-1 underline font-medium'
-      : 'text-logo-purple-2 hover:text-logo-purple-1 font-medium';
+      ? 'text-logo-purple-2 hover:text-logo-purple-1 underline font-medium break-all'
+      : 'text-logo-purple-2 hover:text-logo-purple-1 font-medium break-all';
 
     return (
-      <p key={`line-${index}`} className="text-base leading-relaxed">
+      <p key={`line-${index}`} className="text-base leading-relaxed break-words">
         {parts.map((part, partIndex) => {
           const isUrl = /^https?:\/\//.test(part);
           if (isUrl) {
@@ -132,7 +132,7 @@ export const renderContentLine = ({ line, index, content, config }: ContentLineP
 
   if (line.trim()) {
     return (
-      <p key={`line-${index}`} className="text-base leading-relaxed">
+      <p key={`line-${index}`} className="text-base leading-relaxed break-words">
         {line}
       </p>
     );
