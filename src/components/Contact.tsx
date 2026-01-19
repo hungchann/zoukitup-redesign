@@ -32,7 +32,7 @@ const Contact: React.FC = () => {
         <div className="mb-16">
           <div className="relative w-full h-[400px] rounded-lg overflow-hidden border border-gray-200">
             <iframe
-              src="https://www.google.com/maps?q=152%20Pho%20Duc%20Chinh%2C%20Truc%20Bach%2C%20Ba%20Dinh%2C%20Ha%20Noi&output=embed"
+              src="https://www.google.com/maps?q=21.0455372,105.8432583&z=17&output=embed"
               width="100%"
               height="100%"
               style={{ border: 0 }}
