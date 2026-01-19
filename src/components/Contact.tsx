@@ -32,7 +32,7 @@ const Contact: React.FC = () => {
         <div className="mb-16">
           <div className="relative w-full h-[400px] rounded-lg overflow-hidden border border-gray-200">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.1234567890123!2d106.6822!3d10.7622!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTDCsDQ1JzQ0LjAiTiAxMDbCsDQwJzU1LjkiRQ!5e0!3m2!1svi!2s!4v1234567890123!5m2!1svi!2s"
+              src="https://www.google.com/maps?q=152%20Pho%20Duc%20Chinh%2C%20Truc%20Bach%2C%20Ba%20Dinh%2C%20Ha%20Noi&output=embed"
               width="100%"
               height="100%"
               style={{ border: 0 }}
@@ -42,7 +42,7 @@ const Contact: React.FC = () => {
               className="absolute inset-0"
             ></iframe>
             <a 
-              href="https://maps.app.goo.gl/PJEazbBMN2qQR29C8" 
+              href="https://goo.gl/maps/MxmY7KwwSRFwRUoz6"
               target="_blank" 
               rel="noopener noreferrer"
               className="absolute bottom-4 right-4 bg-white text-gray-900 px-4 py-2 rounded-lg text-sm font-medium hover:bg-logo-purple-2 hover:text-white transition-colors shadow-lg z-10 border border-gray-200"
