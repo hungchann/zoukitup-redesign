@@ -25,7 +25,7 @@ const instructors: Instructor[] = [
     id: 3,
     name: 'Hau Tran',
     image: '/image/Hau Tran.png',
-    description: 'Hau Tran focuses on strong foundational technique as the base for growth and creativity. He teaches with a clear, structured approach, blending technical precision to help students develop confidently and sustainably.'
+    description: 'Hau Tran focuses on strong foundational technique as the base for growth and creativity. She teaches with a clear, structured approach, blending technical precision to help students develop confidently and sustainably.'
   },
   {
     id: 4,
@@ -87,7 +87,7 @@ const Instructors: React.FC = () => {
 
         <div className="relative max-w-6xl mx-auto">
           <div className="overflow-hidden">
-            <div 
+            <div
               className="flex transition-transform duration-500 ease-in-out"
               style={{ transform: `translateX(-${currentIndex * (100 / itemsPerView)}%)` }}
             >
@@ -106,7 +106,7 @@ const Instructors: React.FC = () => {
               ))}
             </div>
           </div>
-          
+
           {instructors.length > itemsPerView && (
             <>
               <button

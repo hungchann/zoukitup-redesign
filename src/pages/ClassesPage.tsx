@@ -18,7 +18,7 @@ const ClassesPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-white text-gray-900 font-sans selection:bg-logo-purple-2 selection:text-white">
       <Navigation />
-      
+
       <section className="py-24 bg-white text-gray-900 relative overflow-hidden pt-32">
         <div className="container mx-auto px-6">
           {/* Back Button */}
@@ -58,21 +58,20 @@ const ClassesPage: React.FC = () => {
                 className="group bg-white p-8 border border-gray-200 hover:border-logo-purple-2/50 transition-all duration-300 hover:-translate-y-2 cursor-pointer shadow-sm"
               >
                 <div className="flex justify-between items-start mb-4">
-                  <span className={`px-3 py-1 text-xs rounded uppercase tracking-wider ${
-                    cls.level === 'Basic' ? 'bg-green-100 text-green-700 border border-green-300' :
-                    cls.level === 'Intermediate' ? 'bg-yellow-100 text-yellow-700 border border-yellow-300' :
-                    cls.level === 'Advanced' ? 'bg-purple-100 text-purple-700 border border-purple-300' :
-                    'bg-gray-100 text-gray-900 border border-gray-300'
-                  }`}>
+                  <span className={`px-3 py-1 text-xs rounded uppercase tracking-wider ${cls.level === 'Basic' ? 'bg-green-100 text-green-700 border border-green-300' :
+                      cls.level === 'Intermediate' ? 'bg-yellow-100 text-yellow-700 border border-yellow-300' :
+                        (cls.level === 'Advanced' || cls.level === 'Advance') ? 'bg-purple-100 text-purple-700 border border-purple-300' :
+                          'bg-gray-100 text-gray-900 border border-gray-300'
+                    }`}>
                     {cls.level}
                   </span>
                   <Clock size={18} className="text-logo-purple-2" />
                 </div>
-                
+
                 <h3 className="text-2xl font-sans text-gray-900 mb-4 group-hover:text-logo-purple-2 transition-colors font-bold">
                   {cls.title}
                 </h3>
-                
+
                 <p className="text-gray-900 text-sm mb-6 font-light line-clamp-3">
                   {cls.description}
                 </p>
