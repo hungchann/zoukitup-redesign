@@ -30,7 +30,7 @@ const Navigation: React.FC = () => {
     if (isMobileMenuOpen) {
       // Save current scroll position
       scrollPositionRef.current = window.scrollY;
-      
+
       // Prevent body scroll
       document.body.style.overflow = 'hidden';
       document.body.style.position = 'fixed';
@@ -43,7 +43,7 @@ const Navigation: React.FC = () => {
       document.body.style.position = '';
       document.body.style.top = '';
       document.body.style.width = '';
-      
+
       // Restore scroll position after a brief delay to ensure styles are applied
       setTimeout(() => {
         window.scrollTo(0, savedPosition);
@@ -59,14 +59,13 @@ const Navigation: React.FC = () => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-gradient-to-r from-logo-purple-1 via-logo-purple-2 to-logo-purple-1/90 backdrop-blur-md py-4 shadow-sm' : 'bg-gradient-to-r from-logo-purple-1 via-logo-purple-2 to-logo-purple-1 py-6'
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-gradient-to-r from-logo-purple-1 via-logo-purple-2 to-logo-purple-1/90 backdrop-blur-md py-4 shadow-sm' : 'bg-gradient-to-r from-logo-purple-1 via-logo-purple-2 to-logo-purple-1 py-6'
+        }`}
     >
       <div className="container mx-auto px-6 flex justify-between items-center gap-4">
         {/* Logo */}
-        <a 
-          href="#home" 
+        <a
+          href="#home"
           className="z-50 flex items-center flex-shrink-0"
           onClick={(e) => {
             e.preventDefault();
@@ -74,9 +73,9 @@ const Navigation: React.FC = () => {
             window.scrollTo(0, 0);
           }}
         >
-          <img 
-            src="/image/Logo new - trắng.png" 
-            alt="PTZouk Logo" 
+          <img
+            src="/image/Logo new - trắng.png"
+            alt="PTZouk Logo"
             className="h-10 sm:h-12 md:h-14 lg:h-16 w-auto min-w-[140px] md:min-w-[180px] lg:min-w-[200px] object-contain"
             style={{ minHeight: '40px' }}
           />
@@ -116,9 +115,8 @@ const Navigation: React.FC = () => {
 
         {/* Mobile Overlay */}
         <div
-          className={`fixed inset-0 bg-white flex flex-col items-center justify-center space-y-8 transition-opacity duration-300 z-40 ${
-            isMobileMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
-          }`}
+          className={`fixed inset-0 bg-white flex flex-col items-center justify-center space-y-8 transition-opacity duration-300 z-40 ${isMobileMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
+            }`}
           style={{
             top: 0,
             left: 0,
@@ -147,14 +145,14 @@ const Navigation: React.FC = () => {
                 href={item.href}
                 onClick={(e) => {
                   setIsMobileMenuOpen(false);
-                if (item.href === '#about-page' || item.href === '#home' || item.href === '#classes-page' || item.href === '#code-of-conduct' || item.href === '#events-page') {
-                  e.preventDefault();
-                  window.location.hash = item.href.replace('#', '');
-                  if (item.href === '#home') {
-                    window.location.hash = '';
+                  if (item.href === '#about-page' || item.href === '#home' || item.href === '#classes-page' || item.href === '#code-of-conduct' || item.href === '#events-page') {
+                    e.preventDefault();
+                    window.location.hash = item.href.replace('#', '');
+                    if (item.href === '#home') {
+                      window.location.hash = '';
+                    }
+                    window.scrollTo(0, 0);
                   }
-                  window.scrollTo(0, 0);
-                }
                 }}
                 className="text-2xl font-sans text-gray-900 hover:text-logo-purple-2 transition-colors z-50"
               >

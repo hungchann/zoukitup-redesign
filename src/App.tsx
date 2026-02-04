@@ -127,38 +127,38 @@ const App: React.FC = () => {
   return (
     <div className="min-h-screen bg-white text-gray-900 font-sans selection:bg-logo-purple-2 selection:text-white">
       <Navigation />
-      
+
       <main>
         <div id="home">
           <Hero />
         </div>
-        
+
         <div id="about">
           <AboutPreview />
         </div>
-        
+
         <div id="classes">
           <Schedule />
         </div>
-        
+
         <div id="events">
           <UpcomingEvents />
         </div>
-        
+
         <div id="instructors">
           <Instructors />
         </div>
-        
+
         <div id="djs">
           <DJs />
         </div>
-        
+
         <div id="gallery">
           <Gallery />
         </div>
-        
+
         <CTA />
-        
+
         <div id="contact">
           <Contact />
         </div>
@@ -169,9 +169,8 @@ const App: React.FC = () => {
       {/* Scroll to top button */}
       <button
         onClick={scrollToTop}
-        className={`fixed bottom-8 right-8 p-3 bg-white text-black rounded-full shadow-lg transition-all duration-300 z-50 hover:bg-logo-purple-2 hover:text-white ${
-          showScrollTop ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10 pointer-events-none'
-        }`}
+        className={`fixed bottom-8 right-8 p-3 bg-white text-black rounded-full shadow-lg transition-all duration-300 z-50 hover:bg-logo-purple-2 hover:text-white ${showScrollTop ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10 pointer-events-none'
+          }`}
         aria-label="Scroll to top"
       >
         <ArrowUp size={24} />

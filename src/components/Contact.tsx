@@ -41,9 +41,9 @@ const Contact: React.FC = () => {
               referrerPolicy="no-referrer-when-downgrade"
               className="absolute inset-0"
             ></iframe>
-            <a 
+            <a
               href="https://goo.gl/maps/MxmY7KwwSRFwRUoz6"
-              target="_blank" 
+              target="_blank"
               rel="noopener noreferrer"
               className="absolute bottom-4 right-4 bg-white text-gray-900 px-4 py-2 rounded-lg text-sm font-medium hover:bg-logo-purple-2 hover:text-white transition-colors shadow-lg z-10 border border-gray-200"
             >
@@ -52,10 +52,10 @@ const Contact: React.FC = () => {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-          
+        <div className="flex justify-center">
+
           {/* Contact Info */}
-          <div>
+          <div className="w-full max-w-lg">
             <span className="text-logo-purple-2 text-sm uppercase tracking-widest">Contact</span>
             <h2 className="text-4xl md:text-5xl font-sans text-gray-900 mt-2 mb-8 font-bold">Start Your Journey</h2>
             <p className="text-gray-600 mb-12 font-light leading-relaxed max-w-md">
@@ -74,7 +74,7 @@ const Contact: React.FC = () => {
               </div>
 
               <div className="flex items-start group">
-                 <div className="w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center text-logo-purple-2 group-hover:bg-logo-purple-2 group-hover:text-white transition-colors">
+                <div className="w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center text-logo-purple-2 group-hover:bg-logo-purple-2 group-hover:text-white transition-colors">
                   <Mail size={20} />
                 </div>
                 <div className="ml-6">
@@ -84,7 +84,7 @@ const Contact: React.FC = () => {
               </div>
 
               <div className="flex items-start group">
-                 <div className="w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center text-logo-purple-2 group-hover:bg-logo-purple-2 group-hover:text-white transition-colors">
+                <div className="w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center text-logo-purple-2 group-hover:bg-logo-purple-2 group-hover:text-white transition-colors">
                   <Phone size={20} />
                 </div>
                 <div className="ml-6">
@@ -108,7 +108,7 @@ const Contact: React.FC = () => {
           </div>
 
           {/* Contact Form */}
-          <div className="bg-zouk-light p-8 md:p-12 border border-gray-200">
+          {/* <div className="bg-zouk-light p-8 md:p-12 border border-gray-200">
             <h3 className="text-2xl font-sans text-gray-900 mb-6 font-bold">Send a Message</h3>
             <form className="space-y-6" onSubmit={handleSubmit}>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -150,7 +150,7 @@ const Contact: React.FC = () => {
                 {status === 'submitting' ? <Loader2 className="animate-spin" /> : status === 'success' ? <><CheckCircle className="mr-2" /> Message Sent Successfully</> : 'Send Now'}
               </button>
             </form>
-          </div>
+          </div> */}
 
         </div>
       </div>
