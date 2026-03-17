@@ -23,7 +23,7 @@ export const classes: ClassDetail[] = [
     slug: 'foundation',
     description: 'Zouk Foundation is where your journey begins. This course focuses on body fundamentals, posture, balance, connection, and movement logic so you can dance Zouk with comfort, clarity, and confidence.',
     level: 'Basic',
-    instructors: 'Hoai Phuong, Hai Ha & Hau Tran',
+    instructors: 'Hoai Phuong & Hai Ha',
     schedule: 'Every Wednesday, 7:30 PM - 8:30 PM | Every Saturday, 4:30 PM – 5:30 PM',
     location: 'Wednesday: 7 Floor, No. 130 Trung Phung, Hanoi | Saturday: 5A Floor, No. 152 Pho Duc Chinh, Hanoi',
     goals: [

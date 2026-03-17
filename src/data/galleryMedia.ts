@@ -66,6 +66,11 @@ export const galleryMedia: GalleryItem[] = [
   // Local images
   {
     type: 'image',
+    url: '/image/Nhóm.jpg',
+    title: 'PTZouk Vietnam Gallery'
+  },
+  {
+    type: 'image',
     url: '/image/gallery-1.jpg',
     title: 'PTZouk Vietnam Gallery'
   },
