@@ -80,7 +80,7 @@ export const classes: ClassDetail[] = [
     slug: 'improver',
     description: 'The Advanced Brazilian Zouk class is designed for students with at least 6 months of experience, focusing on advanced techniques such as footworks, head movements, continuous turns, close embrace, dance with relaxation, interpretation with all genres of music and musicality.',
     level: 'Advance',
-    instructors: 'Huyen Trang (Teaching assistants: Shane and Linh)',
+    instructors: 'Huyen Trang (Teaching assistants: Shane, Linh and Quoc Anh)',
     schedule: 'Every Saturday, 6:30 PM – 7:30 PM',
     location: '5A Floor, No. 152 Pho Duc Chinh, Hanoi',
     goals: [

@@ -111,7 +111,7 @@ const EventsPage: React.FC = () => {
                         alt={event.title}
                         className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent pointer-events-none"></div>
+
                       <div className="absolute top-4 left-4">
                         <span className={`px-3 py-1 text-xs rounded uppercase tracking-wider border ${getEventTypeColor(event.type)}`}>
                           {getEventTypeLabel(event.type)}
@@ -194,7 +194,7 @@ const EventsPage: React.FC = () => {
                                       alt={event.title}
                                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                                     />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent pointer-events-none"></div>
+
                                     <div className="absolute inset-0 flex items-center justify-center pointer-events-auto">
                                       <a
                                         href={event.videoUrl}
@@ -219,7 +219,7 @@ const EventsPage: React.FC = () => {
                                       alt={event.title}
                                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                                     />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent pointer-events-none"></div>
+
                                     <div className="absolute top-4 left-4 pointer-events-auto">
                                       <span className={`px-3 py-1 text-xs rounded uppercase tracking-wider border ${getEventTypeColor(event.type)}`}>
                                         {getEventTypeLabel(event.type)}
